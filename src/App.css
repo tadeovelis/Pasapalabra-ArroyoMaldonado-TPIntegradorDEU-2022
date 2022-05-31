@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #08274a
 }
 
 .App-logo {
@@ -35,4 +36,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Contenedor secciones donde hay texto (cómo jugar, glosario, acerca de */
+.contenedor-general-seccion-texto {
+  background: #337dd5;
+  margin: 0 100px;
+}
+
+.header-seccion-texto {
+  background: #2b6cbe;
+  padding: 30px
+}
+
+.contenedor-seccion-texto {
+  background: #337dd5;
+  padding: 30px;
+  color: white
+}
+
+.palabra-glosario, .tema-acerca-de-la-app {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.titulo-palabra-glosario, .titulo-tema-acerca-de-la-app {
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 5px
+}
+
+.definicion-palabra-glosario, .contenido-tema-acerca-de-la-app {
+  line-height: 1.2;
+  margin: 0
 }
