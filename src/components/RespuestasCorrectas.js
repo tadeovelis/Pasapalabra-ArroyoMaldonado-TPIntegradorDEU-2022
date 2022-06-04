@@ -1,10 +1,10 @@
 
 
-export default function RespuestasCorrectas() {
+export default function RespuestasCorrectas(props) {
     return (
         <div>
-            <h4>RespuestasCorrectas</h4>
-            <h3>13</h3>
+            <h4>Respuestas correctas</h4>
+            <h3>{props.respuestasCorrectas}</h3>
         </div>
     )
 }

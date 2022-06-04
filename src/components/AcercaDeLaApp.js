@@ -59,11 +59,11 @@ export default function Glosario() {
                             Información de contacto
                         </Typography>
                         <Typography class="contenido-tema-acerca-de-la-app" variant="body1">
-                        Si encontraste algún error, querés sugerir alguna palabra, alguna corrección o por cualquier otro motivo que te quieras contactar con nosotros, no dudes en escribirnos un mail. Te dejamos nuestras direcciones de correo electrónico, nos podés enviar un mail a los tres:
-                        <br /><br />
-                        Tadeo Velis: <b>tadeo.velis@gmail.com</b><br />
-                        Sebastián Perri: <b>srperri@gmail.com</b><br />
-                        Mariano Gandin: <b>mariano.rng@hotmail.com</b>
+                            Si encontraste algún error, querés sugerir alguna palabra, alguna corrección o por cualquier otro motivo que te quieras contactar con nosotros, no dudes en escribirnos un mail. Te dejamos nuestras direcciones de correo electrónico, nos podés enviar un mail a los tres:
+                            <br /><br />
+                            Tadeo Velis: <b>tadeo.velis@gmail.com</b><br />
+                            Sebastián Perri: <b>srperri@gmail.com</b><br />
+                            Mariano Gandin: <b>mariano.rng@hotmail.com</b>
                         </Typography>
                     </Box>
                 </Box>

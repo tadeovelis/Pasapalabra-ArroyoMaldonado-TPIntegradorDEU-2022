@@ -1,8 +1,19 @@
+import Letra from "./Letra";
 
-export default function Letras() {
+export default function Letras(props) {
+
+    const palabras = props.palabras;
+
     return (
         <div>
-            <h4>A B C D E F G H I J L M Ñ O P Q R S T U V W X Y Z</h4>
+            <h4>
+                {palabras.map(p =>
+                    <Letra
+                        key={p.letra}
+                        palabra={p}
+                    />
+                )}
+            </h4>
         </div>
     )
 }

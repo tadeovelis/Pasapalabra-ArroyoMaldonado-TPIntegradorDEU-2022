@@ -1,10 +1,13 @@
 
-export default function PalabraActual() {
+export default function PalabraActual(props) {
+
+    const palabra = props.palabra;
+
     return (
         <div>
-            <p>Empieza con R</p>
+            <p>{palabra.formato} {palabra.letra}</p>
             <p>
-                Probabilidad de ocurrir un evento nocivo o dañino en una población o segmento de la misma.
+                {palabra.definicion}
             </p>
         </div>
     )
