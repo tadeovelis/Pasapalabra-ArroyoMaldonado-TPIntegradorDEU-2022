@@ -9,6 +9,10 @@ import RespuestasCorrectas from './RespuestasCorrectas'
 import { Container } from '@mui/system'
 import { useEffect, useState } from 'react'
 import data from '../data/palabras.json'
+import ModalIncorrecto from './Modals/ModalIncorrecto'
+import ModalPasapalabra from './Modals/ModalPasapalabra'
+import ModalPausa from './Modals/ModalPausa'
+import ModalSalir from './Modals/ModalSalir'
 
 
 /* Estados palabras/letras
@@ -28,6 +32,14 @@ export default function Juego(props) {
     const [respuestasCorrectas, setRespuestasCorrectas] = useState(0);
     const [tiempoRestante, setTiempoRestante] = useState(120);
 
+    // Modals
+    const [modalErrorAbierto, setModalErrorAbierto] = useState(false);
+    const [modalPasapalabraAbierto, setModalPasapalabraAbierto] = useState(false);
+    const [modalPausaAbierto, setModalPausaAbierto] = useState(false);
+    const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
+
+    const [pausa, setPausa] = useState(false);
+
     // Método para agregar el estado 0 (sin responder) a todas las palabras
     useEffect(() => {
         palabras.map(p => {
@@ -37,10 +49,12 @@ export default function Juego(props) {
 
     // Tiempo restante
     useEffect(() => {
-        const timer =
-          tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
-        return () => clearInterval(timer);
-      }, [tiempoRestante]);
+        if (!pausa) {
+            const timer =
+                tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
+            return () => clearInterval(timer);
+        }
+    }, [tiempoRestante, pausa]);
 
     function respondioBien() {
         palabras[posPalabraActual].estado = 1;
@@ -49,15 +63,54 @@ export default function Juego(props) {
     }
     function respondioMal() {
         palabras[posPalabraActual].estado = 2;
+
         proximaPalabra();
+
+        // Abrir modal
+        setModalErrorAbierto(true);
     }
     function respondioPasapalabra() {
         palabras[posPalabraActual].estado = 3;
         proximaPalabra();
+
+        // Abrir modal
+        setModalPasapalabraAbierto(true);
     }
 
     function proximaPalabra() {
         setPosPalabraActual(posPalabraActual + 1);
+    }
+
+    /* Métodos modals */
+    const cerrarModalError = () => {
+        setModalErrorAbierto(false);
+    }
+    const cerrarModalPasapalabra = () => {
+        setModalPasapalabraAbierto(false);
+    }
+    const cerrarModalPausa = () => {
+        setModalPausaAbierto(false);
+        sacarPausa();
+    }
+    const cerrarModalSalir = () => {
+        setModalSalirAbierto(false);
+    }
+
+    /* Pausar juego */
+    const pausar = () => {
+        setPausa(true);
+
+        // Abrir modal
+        setModalPausaAbierto(true)
+    }
+    const sacarPausa = () => {
+        setPausa(false);
+    }
+
+    /* Salir */
+    const salir = () => {
+        // Abrir modal
+        setModalSalirAbierto(true);
     }
 
     return (
@@ -77,7 +130,9 @@ export default function Juego(props) {
                 <Grid container>
                     <Grid item xs={3}>
                         <Grid item xs={6}>
-                            <Salir />
+                            <Salir
+                                salir={salir}
+                            />
                         </Grid>
                         <Grid item xs={6}>
                             <TiempoRestante
@@ -98,7 +153,9 @@ export default function Juego(props) {
                     </Grid>
                     <Grid item xs={3}>
                         <Grid item>
-                            <Pausar />
+                            <Pausar
+                                pausar={pausar}
+                            />
                         </Grid>
                         <Grid item>
                             <RespuestasCorrectas
@@ -108,6 +165,29 @@ export default function Juego(props) {
                     </Grid>
                 </Grid>
             </Paper>
+
+            {/* Modals */}
+            <ModalIncorrecto
+                abierto={modalErrorAbierto}
+                cerrar={cerrarModalError}
+                palabra={palabras[posPalabraActual]}
+            />
+            <ModalPasapalabra
+                abierto={modalPasapalabraAbierto}
+                cerrar={cerrarModalPasapalabra}
+                palabra={palabras[posPalabraActual]}
+            />
+            <ModalPausa
+                abierto={modalPausaAbierto}
+                cerrar={cerrarModalPausa}
+                palabra={palabras[posPalabraActual]}
+            />
+            <ModalSalir
+                abierto={modalSalirAbierto}
+                cerrar={cerrarModalSalir}
+                palabra={palabras[posPalabraActual]}
+            />
+
         </Container>
     )
 }

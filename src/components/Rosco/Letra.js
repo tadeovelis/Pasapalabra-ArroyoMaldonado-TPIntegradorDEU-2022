@@ -8,7 +8,6 @@ export default function Letra(props) {
 
     // Le doy un color rápido para identificar el estado
     function getColor() {
-        console.log(palabra.estado);
         switch(palabra.estado) {
             case 1:
                 return 'green'

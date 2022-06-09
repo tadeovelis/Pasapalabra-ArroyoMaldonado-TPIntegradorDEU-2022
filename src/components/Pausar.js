@@ -1,11 +1,15 @@
 
 import { Button } from "@mui/material"
 
-export default function Pausar() {
+export default function Pausar(props) {
     return (
         <div>
             <h4>Pausar</h4>
-            <Button variant="contained">||</Button>
+            <Button
+                variant="contained"
+                onClick={props.pausar}
+            >||
+            </Button>
         </div>
     )
 }
