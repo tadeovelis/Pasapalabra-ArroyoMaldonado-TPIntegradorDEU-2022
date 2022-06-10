@@ -16,6 +16,7 @@ export default function Rosco(props) {
                 respondioBien={props.respondioBien}
                 respondioMal={props.respondioMal}
                 respondioPasapalabra={props.respondioPasapalabra}
+                respondio={props.respondio}
             />
         </div>
     )

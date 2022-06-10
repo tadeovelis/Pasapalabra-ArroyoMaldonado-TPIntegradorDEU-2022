@@ -13,6 +13,7 @@ import ModalIncorrecto from './Modals/ModalIncorrecto'
 import ModalPasapalabra from './Modals/ModalPasapalabra'
 import ModalPausa from './Modals/ModalPausa'
 import ModalSalir from './Modals/ModalSalir'
+import { compareTwoStrings } from 'string-similarity'
 
 
 /* Estados palabras/letras
@@ -24,6 +25,9 @@ import ModalSalir from './Modals/ModalSalir'
 4: es la actual
 
 */
+
+// Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
+const exactitudComparacion = 0.75;
 
 export default function Juego(props) {
 
@@ -75,6 +79,24 @@ export default function Juego(props) {
 
         // Abrir modal
         setModalPasapalabraAbierto(true);
+    }
+
+    // Confirmar el input de la palabra
+    function respondio(palabra) {
+        
+        if (palabraCorrecta(palabra) > exactitudComparacion) {
+            alert('¡Correcto!');
+            respondioBien();
+        }
+        else {
+            respondioMal();
+        }
+
+    }
+
+    // Compara los strings con una librería: string-similarity 
+    function palabraCorrecta(palabra) {
+        return compareTwoStrings(palabra, palabras[posPalabraActual].palabra)
     }
 
     function proximaPalabra() {
@@ -148,6 +170,7 @@ export default function Juego(props) {
                                 respondioBien={respondioBien}
                                 respondioMal={respondioMal}
                                 respondioPasapalabra={respondioPasapalabra}
+                                respondio={respondio}
                             />
                         </Grid>
                     </Grid>
