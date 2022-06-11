@@ -96,7 +96,7 @@ export default function Juego(props) {
 
     // Compara los strings con una librería: string-similarity 
     function palabraCorrecta(palabra) {
-        return compareTwoStrings(palabra, palabras[posPalabraActual].palabra)
+        return compareTwoStrings(palabra, palabras[posPalabraActual].palabra.toLowerCase())
     }
 
     function proximaPalabra() {
