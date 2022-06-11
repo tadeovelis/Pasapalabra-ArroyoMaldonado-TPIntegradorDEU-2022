@@ -1,9 +1,9 @@
 import './App.css'
 import Home from './components/Home'
 import Juego from './components/Juego'
-import ComoJugar from './components/ComoJugar'
-import Glosario from './components/Glosario'
-import AcercaDeLaApp from './components/AcercaDeLaApp'
+import ComoJugar from './components/SeccionesComplementarias/ComoJugar'
+import Glosario from './components/SeccionesComplementarias/Glosario'
+import AcercaDeLaApp from './components/SeccionesComplementarias/AcercaDeLaApp'
 import Configuracion from './components/Configuracion'
 
 import { BrowserRouter } from 'react-router-dom'
