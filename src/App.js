@@ -11,7 +11,10 @@ import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import RowdiesFont from './fonts/Rowdies-Regular.ttf'
+import RowdiesFontLight from './fonts/Rowdies-Light.ttf'
+import RowdiesFontRegular from './fonts/Rowdies-Regular.ttf'
+import RowdiesFontBold from './fonts/Rowdies-Bold.ttf'
+
 import { CssBaseline } from '@mui/material'
 
 // Cambiar theme global de la app
@@ -43,13 +46,17 @@ const theme = createTheme({
     h1: {
       fontSize: 30
     },
+    h2: {
+      fontWeight: 800
+    },
     h3: {
       fontSize: 20,
       textTransform: 'uppercase'
     },
     body1: {
       fontFamily: 'Roboto, sans-serif',
-      fontSize: 15
+      fontSize: 15,
+      fontWeight: 400
     }
   },
   components: {
@@ -57,7 +64,7 @@ const theme = createTheme({
       styleOverrides: `
         @font-face {
           font-family: 'Rowdies';
-          src: url(${RowdiesFont}) format('woff2');
+          src: url(${RowdiesFontLight}), url(${RowdiesFontRegular}), url(${RowdiesFontBold}) format('ttf');
         }
       `,
     },

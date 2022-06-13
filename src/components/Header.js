@@ -13,7 +13,11 @@ import styled from "@emotion/styled";
 const HeaderButton = styled(Button)({
     fontSize: 20,
     padding: '15px 35px',
-    borderRadius: '0 0 10px 10px'
+    borderRadius: '0 0 10px 10px',
+    fontWeight: 'bold',
+    "&:hover": {
+        transform: 'translatey(-2px) rotate(1deg)'
+    }
 });
 
 const espacioIconos = 1;
@@ -32,7 +36,7 @@ export default function Header() {
                         variant="contained"
                         to="/como-jugar"
                         size="large"
-                        startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }}/>}
+                        startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }} />}
                     >
                         ¿Cómo jugar?
                     </HeaderButton>
@@ -43,7 +47,7 @@ export default function Header() {
                         size="large"
                         variant="contained"
                         to="/glosario"
-                        startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }}/>}
+                        startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }} />}
                     >
                         Glosario
                     </HeaderButton>
@@ -54,7 +58,7 @@ export default function Header() {
                         variant="contained"
                         size="large"
                         to="/acerca-de-la-app"
-                        startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }}/>}
+                        startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
                     >
                         Acerca de la app
                     </HeaderButton>
