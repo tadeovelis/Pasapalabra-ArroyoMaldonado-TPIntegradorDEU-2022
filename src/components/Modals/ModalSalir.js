@@ -61,7 +61,7 @@ export default function ModalSalir(props) {
                         <Button variant="contained" color="error" onClick={() => alert("Todavía no implementado")}>Salir</Button>
                     </Grid>
                     <Grid item>
-                        <Button variant="outlined" onClick={cerrar} sx={{ color: 'black', borderColor: 'black' }}>No salir</Button>
+                        <Button variant="outlined" color="negro" onClick={cerrar}>No salir</Button>
                     </Grid>
                 </Grid>
             </Box>

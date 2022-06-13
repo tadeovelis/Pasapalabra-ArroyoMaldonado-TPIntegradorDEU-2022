@@ -37,6 +37,10 @@ const theme = createTheme({
     },
     success: {
       main: '#7fcc30'
+    },
+    negro: {
+      main: '#000000',
+      dark: '#222222'
     }
   },
 
