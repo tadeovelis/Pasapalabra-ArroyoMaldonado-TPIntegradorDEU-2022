@@ -8,6 +8,7 @@ export default function Pausar(props) {
             <Button
                 variant="contained"
                 onClick={props.pausar}
+                color="primary"
             >||
             </Button>
         </div>

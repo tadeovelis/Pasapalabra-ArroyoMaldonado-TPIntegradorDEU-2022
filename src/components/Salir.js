@@ -9,9 +9,7 @@ export default function Salir(props) {
             <Button
                 variant="contained"
                 onClick={props.salir}
-                sx={{
-                    background: "red"
-                }}
+                color="error"
             >X</Button>
         </div>
     )

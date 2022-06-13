@@ -10,11 +10,12 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import '../App.css'
 import styled from "@emotion/styled";
 
-const HeaderButton = styled(Button)({
+const HeaderButton = styled(Button)(({ theme }) => ({
     fontSize: 20,
     padding: '15px 35px',
-    borderRadius: '0 0 10px 10px'
-});
+    borderRadius: '0 0 10px 10px',
+    backgroundColor: theme.palette.primary.oscuro
+}));
 
 const espacioIconos = 1;
 

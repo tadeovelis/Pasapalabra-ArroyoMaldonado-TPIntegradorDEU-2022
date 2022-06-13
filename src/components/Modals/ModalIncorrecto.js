@@ -26,7 +26,7 @@ export default function ModalIncorrecto(props) {
                 <Box
                     p={5}
                     sx={{
-                        background: 'linear-gradient(to right, #D8513F, #D13722)',
+                        backgroundColor: 'error.main',
                         color: 'white',
                     }}>
                     <Typography

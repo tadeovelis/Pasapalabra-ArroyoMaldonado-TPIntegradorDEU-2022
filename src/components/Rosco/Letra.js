@@ -10,17 +10,22 @@ export default function Letra(props) {
     function getColor() {
         switch(palabra.estado) {
             case 1:
-                return 'green'
+                return 'success.main'
             case 2:
-                return 'red'
+                return 'error.main'
             case 3:
-                return 'yellow'
+                return 'pasapalabra.main'
             default:
                 return 'black'
         }
     }
 
     return (
-        <span style={{color: getColor()}}>{palabra.letra}{" "}</span>
+        <Typography
+            variant="string"
+            sx={{color: getColor()}}
+        >
+            {palabra.letra}{" "}
+        </Typography>
     )
 }

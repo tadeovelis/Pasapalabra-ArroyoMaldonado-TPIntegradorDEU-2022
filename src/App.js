@@ -16,6 +16,27 @@ import { CssBaseline } from '@mui/material'
 
 // Cambiar theme global de la app
 const theme = createTheme({
+
+  // Colores
+  palette: {
+    primary: {
+      main: '#337dd2',
+      medio: '#2a6ab7',
+      oscuro: '#225386',
+    },
+    error: {
+      main: '#d81b00',
+    },
+    pasapalabra: {
+      main: '#eee138',
+      contrastText: 'white',
+      dark: '#ddd027'
+    },
+    success: {
+      main: '#7fcc30'
+    }
+  },
+
   typography: {
     fontSize: 12,
     fontFamily: 'Rowdies, Roboto',

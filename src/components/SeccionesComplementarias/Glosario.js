@@ -1,11 +1,9 @@
-import { Container } from "@mui/system"
-import BotonesFlotantes from "../BotonesFlotantes"
 import { Box } from "@mui/system"
 import { Typography } from "@mui/material"
-import HeaderAbajo from "../HeaderAbajo"
 import SeccionComplementaria from "../SeccionComplementaria"
 
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import BoxItemSeccionComplementaria from "./BoxItemSeccionComplementaria"
 
 const espacioIconos = 2;
 
@@ -26,14 +24,10 @@ export default function Glosario() {
             contenido={
                 /* Algunas palabras hardcodeadas a modo de ejemplo */
                 palabras.map(p =>
-                    <Box class="item-seccion-texto">
-                        <Typography class="titulo-item-seccion-texto" variant="h3">
-                            {p.titulo}
-                        </Typography>
-                        <Typography class="contenido-item-seccion-texto" variant="body1">
-                            {p.definicion}
-                        </Typography>
-                    </Box>
+                    <BoxItemSeccionComplementaria
+                        titulo={p.titulo}
+                        contenido={p.definicion}
+                    />
                 )
             }
         />

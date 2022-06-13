@@ -18,15 +18,15 @@ export default function ModalPausa(props) {
             PaperProps={{ sx: { borderRadius: 8 } }}
         >
             <Box
-            sx={{
-                textAlign: 'center',
-                minWidth: '450px',
-                maxWidth: '450px'
-            }}>
+                sx={{
+                    textAlign: 'center',
+                    minWidth: '450px',
+                    maxWidth: '450px'
+                }}>
                 <Box
                     p={5}
                     sx={{
-                        background: 'linear-gradient(to right, #2D699F, #2292D1)',
+                        backgroundColor: 'primary.main',
                         color: 'white',
                     }}>
                     <Typography
@@ -53,20 +53,19 @@ export default function ModalPausa(props) {
                 </Box>
                 <Box
                     p={3}
-                    sx={{
-
-                    }}>
+                >
                     <p>
-                        Ahora toca una palabra que <br/>
-                        <span style={{textTransform: 'uppercase'}}>{palabra.formato}</span>
+                        Ahora toca una palabra que <br />
+                        <span style={{ textTransform: 'uppercase' }}>{palabra.formato}</span>
                     </p>
                     {/* Letra */}
                     <p><b><Letra palabra={palabra} /></b></p>
-                    
+
                     <Button
                         variant="contained"
                         onClick={cerrar}
-                        >
+                        color="primary"
+                    >
                         Continuar
                     </Button>
                 </Box>

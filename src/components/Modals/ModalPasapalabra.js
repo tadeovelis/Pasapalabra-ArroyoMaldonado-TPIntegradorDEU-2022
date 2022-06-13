@@ -26,7 +26,7 @@ export default function ModalPasapalabra(props) {
                 <Box
                     p={5}
                     sx={{
-                        background: 'linear-gradient(to right, #F1CD4B, #F2CF51)',
+                        backgroundColor: 'pasapalabra.main',
                         color: 'white',
                     }}>
                     <Typography

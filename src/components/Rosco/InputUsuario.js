@@ -53,9 +53,8 @@ export default function InputUsuario(props) {
                         <Button
                             variant="contained"
                             onClick={props.respondioPasapalabra}
-                            sx={{
-                                background: "yellow"
-                            }}>
+                            color="pasapalabra"
+                        >
                             Pasapalabra
                         </Button>
                     </Grid>
@@ -63,6 +62,7 @@ export default function InputUsuario(props) {
                         <Button
                             variant="contained"
                             onClick={props.respondioBien}
+                            color="primary"
                         >
                             Bien
                         </Button>
@@ -71,6 +71,7 @@ export default function InputUsuario(props) {
                         <Button
                             variant="contained"
                             onClick={props.respondioMal}
+                            color="error"
                         >
                             Mal
                         </Button>
@@ -79,6 +80,7 @@ export default function InputUsuario(props) {
                         <Button
                             variant="contained"
                             onClick={respondio}
+                            color="primary"
                         >
                             Confirmar (usar este para testear el input)
                         </Button>

@@ -10,9 +10,26 @@ export default function SeccionComplementaria(props) {
     return (
         <div>
             <BotonesFlotantes />
-            <Container class="contenedor-general-seccion-texto">
-                <Box class="contenedor-seccion-headerytexto">
-                    <Box class="header-seccion-texto">
+            <Container
+                sx={{
+                    marginX: 10
+                }}
+            >
+                <Box
+                    sx={{
+                        backgroundColor: 'primary.main',
+                        color: 'white'
+                    }}
+                >
+                    <Box
+                        sx={{
+                            p: 4,
+                            position: 'sticky',
+                            top: 0,
+                            zIndex: 99,
+                            backgroundColor: 'primary.medio'
+                        }}
+                    >
                         <Grid container alignItems="center" direction="row">
                             <Grid item sx={{position: 'relative', top: '4px'}}>{props.icono}</Grid>
                             <Grid item>
@@ -28,7 +45,7 @@ export default function SeccionComplementaria(props) {
                             </Grid>
                         </Grid>
                     </Box>
-                    <Box class="contenedor-seccion-texto">
+                    <Box sx={{p: 4}}>
                         {props.contenido}
                     </Box>
                 </Box>
