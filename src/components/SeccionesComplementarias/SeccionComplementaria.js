@@ -1,10 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import BotonesFlotantes from "./BotonesFlotantes";
-import HeaderAbajo from "./HeaderAbajo";
+import BotonesFlotantes from "../BotonesFlotantes";
+import HeaderAbajo from "../HeaderAbajo";
 
-
-import '../App.css'
 
 export default function SeccionComplementaria(props) {
     return (

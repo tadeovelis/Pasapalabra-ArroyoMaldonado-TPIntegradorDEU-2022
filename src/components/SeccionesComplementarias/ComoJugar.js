@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material"
-import SeccionComplementaria from "../SeccionComplementaria"
+import SeccionComplementaria from "./SeccionComplementaria"
 
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import BoxItemSeccionComplementaria from "./BoxItemSeccionComplementaria"

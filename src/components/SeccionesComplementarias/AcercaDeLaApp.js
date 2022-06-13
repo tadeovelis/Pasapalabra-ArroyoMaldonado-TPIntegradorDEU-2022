@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-import SeccionComplementaria from "../SeccionComplementaria"
+import SeccionComplementaria from "./SeccionComplementaria"
 
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import BoxItemSeccionComplementaria from "./BoxItemSeccionComplementaria";

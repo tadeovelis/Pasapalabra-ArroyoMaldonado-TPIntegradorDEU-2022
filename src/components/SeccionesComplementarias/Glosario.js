@@ -1,6 +1,6 @@
 import { Box } from "@mui/system"
 import { Typography } from "@mui/material"
-import SeccionComplementaria from "../SeccionComplementaria"
+import SeccionComplementaria from "./SeccionComplementaria"
 
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import BoxItemSeccionComplementaria from "./BoxItemSeccionComplementaria"
