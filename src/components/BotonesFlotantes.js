@@ -1,7 +1,8 @@
 import { Button } from "@mui/material"
+import { red } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 
-export default function BotonesFlotantes() {
+export const BotonesFlotantes = ({ texto, color }) => {
 
     const navigate = useNavigate();
 
@@ -15,11 +16,11 @@ export default function BotonesFlotantes() {
                     left: 0,
                     top: 0,
                     mt: 10,
-                    ml: 2
+                    ml: 2,
                 }}
-                onClick={() => navigate(-1)}   
+                onClick={() => navigate(-1)}
             >
-                Atrás
+                {texto}
             </Button>
         </div>
     )

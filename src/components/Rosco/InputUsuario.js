@@ -1,10 +1,12 @@
 import { Input } from "@mui/material"
 import { Button } from "@mui/material"
 import { Grid } from "@mui/material"
+import { BotonesFlotantes } from "../BotonesFlotantes"
 
 export default function InputUsuario(props) {
     return (
-        <div>
+        <div >
+            <BotonesFlotantes texto='Dejar de jugar' />
             <Grid container px={10}>
                 <Grid item xs={12}>
                     <Input
@@ -39,6 +41,7 @@ export default function InputUsuario(props) {
                         Mal
                     </Button>
                 </Grid>
+
             </Grid>
         </div>
     )

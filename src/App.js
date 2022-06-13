@@ -14,6 +14,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import RowdiesFont from './fonts/Rowdies-Regular.ttf'
 import { CssBaseline } from '@mui/material'
 
+import { Switch } from 'antd'
+
 // Cambiar theme global de la app
 const theme = createTheme({
   typography: {
@@ -58,7 +60,7 @@ function App() {
             <Route path="/como-jugar" element={<ComoJugar />} />
             <Route path="/glosario" element={<Glosario />} />
             <Route path="/acerca-de-la-app" element={<AcercaDeLaApp />} />
-            <Route path="/configuracion" element={<Configuracion />} />
+            <Route path="/configuracion" element={<><Configuracion />,<Switch /> </>} />
           </Routes>
         </BrowserRouter>
       </div>
