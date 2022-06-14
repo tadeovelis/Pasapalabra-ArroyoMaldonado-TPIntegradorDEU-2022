@@ -29,7 +29,6 @@ export default function SeccionComplementaria(props) {
                                         textTransform: 'uppercase'
                                     }}
                                 >
-
                                     {props.titulo}
                                 </Typography>
                             </Grid>

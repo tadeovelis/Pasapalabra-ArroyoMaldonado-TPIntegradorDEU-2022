@@ -34,18 +34,16 @@ export default function ModalIncorrecto(props) {
                         id="alert-dialog-title"
                         mb={2}
                         sx={{
-                            fontSize: 30,
                             textTransform: 'uppercase',
                         }}
                     >
                         ¡Incorrecto!
                     </Typography>
                     <Typography
-                        variant="subtitle1"
+                        variant="body2"
                         sx={{
                             textTransform: 'none',
-                            fontSize: 17,
-                            fontWeight: 300
+                            fontWeight: 600
                         }}>
                         No pasa nada, el juego sigue.
                     </Typography>
@@ -55,13 +53,13 @@ export default function ModalIncorrecto(props) {
                     sx={{
 
                     }}>
-                    <p>
+                    <Typography variant="body1">
                         Ahora toca una palabra que <br/>
                         <span style={{textTransform: 'uppercase'}}>{palabra.formato}</span>
-                    </p>
+                    </Typography>
                     {/* Letra */}
-                    <b><Letra palabra={palabra} /></b>
-                    <p>Seguimos en 3...</p>
+                    <Box my={2}><b><Letra palabra={palabra} /></b></Box>
+                    <Typography variant="body1">Seguimos en 3...</Typography>
                 </Box>
             </Box>
         </Dialog>

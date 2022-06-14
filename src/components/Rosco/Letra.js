@@ -23,7 +23,9 @@ export default function Letra(props) {
     return (
         <Typography
             variant="string"
-            sx={{color: getColor()}}
+            sx={{
+                color: getColor(),
+            }}
         >
             {palabra.letra}{" "}
         </Typography>

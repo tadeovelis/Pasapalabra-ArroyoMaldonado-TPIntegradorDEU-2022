@@ -11,7 +11,7 @@ import '../App.css'
 import styled from "@emotion/styled";
 
 const HeaderButton = styled(Button)({
-    fontSize: 20,
+    fontSize: '1.5em',
     padding: '15px 35px',
     borderRadius: '0 0 10px 10px',
     fontWeight: 'bold',

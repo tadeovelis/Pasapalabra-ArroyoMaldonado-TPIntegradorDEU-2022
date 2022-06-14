@@ -34,18 +34,16 @@ export default function ModalPausa(props) {
                         id="alert-dialog-title"
                         mb={2}
                         sx={{
-                            fontSize: 30,
                             textTransform: 'uppercase',
                         }}
                     >
                         ¡Pausa!
                     </Typography>
                     <Typography
-                        variant="subtitle1"
+                        variant="body2"
                         sx={{
                             textTransform: 'none',
-                            fontSize: 17,
-                            fontWeight: 300,
+                            fontWeight: 600,
                             lineHeight: 1
                         }}>
                         Te esperamos. Cuando estés listo hacé click en el botón para continuar.
@@ -54,12 +52,12 @@ export default function ModalPausa(props) {
                 <Box
                     p={3}
                 >
-                    <p>
+                    <Typography variant="body1">
                         Ahora toca una palabra que <br />
                         <span style={{ textTransform: 'uppercase' }}>{palabra.formato}</span>
-                    </p>
+                    </Typography>
                     {/* Letra */}
-                    <p><b><Letra palabra={palabra} /></b></p>
+                    <Box my={2}><b><Letra palabra={palabra} /></b></Box>
 
                     <Button
                         variant="contained"

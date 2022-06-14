@@ -34,18 +34,16 @@ export default function ModalSalir(props) {
                         id="alert-dialog-title"
                         mb={2}
                         sx={{
-                            fontSize: 30,
                             textTransform: 'uppercase',
                         }}
                     >
                         ¿Estás seguro?
                     </Typography>
                     <Typography
-                        variant="subtitle1"
+                        variant="body2"
                         sx={{
                             textTransform: 'none',
-                            fontSize: 17,
-                            fontWeight: 300,
+                            fontWeight: 600,
                             lineHeight: 1
                         }}>
                         Si querés terminar el rosco hacé click en "Salir". ¡Se pierde el progreso actual!

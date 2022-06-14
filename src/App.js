@@ -9,74 +9,26 @@ import Configuracion from './components/Configuracion'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles'
 
-import RowdiesFontLight from './fonts/Rowdies-Light.ttf'
-import RowdiesFontRegular from './fonts/Rowdies-Regular.ttf'
-import RowdiesFontBold from './fonts/Rowdies-Bold.ttf'
+import { CssBaseline, GlobalStyles, Slider } from '@mui/material'
+import { useEffect, useState } from 'react'
 
-import { CssBaseline } from '@mui/material'
+import crearTema from './helpers/theming';
 
-// Cambiar theme global de la app
-const theme = createTheme({
-
-  // Colores
-  palette: {
-    primary: {
-      main: '#337dd2',
-      medio: '#2a6ab7',
-      oscuro: '#225386',
-    },
-    error: {
-      main: '#d81b00',
-    },
-    pasapalabra: {
-      main: '#eee138',
-      contrastText: 'white',
-      dark: '#ddd027'
-    },
-    success: {
-      main: '#7fcc30'
-    },
-    negro: {
-      main: '#000000',
-      dark: '#222222'
-    }
-  },
-
-  typography: {
-    fontSize: 12,
-    fontFamily: 'Rowdies, Roboto',
-    h1: {
-      fontSize: 30
-    },
-    h2: {
-      fontWeight: 800
-    },
-    h3: {
-      fontSize: 20,
-      textTransform: 'uppercase'
-    },
-    body1: {
-      fontFamily: 'Roboto, sans-serif',
-      fontSize: 15,
-      fontWeight: 400
-    }
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Rowdies';
-          src: url(${RowdiesFontLight}), url(${RowdiesFontRegular}), url(${RowdiesFontBold}) format('ttf');
-        }
-      `,
-    },
-  },
-})
-
+import configuracion from './data/configuracion.json'
 
 function App() {
+
+  const [tamañoLetra, setTamañoLetra] = useState(configuracion.tamañoLetraPredeterminado);
+  const cambiarTamañoLetra = (e) => {
+    setTamañoLetra(e.target.value);
+    setTheme(createTheme(crearTema(tamañoLetra)));
+  };
+
+  const [theme, setTheme] = useState(createTheme(crearTema(tamañoLetra)));
+
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -93,6 +45,25 @@ function App() {
             <Route path="/configuracion" element={<Configuracion />} />
           </Routes>
         </BrowserRouter>
+
+        {/* Slider de tamaño de letra */}
+        <Slider
+          aria-label="Tamaño letra"
+          value={tamañoLetra}
+          onChange={cambiarTamañoLetra}
+          max={configuracion.tamañoLetraMaximo}
+          min={configuracion.tamañoLetraMinimo}
+          step={3}
+          marks={true}
+          sx={{
+            position: 'fixed',
+            bottom: 20,
+            maxWidth: 50,
+            left: 0,
+            mt: 10,
+            ml: 2,
+          }}
+        />
       </div>
     </ThemeProvider>
   );
