@@ -4,10 +4,16 @@ import RowdiesFontBold from '../fonts/Rowdies-Bold.ttf'
 
 /*
 
-Se crea el tema. Recibe algunos parámetros customizables.
+Se crea el tema. Recibe algunos parámetros customizables:
+
+- tamañoLetra
+- ?
+- ?
 
 */
 
+// Acá se cambia la relación de tamaño de todas las tipografías,
+// con respecto al fontSize del theme (definido en App.js)
 const tamañosLetrasVariantes = {
     'h1': '2.3em !important',
     'h2': '2.5em !important',
@@ -17,7 +23,9 @@ const tamañosLetrasVariantes = {
 }
 
 
-export default function crearTema(tamañoLetra) {
+export default function crearTema(configuraciones) {
+
+    const tamañoLetra = configuraciones.tamañoLetra;
 
     // Cambiar theme global de la app
     const opcionesTema = {

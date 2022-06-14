@@ -4,7 +4,7 @@ import Juego from './components/Juego'
 import ComoJugar from './components/SeccionesComplementarias/ComoJugar'
 import Glosario from './components/SeccionesComplementarias/Glosario'
 import AcercaDeLaApp from './components/SeccionesComplementarias/AcercaDeLaApp'
-import Configuracion from './components/Configuracion'
+import Configuracion from './components/SeccionesComplementarias/Configuracion'
 
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
@@ -21,12 +21,14 @@ import configuracion from './data/configuracion.json'
 function App() {
 
   const [tamañoLetra, setTamañoLetra] = useState(configuracion.tamañoLetraPredeterminado);
-  const cambiarTamañoLetra = (e) => {
-    setTamañoLetra(e.target.value);
-    setTheme(createTheme(crearTema(tamañoLetra)));
-  };
 
   const [theme, setTheme] = useState(createTheme(crearTema(tamañoLetra)));
+
+  // Crea y asigna un nuevo tema basado en las configuraciones que recibe como parámetro
+  // del componente Configuracion.js
+  const cambiarTema = (configuraciones) => {
+    setTheme(createTheme(crearTema(configuraciones)));
+  }
 
 
   return (
@@ -42,28 +44,9 @@ function App() {
             <Route path="/como-jugar" element={<ComoJugar />} />
             <Route path="/glosario" element={<Glosario />} />
             <Route path="/acerca-de-la-app" element={<AcercaDeLaApp />} />
-            <Route path="/configuracion" element={<Configuracion />} />
+            <Route path="/configuracion" element={<Configuracion cambiarTema={cambiarTema} />} />
           </Routes>
         </BrowserRouter>
-
-        {/* Slider de tamaño de letra */}
-        <Slider
-          aria-label="Tamaño letra"
-          value={tamañoLetra}
-          onChange={cambiarTamañoLetra}
-          max={configuracion.tamañoLetraMaximo}
-          min={configuracion.tamañoLetraMinimo}
-          step={3}
-          marks={true}
-          sx={{
-            position: 'fixed',
-            bottom: 20,
-            maxWidth: 50,
-            left: 0,
-            mt: 10,
-            ml: 2,
-          }}
-        />
       </div>
     </ThemeProvider>
   );

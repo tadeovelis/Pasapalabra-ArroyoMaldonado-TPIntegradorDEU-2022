@@ -14,6 +14,7 @@ import ModalPasapalabra from './Modals/ModalPasapalabra'
 import ModalPausa from './Modals/ModalPausa'
 import ModalSalir from './Modals/ModalSalir'
 import { compareTwoStrings } from 'string-similarity'
+import BotonesFlotantes from './BotonesFlotantes'
 
 
 /* Estados palabras/letras
@@ -83,7 +84,7 @@ export default function Juego(props) {
 
     // Confirmar el input de la palabra
     function respondio(palabra) {
-        
+
         if (palabraCorrecta(palabra) > exactitudComparacion) {
             alert('¡Correcto!');
             respondioBien();
@@ -136,81 +137,84 @@ export default function Juego(props) {
     }
 
     return (
-        <Container maxWidth={false}
-            sx={{
-                background: "#08274a",
-                minHeight: "100vh"
-            }}
-        >
-            <Header />
-            <Paper
+        <>
+            <BotonesFlotantes />
+            <Container maxWidth={false}
                 sx={{
-                    m: 5,
-                    p: 10
+                    background: "#08274a",
+                    minHeight: "100vh"
                 }}
             >
-                <Grid container>
-                    <Grid item xs={3}>
-                        <Grid item xs={6}>
-                            <Salir
-                                salir={salir}
-                            />
+                <Header />
+                <Paper
+                    sx={{
+                        m: 5,
+                        p: 10
+                    }}
+                >
+                    <Grid container>
+                        <Grid item xs={3}>
+                            <Grid item xs={6}>
+                                <Salir
+                                    salir={salir}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TiempoRestante
+                                    tiempoRestante={tiempoRestante}
+                                />
+                            </Grid>
                         </Grid>
                         <Grid item xs={6}>
-                            <TiempoRestante
-                                tiempoRestante={tiempoRestante}
-                            />
+                            <Grid item>
+                                <Rosco
+                                    palabras={palabras}
+                                    posPalabraActual={posPalabraActual}
+                                    respondioBien={respondioBien}
+                                    respondioMal={respondioMal}
+                                    respondioPasapalabra={respondioPasapalabra}
+                                    respondio={respondio}
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Grid item>
+                                <Pausar
+                                    pausar={pausar}
+                                />
+                            </Grid>
+                            <Grid item>
+                                <RespuestasCorrectas
+                                    respuestasCorrectas={respuestasCorrectas}
+                                />
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Grid item>
-                            <Rosco
-                                palabras={palabras}
-                                posPalabraActual={posPalabraActual}
-                                respondioBien={respondioBien}
-                                respondioMal={respondioMal}
-                                respondioPasapalabra={respondioPasapalabra}
-                                respondio={respondio}
-                            />
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Grid item>
-                            <Pausar
-                                pausar={pausar}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <RespuestasCorrectas
-                                respuestasCorrectas={respuestasCorrectas}
-                            />
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Paper>
+                </Paper>
 
-            {/* Modals */}
-            <ModalIncorrecto
-                abierto={modalErrorAbierto}
-                cerrar={cerrarModalError}
-                palabra={palabras[posPalabraActual]}
-            />
-            <ModalPasapalabra
-                abierto={modalPasapalabraAbierto}
-                cerrar={cerrarModalPasapalabra}
-                palabra={palabras[posPalabraActual]}
-            />
-            <ModalPausa
-                abierto={modalPausaAbierto}
-                cerrar={cerrarModalPausa}
-                palabra={palabras[posPalabraActual]}
-            />
-            <ModalSalir
-                abierto={modalSalirAbierto}
-                cerrar={cerrarModalSalir}
-                palabra={palabras[posPalabraActual]}
-            />
+                {/* Modals */}
+                <ModalIncorrecto
+                    abierto={modalErrorAbierto}
+                    cerrar={cerrarModalError}
+                    palabra={palabras[posPalabraActual]}
+                />
+                <ModalPasapalabra
+                    abierto={modalPasapalabraAbierto}
+                    cerrar={cerrarModalPasapalabra}
+                    palabra={palabras[posPalabraActual]}
+                />
+                <ModalPausa
+                    abierto={modalPausaAbierto}
+                    cerrar={cerrarModalPausa}
+                    palabra={palabras[posPalabraActual]}
+                />
+                <ModalSalir
+                    abierto={modalSalirAbierto}
+                    cerrar={cerrarModalSalir}
+                    palabra={palabras[posPalabraActual]}
+                />
 
-        </Container>
+            </Container>
+        </>
     )
 }

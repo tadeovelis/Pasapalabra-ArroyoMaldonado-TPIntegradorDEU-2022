@@ -1,15 +1,37 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import BotonesFlotantes from "../BotonesFlotantes";
+import { Link } from "react-router-dom"
 import HeaderAbajo from "../HeaderAbajo";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 
 
 export default function SeccionComplementaria(props) {
+
+    const backgroundColor = (props.backgroundColor === undefined) ? 'primary.main' : props.backgroundColor;
+
     return (
         <div>
-            <BotonesFlotantes />
+            {/* Botón ATRÁS */}
+            <Button
+                variant="contained"
+                component={Link}
+                sx={{
+                    position: 'fixed',
+                    fontWeight: '500',
+                    left: 0,
+                    top: 0,
+                    mt: 10,
+                    ml: 2,
+                    borderRadius: 100
+                }}
+                to="/rosco"
+            >
+                <ArrowBackIosNewIcon fontSize="large" />
+            </Button>
             <Container sx={{ marginX: 10 }}>
-                <Box sx={{ backgroundColor: 'primary.main', color: 'white' }}>
+                <Box sx={{ backgroundColor: backgroundColor, color: 'white' }}>
                     <Box
                         sx={{
                             p: 4,
@@ -21,7 +43,7 @@ export default function SeccionComplementaria(props) {
                         }}
                     >
                         <Grid container alignItems="center" direction="row">
-                            <Grid item sx={{position: 'relative', top: '4px'}}>{props.icono}</Grid>
+                            <Grid item sx={{ position: 'relative', top: '4px' }}>{props.icono}</Grid>
                             <Grid item>
                                 <Typography variant="h1" color="white"
                                     sx={{
@@ -34,7 +56,7 @@ export default function SeccionComplementaria(props) {
                             </Grid>
                         </Grid>
                     </Box>
-                    <Box sx={{p: 4}}>
+                    <Box sx={{ p: 4 }}>
                         {props.contenido}
                     </Box>
                 </Box>
