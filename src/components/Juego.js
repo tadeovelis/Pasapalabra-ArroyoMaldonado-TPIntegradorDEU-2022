@@ -13,6 +13,7 @@ import ModalIncorrecto from './Modals/ModalIncorrecto'
 import ModalPasapalabra from './Modals/ModalPasapalabra'
 import ModalPausa from './Modals/ModalPausa'
 import ModalSalir from './Modals/ModalSalir'
+import ModalTimeOut from './Modals/ModalTimeOut'
 import { compareTwoStrings } from 'string-similarity'
 import BotonesFlotantes from './BotonesFlotantes'
 
@@ -35,13 +36,14 @@ export default function Juego(props) {
     const [palabras, setPalabras] = useState(data);
     const [posPalabraActual, setPosPalabraActual] = useState(0);
     const [respuestasCorrectas, setRespuestasCorrectas] = useState(0);
-    const [tiempoRestante, setTiempoRestante] = useState(120);
+    const [tiempoRestante, setTiempoRestante] = useState(2);
 
     // Modals
     const [modalErrorAbierto, setModalErrorAbierto] = useState(false);
     const [modalPasapalabraAbierto, setModalPasapalabraAbierto] = useState(false);
     const [modalPausaAbierto, setModalPausaAbierto] = useState(false);
     const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
+    const [modalTimeOutAbierto, setModalTimeOutAbierto] = useState(false);
 
     const [pausa, setPausa] = useState(false);
 
@@ -55,8 +57,12 @@ export default function Juego(props) {
     // Tiempo restante
     useEffect(() => {
         if (!pausa) {
-            const timer =
-                tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
+            const timer = tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
+            if (tiempoRestante === 0) {
+                setModalTimeOutAbierto(true);
+            }
+
+
             return () => clearInterval(timer);
         }
     }, [tiempoRestante, pausa]);
@@ -117,6 +123,9 @@ export default function Juego(props) {
     }
     const cerrarModalSalir = () => {
         setModalSalirAbierto(false);
+    }
+    const cerrarModalTimeOut = () => {
+        setModalTimeOutAbierto(false);
     }
 
     /* Pausar juego */
@@ -211,6 +220,11 @@ export default function Juego(props) {
                 <ModalSalir
                     abierto={modalSalirAbierto}
                     cerrar={cerrarModalSalir}
+                    palabra={palabras[posPalabraActual]}
+                />
+                <ModalTimeOut
+                    abierto={modalTimeOutAbierto}
+                    cerrar={cerrarModalTimeOut}
                     palabra={palabras[posPalabraActual]}
                 />
 

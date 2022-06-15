@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { useState } from "react";
 import Letra from "../Rosco/Letra";
 
-export default function ModalPasapalabra(props) {
+export default function ModalTimeOut(props) {
 
     const abierto = props.abierto;
     const cerrar = props.cerrar;
