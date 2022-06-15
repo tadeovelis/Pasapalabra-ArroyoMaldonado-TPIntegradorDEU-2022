@@ -9,10 +9,10 @@ import Configuracion from './components/SeccionesComplementarias/Configuracion'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
-import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import { CssBaseline, GlobalStyles, Slider } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { CssBaseline } from '@mui/material'
+import { useState } from 'react'
 
 import crearTema from './helpers/theming';
 
@@ -20,12 +20,9 @@ import configuracion from './data/configuracion.json'
 
 function App() {
 
-  const [tamañoLetra, setTamañoLetra] = useState(configuracion.tamañoLetraPredeterminado);
+  const [theme, setTheme] = useState(createTheme(crearTema(configuracion.tamañoLetraPredeterminado)));
 
-  const [theme, setTheme] = useState(createTheme(crearTema(tamañoLetra)));
-
-  // Crea y asigna un nuevo tema basado en las configuraciones que recibe como parámetro
-  // del componente Configuracion.js
+  // Crea y asigna un nuevo tema basado en las configuraciones que recibe como parámetro del componente Configuracion.js
   const cambiarTema = (configuraciones) => {
     setTheme(createTheme(crearTema(configuraciones)));
   }

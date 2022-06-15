@@ -2,7 +2,7 @@ import SeccionComplementaria from "./SeccionComplementaria"
 
 import SettingsIcon from '@mui/icons-material/Settings';
 import { FormControlLabel, Grid, Slider, Switch, Typography, Button, Divider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import configuracion from '../../data/configuracion.json'
 import { useTheme } from "@emotion/react";
@@ -19,6 +19,13 @@ const divider = (
     </Grid>
 )
 
+
+// Devuelve el texto para los tamaños de letra
+const valueLabelFormat = (value) => {
+    return configuracion.tamañosLetra.find(t => t.value === value).texto
+}
+
+
 export default function Configuracion(props) {
 
     const [musica, setMusica] = useState(true);
@@ -31,6 +38,9 @@ export default function Configuracion(props) {
     const [hayCambiosDeTamañoDeLetraAAplicar, setHayCambiosDeTamañoDeLetraAAplicar] = useState(false);
 
     const theme = useTheme();
+
+    useEffect(() => {
+    }, [])
 
     const cambiarTamañoLetra = (e) => {
         setTamañoLetra(e.target.value);
@@ -150,10 +160,12 @@ export default function Configuracion(props) {
                                     aria-label="Tamaño letra"
                                     value={tamañoLetra}
                                     onChange={cambiarTamañoLetra}
-                                    max={configuracion.tamañoLetraMaximo}
-                                    min={configuracion.tamañoLetraMinimo}
-                                    step={3}
-                                    marks={true}
+                                    max={configuracion.tamañosLetra[configuracion.tamañosLetra.length - 1].value}
+                                    min={configuracion.tamañosLetra[0].value}
+                                    step={null}
+                                    marks={configuracion.tamañosLetra}
+                                    valueLabelDisplay="auto"
+                                    valueLabelFormat={valueLabelFormat}
                                     sx={{
                                         minWidth: 100
                                     }}

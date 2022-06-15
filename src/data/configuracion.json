@@ -1,5 +1,25 @@
 {
     "tamañoLetraPredeterminado": 12,
-    "tamañoLetraMinimo": 9,
-    "tamañoLetraMaximo": 21
+    "tamañosLetra": [
+        {
+            "texto": "Chica",
+            "value": 10
+        },
+        {
+            "texto": "Normal",
+            "value": 12
+        },
+        {
+            "texto": "Grande",
+            "value": 14
+        },
+        {
+            "texto": "Muy grande",
+            "value": 17
+        },
+        {
+            "texto": "¡Muy muy grande!",
+            "value": 20
+        }
+    ]
 }
