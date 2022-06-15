@@ -17,6 +17,7 @@ export default function Glosario() {
                 /* Algunas palabras hardcodeadas a modo de ejemplo */
                 palabras.map(p =>
                     <BoxItemSeccionComplementaria
+                        key={p}
                         titulo={p.palabra}
                         contenido={p.definicion}
                     />

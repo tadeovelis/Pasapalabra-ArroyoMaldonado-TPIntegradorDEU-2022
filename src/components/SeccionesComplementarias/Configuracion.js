@@ -1,7 +1,7 @@
 import SeccionComplementaria from "./SeccionComplementaria"
 
 import SettingsIcon from '@mui/icons-material/Settings';
-import { FormControlLabel, Grid, Slider, Switch, Typography, Button, Divider } from "@mui/material";
+import { FormControlLabel, Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select, InputLabel } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import configuracion from '../../data/configuracion.json'
@@ -34,29 +34,20 @@ export default function Configuracion(props) {
     const [tamañoLetra, setTamañoLetra] = useState(configuracion.tamañoLetraPredeterminado);
     const [efectosSonidos, setEfectosSonidos] = useState(false);
     const [respuestaPorVoz, setRespuestaPorVoz] = useState(false);
+    const [tema, setTema] = useState("claro");
 
     const [hayCambiosDeTamañoDeLetraAAplicar, setHayCambiosDeTamañoDeLetraAAplicar] = useState(false);
 
     const theme = useTheme();
 
-    useEffect(() => {
-    }, [])
-
+    // Se ejecuta cuando se mueve el slider
     const cambiarTamañoLetra = (e) => {
         setTamañoLetra(e.target.value);
-        chequearSiHayCambiosDeTamañoLetraAAplicar();
     };
 
+    // Lo ejecuta el botón "Aplicar"
     const aplicarCambioTamañoLetra = () => {
-        props.cambiarTema((
-            {
-                'musica': musica,
-                'lecturaPreguntas': lecturaPreguntas,
-                'contrasteColores': contrasteColores,
-                'tamañoLetra': tamañoLetra
-            }
-        ));
-        setHayCambiosDeTamañoDeLetraAAplicar(false)
+        aplicarConfiguraciones();
     }
 
     const chequearSiHayCambiosDeTamañoLetraAAplicar = () => {
@@ -65,10 +56,38 @@ export default function Configuracion(props) {
         else setHayCambiosDeTamañoDeLetraAAplicar(false)
     }
 
+    useEffect(() => {
+        chequearSiHayCambiosDeTamañoLetraAAplicar();
+    }, [tamañoLetra])
+
+    const cambiarTemaDeColores = (e) => {
+        setTema(e.target.value);
+    }
+
+    // Cuando se cambia alguno, aplico los cambios (excepto el tamaño de letra que es manual)
+    useEffect(() => {
+        aplicarConfiguraciones();
+    }, [musica, tema, lecturaPreguntas, contrasteColores, efectosSonidos, respuestaPorVoz])
+
+    const aplicarConfiguraciones = () => {
+        props.cambiarTema((
+            {
+                'musica': musica,
+                'lecturaPreguntas': lecturaPreguntas,
+                'contrasteColores': contrasteColores,
+                'tamañoLetra': tamañoLetra,
+                'efectosSonidos': efectosSonidos,
+                'respuestaPorVoz': respuestaPorVoz,
+                'tema': tema
+            }
+        ));
+    }
+
     return (
         <SeccionComplementaria
             titulo="Configuración"
             icono={<SettingsIcon sx={{ mr: espacioIconos, fontSize: 30 }} />}
+            backgroundColor="white"
             contenido={
                 <>
 
@@ -181,11 +200,31 @@ export default function Configuracion(props) {
                             </Grid>
                         </Grid>
 
+                        {divider}
+
+                        <Grid item container alignItems="center" spacing={2}>
+                            <Grid item><Typography variant="h3">Tema de colores</Typography></Grid>
+                            <Grid item>
+                                <FormControl fullWidth>
+                                    <Select
+                                        labelId="tema"
+                                        id="tema"
+                                        value={tema}
+                                        label="Tema"
+                                        onChange={cambiarTemaDeColores}
+                                    >
+                                        <MenuItem value="claro">Claro (predeterminado)</MenuItem>
+                                        <MenuItem value="oscuro">Oscuro</MenuItem>
+                                        <MenuItem value="raro">Raro</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                        </Grid>
+
                     </Grid>
 
                 </>
             }
-            backgroundColor="white"
         />
     )
 }

@@ -23,36 +23,117 @@ const tamañosLetrasVariantes = {
 }
 
 
+const paletteClaro = {
+    primary: {
+        main: '#337dd2',
+        medio: '#2a6ab7',
+        oscuro: '#225386',
+    },
+    error: {
+        main: '#d81b00',
+    },
+    pasapalabra: {
+        main: '#eee138',
+        contrastText: 'white',
+        dark: '#ddd027'
+    },
+    success: {
+        main: '#7fcc30'
+    },
+    negro: {
+        main: '#000000',
+        dark: '#222222'
+    },
+    backgroundGeneral: {
+        main: '#08274a'
+    },
+    backgroundPaper: {
+        main: 'white'
+    },
+};
+
+const paletteOscuro = {
+    primary: {
+        main: '#16385e',
+        medio: '#0e233c',
+        oscuro: '#060f1a',
+    },
+    error: {
+        main: '#d81b00',
+    },
+    pasapalabra: {
+        main: '#eee138',
+        contrastText: 'white',
+        dark: '#ddd027'
+    },
+    success: {
+        main: '#7fcc30'
+    },
+    negro: {
+        main: '#000000',
+        dark: '#222222'
+    },
+    backgroundGeneral: {
+        main: '#08274a'
+    },
+    backgroundPaper: {
+        main: '#0a1929'
+    },
+    contrastThreshold: 3
+};
+
+const paletteRaro = {
+    primary: {
+        main: '#1e9b9c',
+        medio: '#14696a',
+        oscuro: '#092f2f',
+    },
+    error: {
+        main: '#d81b00',
+    },
+    pasapalabra: {
+        main: '#eee138',
+        contrastText: 'white',
+        dark: '#ddd027'
+    },
+    success: {
+        main: '#7fcc30'
+    },
+    negro: {
+        main: '#000000',
+        dark: '#222222'
+    },
+    backgroundGeneral: {
+        main: '#08274a'
+    },
+    backgroundPaper: {
+        main: 'white'
+    }
+};
+
+
+
 export default function crearTema(configuraciones) {
 
     const tamañoLetra = configuraciones.tamañoLetra;
+
+    // Chequea qué paleta de colores usar
+    const getPalette = (paleta) => {
+        switch (paleta) {
+            case "claro":
+                return paletteClaro
+            case "oscuro":
+                return paletteOscuro
+            case "raro":
+                return paletteRaro
+        }
+    }
 
     // Cambiar theme global de la app
     const opcionesTema = {
 
         // Colores
-        palette: {
-            primary: {
-                main: '#337dd2',
-                medio: '#2a6ab7',
-                oscuro: '#225386',
-            },
-            error: {
-                main: '#d81b00',
-            },
-            pasapalabra: {
-                main: '#eee138',
-                contrastText: 'white',
-                dark: '#ddd027'
-            },
-            success: {
-                main: '#7fcc30'
-            },
-            negro: {
-                main: '#000000',
-                dark: '#222222'
-            }
-        },
+        palette: getPalette(configuraciones.tema),
 
         typography: {
             fontSize: tamañoLetra,

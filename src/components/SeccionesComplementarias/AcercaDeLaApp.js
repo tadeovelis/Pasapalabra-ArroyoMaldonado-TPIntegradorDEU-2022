@@ -37,11 +37,10 @@ export default function AcercaDeLaApp() {
                         extra={
                             <Button
                                 variant="contained"
+                                color="primary"
                                 href="http://sedici.unlp.edu.ar/handle/10915/59633"
                                 target="_blank"
                                 sx={{
-                                    background: 'white',
-                                    color: '#2491CF',
                                     my: 2
                                 }}
                             >

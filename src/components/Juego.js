@@ -141,7 +141,7 @@ export default function Juego(props) {
             <BotonesFlotantes />
             <Container maxWidth={false}
                 sx={{
-                    background: "#08274a",
+                    background: "backgroundGeneral.main",
                     minHeight: "100vh"
                 }}
             >
@@ -149,10 +149,11 @@ export default function Juego(props) {
                 <Paper
                     sx={{
                         m: 5,
-                        p: 10
+                        p: 10,
+                        bgcolor: "backgroundPaper.main",
                     }}
                 >
-                    <Grid container>
+                    <Grid container sx={{color: "primary"}}>
                         <Grid item xs={3}>
                             <Grid item xs={6}>
                                 <Salir
