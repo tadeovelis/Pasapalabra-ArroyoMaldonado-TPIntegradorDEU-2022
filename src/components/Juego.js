@@ -31,7 +31,7 @@ import BotonesFlotantes from './BotonesFlotantes'
 // Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 2;
+const tiempoDeJuego = 350;
 
 export default function Juego(props) {
 
@@ -163,9 +163,10 @@ export default function Juego(props) {
                         m: 5,
                         p: 10,
                         bgcolor: "backgroundPaper.main",
+                        color: "textoPaper.main"
                     }}
                 >
-                    <Grid container sx={{color: "primary"}}>
+                    <Grid container>
                         <Grid item xs={3}>
                             <Grid item xs={6}>
                                 <Salir

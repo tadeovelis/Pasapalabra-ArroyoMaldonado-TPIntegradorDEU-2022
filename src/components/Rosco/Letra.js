@@ -16,7 +16,7 @@ export default function Letra(props) {
             case 3:
                 return 'pasapalabra.main'
             default:
-                return 'black'
+                return 'primary'
         }
     }
 

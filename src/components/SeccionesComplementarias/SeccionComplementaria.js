@@ -39,7 +39,7 @@ export default function SeccionComplementaria(props) {
                             top: 0,
                             zIndex: 99,
                             backgroundColor: 'primary.medio',
-                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);'
+                            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);',
                         }}
                     >
                         <Grid container alignItems="center" direction="row">

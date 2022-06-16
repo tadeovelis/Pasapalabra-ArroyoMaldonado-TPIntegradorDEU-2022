@@ -50,6 +50,9 @@ const paletteClaro = {
     backgroundPaper: {
         main: 'white'
     },
+    input: {
+        
+    }
 };
 
 const paletteOscuro = {
@@ -79,10 +82,16 @@ const paletteOscuro = {
     backgroundPaper: {
         main: '#0a1929'
     },
+    textoPaper: {
+        main: '#fff'
+    },
+    input: {
+        contrastText: '#fff'
+    },
     contrastThreshold: 3
 };
 
-const paletteRaro = {
+const paletteExtra = {
     primary: {
         main: '#1e9b9c',
         medio: '#14696a',
@@ -108,6 +117,46 @@ const paletteRaro = {
     },
     backgroundPaper: {
         main: 'white'
+    },
+    input: {
+        
+    }
+};
+
+const paletteContrasteColores = {
+    primary: {
+        main: '#000',
+        medio: '#000',
+        oscuro: '#000',
+    },
+    error: {
+        main: '#eb1705'
+    },
+    pasapalabra: {
+        main: '#ffec2a',
+        contrastText: 'white',
+        dark: '#fff'
+    },
+    success: {
+        main: '#38ef0b'
+    },
+    negro: {
+        main: '#000000',
+        dark: '#fff'
+    },
+    backgroundGeneral: {
+        main: '#000'
+    },
+    backgroundPaper: {
+        main: '#000'
+    },
+    textoPaper: {
+        main: '#fff',
+        contrastText: '#fff'
+    },
+    input: {
+        main: '#fff',
+        contrastText: '#fff'
     }
 };
 
@@ -118,40 +167,29 @@ export default function crearTema(configuraciones) {
     const tamañoLetra = configuraciones.tamañoLetra;
 
     // Chequea qué paleta de colores usar
-    const getPalette = (paleta) => {
-        switch (paleta) {
-            case "claro":
-                return paletteClaro
-            case "oscuro":
-                return paletteOscuro
-            case "raro":
-                return paletteRaro
+    const getPalette = () => {
+        if (configuraciones.contrasteColores) {
+            return paletteContrasteColores
+        }
+        else {
+            switch (configuraciones.tema) {
+                case "claro":
+                    return paletteClaro
+                case "oscuro":
+                    return paletteOscuro
+                case "extra":
+                    return paletteExtra
+            }
         }
     }
 
-    // Cambiar theme global de la app
-    const opcionesTema = {
+    const getComponents = () => {
+        let borderBotones = {};
+        if (configuraciones.contrasteColores) {
+            borderBotones = '3px solid #fff';
+        }
 
-        // Colores
-        palette: getPalette(configuraciones.tema),
-
-        typography: {
-            fontSize: tamañoLetra,
-            fontFamily: 'Rowdies, Roboto',
-
-            // Acá, por X razón, no funciona el fontSize con rem o em, así que están abajo de todo.
-            h2: {
-                fontWeight: 800
-            },
-            h3: {
-                textTransform: 'uppercase'
-            },
-            body1: {
-                fontFamily: 'Roboto, sans-serif',
-                fontWeight: 400
-            },
-        },
-        components: {
+        return {
             MuiCssBaseline: {
                 styleOverrides: {
                     '@font-face': {
@@ -174,9 +212,47 @@ export default function crearTema(configuraciones) {
                         fontSize: tamañosLetrasVariantes.body2
                     },
                 },
+            },
+            MuiButton: {
+                styleOverrides: {
+                    root: {
+                        border: borderBotones
+                    }
+                }
+            },
+            MuiPaper: {
+                styleOverrides: {
+                    root: {
+                        border: borderBotones
+                    }
+                }
+            }
+        }
+    }
 
+    // Cambiar theme global de la app
+    const opcionesTema = {
+
+        // Colores
+        palette: getPalette(),
+
+        typography: {
+            fontSize: tamañoLetra,
+            fontFamily: 'Rowdies, Roboto',
+
+            // Acá, por X razón, no funciona el fontSize con rem o em, así que están abajo de todo.
+            h2: {
+                fontWeight: 800
+            },
+            h3: {
+                textTransform: 'uppercase'
+            },
+            body1: {
+                fontFamily: 'Roboto, sans-serif',
+                fontWeight: 400
             },
         },
+        components: getComponents()
     };
 
     return opcionesTema

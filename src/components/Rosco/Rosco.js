@@ -8,8 +8,9 @@ export default function Rosco(props) {
         <div>
             <Typography
                 variant="h2"
-                color="primary"
-            >Rosco</Typography>
+            >
+                Rosco
+            </Typography>
             <Letras
                 palabras={props.palabras}    
             />

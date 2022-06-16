@@ -176,6 +176,7 @@ export default function Configuracion(props) {
                             <Grid item>
                                 <FormControl fullWidth>
                                     <Select
+                                        disabled={c.contrasteColores}
                                         labelId="tema"
                                         id="tema"
                                         value={c.tema}
@@ -184,7 +185,7 @@ export default function Configuracion(props) {
                                     >
                                         <MenuItem value="claro">Claro (predeterminado)</MenuItem>
                                         <MenuItem value="oscuro">Oscuro</MenuItem>
-                                        <MenuItem value="raro">Raro</MenuItem>
+                                        <MenuItem value="extra">Extra</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>

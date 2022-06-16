@@ -1,8 +1,34 @@
-import { IconButton, Input } from "@mui/material"
+import { IconButton, Input, TextField } from "@mui/material"
 import { Button } from "@mui/material"
 import { Grid } from "@mui/material"
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice'
 import { useState } from "react"
+import styled from "@emotion/styled"
+
+
+const CssTextField = styled(TextField)(({ theme }) => ({
+    input: {
+        color: theme.palette.input.contrastText,
+    },
+    '& .MuiOutlinedInput-root': {
+        color: theme.palette.input.contrastText,
+        '& fieldset': {
+            borderColor: theme.palette.input.contrastText
+        },
+        '&:hover fieldset': {
+            borderColor: theme.palette.input.contrastText
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: theme.palette.input.contrastText
+        }
+    },
+    '& label': {
+        color: theme.palette.input.contrastText,
+    },
+    '& label.Mui-focused': {
+        color: theme.palette.input.contrastText,
+    }
+}));
 
 export default function InputUsuario(props) {
 
@@ -21,15 +47,13 @@ export default function InputUsuario(props) {
             <Grid container px={10} spacing={2}>
                 <Grid container item xs={12}>
                     <Grid item xs={10}>
-                        <Input
+                        <CssTextField
                             id="palabra"
                             type="text"
                             onChange={handleChange}
                             placeholder="¡Ingresá aquí la palabra!"
-                        >
-
-                            
-                        </Input>
+                            label="¡Ingresá aquí la palabra!"
+                        />
                     </Grid>
 
                     {/* Reconocimiento de voz */}
