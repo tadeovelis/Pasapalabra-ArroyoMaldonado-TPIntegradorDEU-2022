@@ -28,9 +28,12 @@ export default function ModalPasapalabra(props) {
                 <Box
                     p={5}
                     sx={{
-                        backgroundColor: 'green',
+                        backgroundColor: 'success.main',
                         color: 'white',
                     }}>
+                        <Typography>
+                            [En desarrollo, incompleto]
+                        </Typography>
                     <Typography
                         variant="h2"
                         id="alert-dialog-title"

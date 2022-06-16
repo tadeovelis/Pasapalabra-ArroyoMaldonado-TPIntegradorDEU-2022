@@ -31,7 +31,7 @@ import BotonesFlotantes from './BotonesFlotantes'
 // Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 60;
+const tiempoDeJuego = 2;
 
 export default function Juego(props) {
 
