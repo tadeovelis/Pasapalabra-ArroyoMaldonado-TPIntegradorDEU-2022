@@ -70,9 +70,7 @@ export default function ModalPasapalabra(props) {
                     >
 
                         <Grid item>
-                            <Link to="/" style = {{ textDecoration: 'none' }}>
-                            <Button variant="contained" color="error">Salir</Button>
-                            </Link>
+                            <Button component={Link} to="/" variant="contained" color="error">Salir</Button>
                         </Grid>
                         <Grid item>
                             <Button variant="outlined" color="negro" onClick={() => window.location.reload(false)} >Volver a jugar</Button>

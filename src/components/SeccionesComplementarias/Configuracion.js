@@ -27,7 +27,6 @@ const valueLabelFormat = (value) => {
 
 
 export default function Configuracion(props) {
-
     const [musica, setMusica] = useState(true);
     const [lecturaPreguntas, setLecturaPreguntas] = useState(false);
     const [contrasteColores, setContrasteColores] = useState(false);

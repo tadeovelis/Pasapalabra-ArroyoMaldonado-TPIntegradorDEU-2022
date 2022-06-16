@@ -1,6 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Letra from "../Rosco/Letra";
 
 export default function ModalSalir(props) {
@@ -56,7 +57,7 @@ export default function ModalSalir(props) {
                     p={3}
                 >
                     <Grid item>
-                        <Button variant="contained" color="error" onClick={() => alert("Todavía no implementado")}>Salir</Button>
+                        <Button variant="contained" color="error" component={Link} to="/">Salir</Button>
                     </Grid>
                     <Grid item>
                         <Button variant="outlined" color="negro" onClick={cerrar}>No salir</Button>

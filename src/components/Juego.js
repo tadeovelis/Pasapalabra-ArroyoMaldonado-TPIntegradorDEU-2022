@@ -31,12 +31,14 @@ import BotonesFlotantes from './BotonesFlotantes'
 // Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
 const exactitudComparacion = 0.75;
 
+const tiempoDeJuego = 60;
+
 export default function Juego(props) {
 
     const [palabras, setPalabras] = useState(data);
     const [posPalabraActual, setPosPalabraActual] = useState(0);
     const [respuestasCorrectas, setRespuestasCorrectas] = useState(0);
-    const [tiempoRestante, setTiempoRestante] = useState(2);
+    const [tiempoRestante, setTiempoRestante] = useState(tiempoDeJuego);
 
     // Modals
     const [modalErrorAbierto, setModalErrorAbierto] = useState(false);

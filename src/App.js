@@ -16,11 +16,11 @@ import { useState } from 'react'
 
 import crearTema from './helpers/theming';
 
-import configuracion from './data/configuracion.json'
+import configuracionPredeterminada from './data/configuracion.json'
 
 function App() {
 
-  const [theme, setTheme] = useState(createTheme(crearTema(configuracion.tamañoLetraPredeterminado)));
+  const [theme, setTheme] = useState(createTheme(crearTema(configuracionPredeterminada.tamañoLetraPredeterminado)));
 
   // Crea y asigna un nuevo tema basado en las configuraciones que recibe como parámetro del componente Configuracion.js
   const cambiarTema = (configuraciones) => {
