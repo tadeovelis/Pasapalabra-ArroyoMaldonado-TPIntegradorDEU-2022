@@ -1,7 +1,7 @@
 import SeccionComplementaria from "./SeccionComplementaria"
 
 import SettingsIcon from '@mui/icons-material/Settings';
-import { FormControlLabel, Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select, InputLabel } from "@mui/material";
+import { Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import configuracion from '../../data/configuracion.json'
@@ -9,9 +9,6 @@ import { useTheme } from "@emotion/react";
 
 const espacioIconos = 2;
 
-const configuraciones = {
-
-}
 
 const divider = (
     <Grid item sx={{ width: '100%' }}>
@@ -27,13 +24,9 @@ const valueLabelFormat = (value) => {
 
 
 export default function Configuracion(props) {
-    const [musica, setMusica] = useState(true);
-    const [lecturaPreguntas, setLecturaPreguntas] = useState(false);
-    const [contrasteColores, setContrasteColores] = useState(false);
-    const [tamañoLetra, setTamañoLetra] = useState(configuracion.tamañoLetraPredeterminado);
-    const [efectosSonidos, setEfectosSonidos] = useState(false);
-    const [respuestaPorVoz, setRespuestaPorVoz] = useState(false);
-    const [tema, setTema] = useState("claro");
+
+    const setters = props.settersConfiguraciones;
+    const c = props.configuraciones;
 
     const [hayCambiosDeTamañoDeLetraAAplicar, setHayCambiosDeTamañoDeLetraAAplicar] = useState(false);
 
@@ -41,46 +34,23 @@ export default function Configuracion(props) {
 
     // Se ejecuta cuando se mueve el slider
     const cambiarTamañoLetra = (e) => {
-        setTamañoLetra(e.target.value);
+        setters.tamañoLetra(e.target.value);
     };
 
-    // Lo ejecuta el botón "Aplicar"
-    const aplicarCambioTamañoLetra = () => {
-        aplicarConfiguraciones();
-    }
-
     const chequearSiHayCambiosDeTamañoLetraAAplicar = () => {
-        if (tamañoLetra !== theme.typography.fontSize)
+        if (c.tamañoLetra !== theme.typography.fontSize)
             setHayCambiosDeTamañoDeLetraAAplicar(true)
         else setHayCambiosDeTamañoDeLetraAAplicar(false)
     }
 
     useEffect(() => {
         chequearSiHayCambiosDeTamañoLetraAAplicar();
-    }, [tamañoLetra])
+    }, [c.tamañoLetra])
 
     const cambiarTemaDeColores = (e) => {
-        setTema(e.target.value);
+        setters.tema(e.target.value);
     }
 
-    // Cuando se cambia alguno, aplico los cambios (excepto el tamaño de letra que es manual)
-    useEffect(() => {
-        aplicarConfiguraciones();
-    }, [musica, tema, lecturaPreguntas, contrasteColores, efectosSonidos, respuestaPorVoz])
-
-    const aplicarConfiguraciones = () => {
-        props.cambiarTema((
-            {
-                'musica': musica,
-                'lecturaPreguntas': lecturaPreguntas,
-                'contrasteColores': contrasteColores,
-                'tamañoLetra': tamañoLetra,
-                'efectosSonidos': efectosSonidos,
-                'respuestaPorVoz': respuestaPorVoz,
-                'tema': tema
-            }
-        ));
-    }
 
     return (
         <SeccionComplementaria
@@ -102,8 +72,8 @@ export default function Configuracion(props) {
                                 <Switch
                                     name="musica"
                                     size="large"
-                                    checked={musica}
-                                    onChange={e => setMusica(e.target.checked)}
+                                    checked={c.musica}
+                                    onChange={e => setters.musica(e.target.checked)}
                                     inputProps={{ 'aria-label': 'controlled' }}
                                 />
                             </Grid>
@@ -117,8 +87,8 @@ export default function Configuracion(props) {
                                 <Switch
                                     name="lectura-preguntas"
                                     size="large"
-                                    checked={lecturaPreguntas}
-                                    onChange={e => setLecturaPreguntas(e.target.checked)}
+                                    checked={c.lecturaPreguntas}
+                                    onChange={e => setters.lecturaPreguntas(e.target.checked)}
                                     inputProps={{ 'aria-label': 'controlled' }}
                                 />
                             </Grid>
@@ -132,8 +102,8 @@ export default function Configuracion(props) {
                                 <Switch
                                     name="contraste-colores"
                                     size="large"
-                                    checked={contrasteColores}
-                                    onChange={e => setContrasteColores(e.target.checked)}
+                                    checked={c.contrasteColores}
+                                    onChange={e => setters.contrasteColores(e.target.checked)}
                                     inputProps={{ 'aria-label': 'controlled' }}
                                 />
                             </Grid>
@@ -147,8 +117,8 @@ export default function Configuracion(props) {
                                 <Switch
                                     name="efectos-sonidos"
                                     size="large"
-                                    checked={efectosSonidos}
-                                    onChange={e => setEfectosSonidos(e.target.checked)}
+                                    checked={c.efectosSonidos}
+                                    onChange={e => setters.efectosSonidos(e.target.checked)}
                                     inputProps={{ 'aria-label': 'controlled' }}
                                 />
                             </Grid>
@@ -162,8 +132,8 @@ export default function Configuracion(props) {
                                 <Switch
                                     name="respuesta-por-voz"
                                     size="large"
-                                    checked={respuestaPorVoz}
-                                    onChange={e => setRespuestaPorVoz(e.target.checked)}
+                                    checked={c.respuestaPorVoz}
+                                    onChange={e => setters.respuestaPorVoz(e.target.checked)}
                                     inputProps={{ 'aria-label': 'controlled' }}
                                 />
                             </Grid>
@@ -176,7 +146,7 @@ export default function Configuracion(props) {
                             <Grid item>
                                 <Slider
                                     aria-label="Tamaño letra"
-                                    value={tamañoLetra}
+                                    value={c.tamañoLetra}
                                     onChange={cambiarTamañoLetra}
                                     max={configuracion.tamañosLetra[configuracion.tamañosLetra.length - 1].value}
                                     min={configuracion.tamañosLetra[0].value}
@@ -193,7 +163,7 @@ export default function Configuracion(props) {
                                 <Button
                                     variant="contained"
                                     disabled={!hayCambiosDeTamañoDeLetraAAplicar}
-                                    onClick={aplicarCambioTamañoLetra}
+                                    onClick={props.aplicarCambioTamañoLetra}
                                 >¡Aplicar!
                                 </Button>
                             </Grid>
@@ -208,7 +178,7 @@ export default function Configuracion(props) {
                                     <Select
                                         labelId="tema"
                                         id="tema"
-                                        value={tema}
+                                        value={c.tema}
                                         label="Tema"
                                         onChange={cambiarTemaDeColores}
                                     >

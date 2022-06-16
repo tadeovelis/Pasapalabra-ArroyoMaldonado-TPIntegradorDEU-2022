@@ -12,7 +12,7 @@ import { Route } from 'react-router-dom'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import { CssBaseline } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import crearTema from './helpers/theming';
 
@@ -20,11 +20,38 @@ import configuracionPredeterminada from './data/configuracion.json'
 
 function App() {
 
-  const [theme, setTheme] = useState(createTheme(crearTema(configuracionPredeterminada.tamañoLetraPredeterminado)));
+  // Ajustes de configuración
+  const [musica, setMusica] = useState(true);
+  const [lecturaPreguntas, setLecturaPreguntas] = useState(false);
+  const [contrasteColores, setContrasteColores] = useState(false);
+  const [tamañoLetra, setTamañoLetra] = useState(configuracionPredeterminada.tamañoLetraPredeterminado);
+  const [efectosSonidos, setEfectosSonidos] = useState(false);
+  const [respuestaPorVoz, setRespuestaPorVoz] = useState(false);
+  const [tema, setTema] = useState("claro");
 
-  // Crea y asigna un nuevo tema basado en las configuraciones que recibe como parámetro del componente Configuracion.js
-  const cambiarTema = (configuraciones) => {
-    setTheme(createTheme(crearTema(configuraciones)));
+  const [theme, setTheme] = useState(createTheme(crearTema(tamañoLetra)));
+
+  // Crea y asigna un nuevo tema basado en las configuraciones seteadas en el panel de configuración
+  const cambiarTema = () => {
+    setTheme(createTheme(crearTema({
+      'contrasteColores': contrasteColores,
+      'tamañoLetra': tamañoLetra,
+      'tema': tema
+    })));
+  }
+
+  // Cuando se cambia alguno, aplico los cambios (excepto el tamaño de letra que es manual con "Aplicar")
+  useEffect(() => {
+    aplicarConfiguraciones();
+  }, [musica, tema, lecturaPreguntas, contrasteColores, efectosSonidos, respuestaPorVoz])
+
+  const aplicarConfiguraciones = () => {
+    cambiarTema()
+  }
+
+  // Lo ejecuta el botón "Aplicar" de Configuración
+  const aplicarCambioTamañoLetra = () => {
+    aplicarConfiguraciones();
   }
 
 
@@ -41,7 +68,30 @@ function App() {
             <Route path="/como-jugar" element={<ComoJugar />} />
             <Route path="/glosario" element={<Glosario />} />
             <Route path="/acerca-de-la-app" element={<AcercaDeLaApp />} />
-            <Route path="/configuracion" element={<Configuracion cambiarTema={cambiarTema} />} />
+            <Route path="/configuracion" element={
+              <Configuracion
+                cambiarTema={cambiarTema}
+                configuraciones={{
+                  'musica': musica,
+                  'lecturaPreguntas': lecturaPreguntas,
+                  'contrasteColores': contrasteColores,
+                  'tamañoLetra': tamañoLetra,
+                  'efectosSonidos': efectosSonidos,
+                  'respuestaPorVoz': respuestaPorVoz,
+                  'tema': tema
+                }}
+                settersConfiguraciones={{
+                  'musica': setMusica,
+                  'lecturaPreguntas': setLecturaPreguntas,
+                  'contrasteColores': setContrasteColores,
+                  'tamañoLetra': setTamañoLetra,
+                  'efectosSonidos': setEfectosSonidos,
+                  'respuestaPorVoz': setRespuestaPorVoz,
+                  'tema': setTema
+                }}
+                aplicarCambioTamañoLetra={aplicarCambioTamañoLetra}
+              />
+            } />
           </Routes>
         </BrowserRouter>
       </div>
