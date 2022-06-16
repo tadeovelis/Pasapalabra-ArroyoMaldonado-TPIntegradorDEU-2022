@@ -9,6 +9,7 @@ export default function ModalPasapalabra(props) {
     const abierto = props.abierto;
     const cerrar = props.cerrar;
     const palabra = props.palabra;
+    const respuestasCorrectas = props.respuestasCorrectas;
 
     return (
         <Dialog
@@ -38,7 +39,7 @@ export default function ModalPasapalabra(props) {
                             textTransform: 'uppercase',
                         }}
                     >
-                        ¡Timepo fuera!
+                        ¡Se acabó el tiempo!
                     </Typography>
                     <Typography
                         variant="body2"
@@ -47,7 +48,7 @@ export default function ModalPasapalabra(props) {
                             fontWeight: 600,
                             lineHeight: 1
                         }}>
-                        ¡ Se te termino el tiempo ! Veamos los resultados.
+                        ¡Bien jugado! Veamos los resultados.
                     </Typography>
                 </Box>
                 <Box
@@ -55,16 +56,12 @@ export default function ModalPasapalabra(props) {
                     sx={{
 
                     }}>
-                    <Typography variant="body1">
-                        Tu puntaje es: <br />
-                    </Typography>
-                    <Box my={2}><b> 10 </b></Box>
                     {/* Letra */}
                     <Typography variant="body1">
                         Cantidad de palabras que acertaste:  <br />
 
-                    </Typography><Box my={2}><b> 2 </b></Box>
-                    <Typography variant="body1"> ¡Bien hecho! Sigue intentando para mejorar.</Typography>
+                    </Typography><Box my={2}><b>{respuestasCorrectas}</b></Box>
+                    <Typography variant="body1">¿Quéres volver a jugar?</Typography>
                     <Grid
                         container
                         justifyContent="center"
@@ -74,11 +71,11 @@ export default function ModalPasapalabra(props) {
 
                         <Grid item>
                             <Link to="/" style = {{ textDecoration: 'none' }}>
-                            <Button variant="contained" color="error"  >Salir</Button>
+                            <Button variant="contained" color="error">Salir</Button>
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Button variant="outlined" color="negro" onClick={() => window.location.reload(false)} >¡ Volver a Jugar !</Button>
+                            <Button variant="outlined" color="negro" onClick={() => window.location.reload(false)} >Volver a jugar</Button>
                         </Grid>
                     </Grid>
                 </Box>

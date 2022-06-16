@@ -46,6 +46,7 @@ export default function Juego(props) {
     const [modalTimeOutAbierto, setModalTimeOutAbierto] = useState(false);
 
     const [pausa, setPausa] = useState(false);
+    const [termino, setTermino] = useState(false);
 
     // Método para agregar el estado 0 (sin responder) a todas las palabras
     useEffect(() => {
@@ -56,12 +57,12 @@ export default function Juego(props) {
 
     // Tiempo restante
     useEffect(() => {
-        if (!pausa) {
+        if (!pausa || !termino) {
             const timer = tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
             if (tiempoRestante === 0) {
                 setModalTimeOutAbierto(true);
+                setTermino(true);
             }
-
 
             return () => clearInterval(timer);
         }
@@ -226,6 +227,7 @@ export default function Juego(props) {
                     abierto={modalTimeOutAbierto}
                     cerrar={cerrarModalTimeOut}
                     palabra={palabras[posPalabraActual]}
+                    respuestasCorrectas={respuestasCorrectas}
                 />
 
             </Container>
