@@ -59,7 +59,7 @@ export default function Juego(props) {
 
     // Tiempo restante
     useEffect(() => {
-        if (!pausa || !termino) {
+        if (!pausa && !termino) {
             const timer = tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
             if (tiempoRestante === 0) {
                 setModalTimeOutAbierto(true);
