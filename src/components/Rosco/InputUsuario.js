@@ -38,79 +38,87 @@ export default function InputUsuario(props) {
         setPalabra(e.target.value)
     }
 
-    const respondio = () => {
-        props.respondio(palabra)
+    const respondio = (e) => {
+        props.respondio(palabra);
+        setPalabra('');
+        e.preventDefault();
     }
 
     return (
         <div>
-            <Grid container px={10} spacing={2}>
-                <Grid container item xs={12}>
-                    <Grid item xs={10}>
-                        <CssTextField
-                            id="palabra"
-                            type="text"
-                            onChange={handleChange}
-                            placeholder="¡Ingresá aquí la palabra!"
-                            label="¡Ingresá aquí la palabra!"
-                        />
-                    </Grid>
-
-                    {/* Reconocimiento de voz */}
-                    <Grid item xs={2}>
-                        <Button
-                            variant="outlined"
-                            sx={{
-                                borderWidth: 4,
-                                borderColor: '#1976d2'
-                            }}
-                        >
-                            <KeyboardVoiceIcon
-                                sx={{ color: "#1976d2" }}
+            <form onSubmit={respondio}>
+                <Grid container px={10} spacing={2}>
+                    <Grid container item xs={12}>
+                        <Grid item xs={10}>
+                            <CssTextField
+                                id="palabra"
+                                type="text"
+                                onChange={handleChange}
+                                value={palabra}
+                                placeholder="¡Ingresá aquí la palabra!"
+                                label="¡Ingresá aquí la palabra!"
                             />
-                        </Button>
-                    </Grid>
-                </Grid>
+                        </Grid>
 
-                <Grid container item xs={12}>
-                    <Grid item xs={3}>
-                        <Button
-                            variant="contained"
-                            onClick={props.respondioPasapalabra}
-                            color="pasapalabra"
-                        >
-                            Pasapalabra
-                        </Button>
+                        {/* Reconocimiento de voz */}
+                        <Grid item xs={2}>
+                            <Button
+                                variant="outlined"
+                                onClick={() => alert("Todavía no implementado")}
+                                sx={{
+                                    borderWidth: 4,
+                                    borderColor: '#1976d2'
+                                }}
+                            >
+                                <KeyboardVoiceIcon
+                                    sx={{ color: "#1976d2" }}
+                                />
+                            </Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Button
-                            variant="contained"
-                            onClick={props.respondioBien}
-                            color="primary"
-                        >
-                            Bien
-                        </Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button
-                            variant="contained"
-                            onClick={props.respondioMal}
-                            color="error"
-                        >
-                            Mal
-                        </Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button
-                            variant="contained"
-                            onClick={respondio}
-                            color="primary"
-                        >
-                            Confirmar (usar este para testear el input)
-                        </Button>
+
+                    <Grid container item xs={12}>
+                        <Grid item xs={6}>
+                            <Button
+                                variant="contained"
+                                onClick={props.respondioPasapalabra}
+                                color="pasapalabra"
+                            >
+                                Pasapalabra
+                            </Button>
+                        </Grid>
+                        {/*
+                        <Grid item xs={3}>
+                            <Button
+                                variant="contained"
+                                onClick={props.respondioBien}
+                                color="primary"
+                            >
+                                Bien
+                            </Button>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button
+                                variant="contained"
+                                onClick={props.respondioMal}
+                                color="error"
+                            >
+                                Mal
+                            </Button>
+                        </Grid>
+                        */}
+                        <Grid item xs={6}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                            >
+                                Confirmar
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </form>
         </div>
     )
 }
