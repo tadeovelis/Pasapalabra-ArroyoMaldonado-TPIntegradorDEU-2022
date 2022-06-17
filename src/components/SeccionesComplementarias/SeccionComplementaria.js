@@ -31,7 +31,7 @@ export default function SeccionComplementaria(props) {
                 <ArrowBackIosNewIcon fontSize="large" />
             </Button>
             <Container sx={{ marginX: 10 }}>
-                <Box sx={{ backgroundColor: backgroundColor, color: 'white' }}>
+                <Box sx={{ backgroundColor: backgroundColor, color: 'white', zIndex: 1, position: 'relative' }}>
                     <Box
                         sx={{
                             p: 4,

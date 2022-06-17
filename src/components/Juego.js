@@ -163,7 +163,7 @@ export default function Juego(props) {
                         m: 5,
                         p: 10,
                         bgcolor: "backgroundPaper.main",
-                        color: "textoPaper.main"
+                        color: "textoPaper.main",
                     }}
                 >
                     <Grid container>

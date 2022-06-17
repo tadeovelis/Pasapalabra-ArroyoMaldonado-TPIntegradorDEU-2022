@@ -226,7 +226,7 @@ export default function Configuracion(props) {
                                 </Grid>
                             </Grid>
                             <DetallesOpcion
-                                texto={!c.contrasteColores ? "¡Cambiá los colores de la interfaz del juego!." : "Para cambiar los temas primero tenes que desactivar la opción 'Contraste de colores'."}
+                                texto={!c.contrasteColores ? "¡Cambiá los colores de la interfaz del juego!" : "Para cambiar los temas primero tenes que desactivar la opción 'Contraste de colores'."}
                             />
                         </Grid>
                     </Grid>

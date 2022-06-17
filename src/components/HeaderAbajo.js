@@ -14,7 +14,12 @@ const HeaderButton = styled(Button)(({ theme }) => ({
     fontSize: '1.5em',
     padding: '15px 35px',
     borderRadius: '0 0 10px 10px',
-    backgroundColor: theme.palette.primary.oscuro
+    backgroundColor: theme.palette.primary.oscuro,
+    zIndex: 0,
+    transition: 'transform .1s ease-in-out',
+    '&:hover': {
+        transform: 'translatey(-5px) rotate(1deg)'
+    }
 }));
 
 const espacioIconos = 1;
