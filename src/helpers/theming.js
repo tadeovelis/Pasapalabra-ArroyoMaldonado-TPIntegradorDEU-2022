@@ -51,7 +51,7 @@ const paletteClaro = {
         main: 'white'
     },
     input: {
-        
+        main: '#337dd2'
     }
 };
 
@@ -119,7 +119,7 @@ const paletteExtra = {
         main: 'white'
     },
     input: {
-        
+        main: '#1e9b9c'
     }
 };
 

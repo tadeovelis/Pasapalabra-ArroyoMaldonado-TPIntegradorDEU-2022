@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper'
 import Header from './Header'
-import { Grid } from '@mui/material'
+import { Alert, Grid, Snackbar } from '@mui/material'
 import Salir from './Salir'
 import TiempoRestante from './TiempoRestante'
 import Rosco from './Rosco/Rosco'
@@ -46,6 +46,7 @@ export default function Juego(props) {
     const [modalPausaAbierto, setModalPausaAbierto] = useState(false);
     const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
     const [modalTimeOutAbierto, setModalTimeOutAbierto] = useState(false);
+    const [alertCorrectoAbierto, setAlertCorrectoAbierto] = useState(false);
 
     const [pausa, setPausa] = useState(false);
     const [termino, setTermino] = useState(false);
@@ -71,6 +72,7 @@ export default function Juego(props) {
     }, [tiempoRestante, pausa]);
 
     function respondioBien() {
+        setAlertCorrectoAbierto(true);
         palabras[posPalabraActual].estado = 1;
         setRespuestasCorrectas(respuestasCorrectas + 1);
         proximaPalabra();
@@ -95,7 +97,6 @@ export default function Juego(props) {
     function respondio(palabra) {
 
         if (palabraCorrecta(palabra) > exactitudComparacion) {
-            alert('¡Correcto!');
             respondioBien();
         }
         else {
@@ -235,6 +236,21 @@ export default function Juego(props) {
                     cerrar={cerrarModalTimeOut}
                     palabra={palabras[posPalabraActual]}
                     respuestasCorrectas={respuestasCorrectas}
+                />
+                <Snackbar
+                    open={alertCorrectoAbierto}
+                    autoHideDuration={2000}
+                    onClose={() => setAlertCorrectoAbierto(false)}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    message="¡Correcto!"
+                    ContentProps={{
+                        sx: {
+                            bgcolor: 'success.main',
+                            fontSize: '1.7em',
+                            textAlign: 'center',
+                            justifyContent: 'center'
+                        }
+                    }}
                 />
 
             </Container>
