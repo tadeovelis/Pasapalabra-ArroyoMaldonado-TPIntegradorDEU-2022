@@ -51,8 +51,8 @@ export default function BotonesFlotantes() {
                     position: 'fixed',
                     fontWeight: '500',
                     left: 0,
-                    bottom: 0,
-                    mb: 10,
+                    bottom: 80,
+                    mb: 0,
                     ml: 2,
                     borderRadius: 100
                 }}

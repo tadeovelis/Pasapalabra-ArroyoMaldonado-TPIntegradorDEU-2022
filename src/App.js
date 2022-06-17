@@ -24,6 +24,7 @@ function App() {
   const [musica, setMusica] = useState(true);
   const [lecturaPreguntas, setLecturaPreguntas] = useState(false);
   const [contrasteColores, setContrasteColores] = useState(false);
+  const [modoDaltonico, setModoDaltonico] = useState(false);
   const [tamañoLetra, setTamañoLetra] = useState(configuracionPredeterminada.tamañoLetraPredeterminado);
   const [efectosSonidos, setEfectosSonidos] = useState(false);
   const [respuestaPorVoz, setRespuestaPorVoz] = useState(false);

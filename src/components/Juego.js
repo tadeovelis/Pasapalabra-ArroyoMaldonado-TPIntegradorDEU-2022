@@ -154,13 +154,16 @@ export default function Juego(props) {
             <Container maxWidth={false}
                 sx={{
                     background: "backgroundGeneral.main",
-                    minHeight: "100vh"
+                    minHeight: '100vh',
+                    margin: 0
                 }}
             >
                 <Header />
                 <Paper
                     sx={{
-                        m: 5,
+                        marginX: 5,
+                        mt: 5,
+                        mb: 0,
                         p: 10,
                         bgcolor: "backgroundPaper.main",
                         color: "textoPaper.main",

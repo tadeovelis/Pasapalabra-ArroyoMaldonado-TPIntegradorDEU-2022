@@ -138,6 +138,26 @@ export default function Configuracion(props) {
 
                         <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
                             <Grid item container alignItems="center" spacing={2} xs={6}>
+                                <Grid item><Typography variant="h3">Modo daltónico</Typography></Grid>
+                                <Grid item>
+                                    <Switch
+                                        name="modo-daltonico"
+                                        size="large"
+                                        checked={c.modoDaltonico}
+                                        onChange={e => setters.modoDaltonico(e.target.checked)}
+                                        inputProps={{ 'aria-label': 'controlled' }}
+                                    />
+                                </Grid>
+                            </Grid>
+                            <DetallesOpcion
+                                texto="Aún no implementado."
+                            />
+                        </Grid>
+
+                        {divider}
+
+                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
+                            <Grid item container alignItems="center" spacing={2} xs={6}>
                                 <Grid item><Typography variant="h3">Efectos de sonido</Typography></Grid>
                                 <Grid item>
                                     <Switch
