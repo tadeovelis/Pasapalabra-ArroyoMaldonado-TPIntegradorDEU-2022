@@ -8,6 +8,7 @@ export default function ModalTimeOut(props) {
     const abierto = props.abierto;
     const cerrar = props.cerrar;
     const palabra = props.palabra;
+    const tiempoReanudacion = props.tiempoReanudacion;
 
     return (
         <Dialog
@@ -60,7 +61,7 @@ export default function ModalTimeOut(props) {
                     </Typography>
                     {/* Letra */}
                     <Box my={2}><b><Letra palabra={palabra} /></b></Box>
-                    <Typography variant="body1">Seguimos en 3...</Typography>
+                    <Typography variant="body1">Seguimos en <b>{tiempoReanudacion}</b>...</Typography>
                 </Box>
             </Box>
         </Dialog>

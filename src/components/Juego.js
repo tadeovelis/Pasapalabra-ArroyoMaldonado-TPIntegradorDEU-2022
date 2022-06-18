@@ -33,6 +33,8 @@ const exactitudComparacion = 0.75;
 
 const tiempoDeJuego = 350;
 
+const tiempoReanudacionPredeterminado = 5;
+
 export default function Juego(props) {
 
     const [palabras, setPalabras] = useState(data);
@@ -50,6 +52,8 @@ export default function Juego(props) {
 
     const [pausa, setPausa] = useState(false);
     const [termino, setTermino] = useState(false);
+
+    const [tiempoReanudacion, setTiempoReanudacion] = useState(tiempoReanudacionPredeterminado);
 
     // Método para agregar el estado 0 (sin responder) a todas las palabras
     useEffect(() => {
@@ -77,6 +81,7 @@ export default function Juego(props) {
         setRespuestasCorrectas(respuestasCorrectas + 1);
         proximaPalabra();
     }
+
     function respondioMal() {
         palabras[posPalabraActual].estado = 2;
 
@@ -84,13 +89,27 @@ export default function Juego(props) {
 
         // Abrir modal
         setModalErrorAbierto(true);
+        setTiempoReanudacion(tiempoReanudacionPredeterminado);
+
     }
+
+    useEffect(() => {
+        const timer = tiempoReanudacion > 0 && setInterval(() => setTiempoReanudacion(tiempoReanudacion - 1), 1000)
+        if (tiempoReanudacion === 0) {
+            cerrarModalError();
+            cerrarModalPasapalabra();
+        }
+
+        return () => clearInterval(timer);
+    }, [tiempoReanudacion])
+
     function respondioPasapalabra() {
         palabras[posPalabraActual].estado = 3;
         proximaPalabra();
 
         // Abrir modal
         setModalPasapalabraAbierto(true);
+        setTiempoReanudacion(tiempoReanudacionPredeterminado);
     }
 
     // Confirmar el input de la palabra
@@ -215,11 +234,13 @@ export default function Juego(props) {
                     abierto={modalErrorAbierto}
                     cerrar={cerrarModalError}
                     palabra={palabras[posPalabraActual]}
+                    tiempoReanudacion={tiempoReanudacion}
                 />
                 <ModalPasapalabra
                     abierto={modalPasapalabraAbierto}
                     cerrar={cerrarModalPasapalabra}
                     palabra={palabras[posPalabraActual]}
+                    tiempoReanudacion={tiempoReanudacion}
                 />
                 <ModalPausa
                     abierto={modalPausaAbierto}
