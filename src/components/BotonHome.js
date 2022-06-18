@@ -15,7 +15,7 @@ export default function BotonHome(props) {
                 letterSpacing: 1,
                 borderRadius: 2.5,
                 minWidth: '25vw',
-                '&:hover': {
+                '&:hover, &:focus': {
                     transform: 'scalex(.98)',
                     transition: 'transform .1s ease-in-out'
                 }

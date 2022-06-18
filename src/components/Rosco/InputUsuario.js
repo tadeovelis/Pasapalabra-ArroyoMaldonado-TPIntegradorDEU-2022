@@ -2,18 +2,21 @@ import { IconButton, Input, TextField } from "@mui/material"
 import { Button } from "@mui/material"
 import { Grid } from "@mui/material"
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice'
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { useState } from "react"
 import styled from "@emotion/styled"
 
 
 const CssTextField = styled(TextField)(({ theme }) => ({
     input: {
-        color: theme.palette.input.contrastText,
+        color: theme.palette.input.contrastText
     },
     '& .MuiOutlinedInput-root': {
         color: theme.palette.input.contrastText,
         '& fieldset': {
-            borderColor: theme.palette.input.contrastText
+            borderColor: theme.palette.input.contrastText,
+            borderRadius: '10px 0px 0px 10px',
         },
         '&:hover fieldset': {
             borderColor: theme.palette.input.contrastText
@@ -47,9 +50,9 @@ export default function InputUsuario(props) {
     return (
         <div>
             <form onSubmit={respondio}>
-                <Grid container px={10} spacing={2}>
-                    <Grid container item xs={12}>
-                        <Grid item xs={10}>
+                <Grid container spacing={2}>
+                    <Grid container item xs={12} alignItems="stretch" justifyContent="center">
+                        <Grid item>
                             <CssTextField
                                 id="palabra"
                                 type="text"
@@ -61,59 +64,41 @@ export default function InputUsuario(props) {
                         </Grid>
 
                         {/* Reconocimiento de voz */}
-                        <Grid item xs={2}>
+                        <Grid item>
                             <Button
                                 variant="outlined"
                                 onClick={() => alert("Todavía no implementado")}
                                 sx={{
-                                    borderWidth: 4,
-                                    borderColor: '#1976d2'
+                                    borderWidth: 3,
+                                    borderRadius: '0px 10px 10px 0px',
+                                    borderColor: '#1976d2',
+                                    height: '100%'
                                 }}
                             >
                                 <KeyboardVoiceIcon
-                                    sx={{ color: "#1976d2" }}
+                                    sx={{ color: "#1976d2", fontSize: '2em' }}
                                 />
                             </Button>
                         </Grid>
                     </Grid>
 
-                    <Grid container item xs={12}>
-                        <Grid item xs={6}>
+                    <Grid container item xs={12} spacing={2} justifyContent="center">
+                        <Grid item>
                             <Button
                                 variant="contained"
                                 onClick={props.respondioPasapalabra}
                                 color="pasapalabra"
                             >
-                                Pasapalabra
+                                <AutorenewIcon />
                             </Button>
                         </Grid>
-                        {/*
-                        <Grid item xs={3}>
-                            <Button
-                                variant="contained"
-                                onClick={props.respondioBien}
-                                color="primary"
-                            >
-                                Bien
-                            </Button>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Button
-                                variant="contained"
-                                onClick={props.respondioMal}
-                                color="error"
-                            >
-                                Mal
-                            </Button>
-                        </Grid>
-                        */}
-                        <Grid item xs={6}>
+                        <Grid item>
                             <Button
                                 variant="contained"
                                 color="primary"
                                 type="submit"
                             >
-                                Confirmar
+                                <KeyboardReturnIcon />
                             </Button>
                         </Grid>
                     </Grid>

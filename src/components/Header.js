@@ -15,7 +15,7 @@ const HeaderButton = styled(Button)({
     padding: '15px 35px',
     borderRadius: '0 0 10px 10px',
     fontWeight: 'bold',
-    "&:hover": {
+    "&:hover, &:focus": {
         transform: 'translatey(-2px) rotate(1deg)'
     }
 });

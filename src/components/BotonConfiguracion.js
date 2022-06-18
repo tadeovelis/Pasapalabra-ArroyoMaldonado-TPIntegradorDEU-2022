@@ -17,7 +17,7 @@ export default function BotonConfiguracion(props) {
                 p: 4,
                 transform: 'rotate(0deg)',
                 transition: 'transform .1s ease-in-out',
-                '&:hover': {
+                '&:hover, &:focus': {
                     transform: 'rotate(180deg)',
                     transition: 'transform .5s ease-in-out'
                 }

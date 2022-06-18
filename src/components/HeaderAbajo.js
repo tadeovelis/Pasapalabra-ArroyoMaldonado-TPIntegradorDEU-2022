@@ -17,7 +17,7 @@ const HeaderButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.primary.oscuro,
     zIndex: 0,
     transition: 'transform .1s ease-in-out',
-    '&:hover': {
+    '&:hover, &:focus': {
         transform: 'translatey(-5px) rotate(1deg)'
     }
 }));

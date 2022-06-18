@@ -9,6 +9,11 @@ export default function Pausar(props) {
                 variant="contained"
                 onClick={props.pausar}
                 color="primary"
+                sx={{
+                    '&:focus': {
+                        transform: 'scale(1.1)'
+                    }
+                }}
             >||
             </Button>
         </div>
