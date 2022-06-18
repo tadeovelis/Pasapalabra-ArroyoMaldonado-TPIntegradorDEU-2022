@@ -34,7 +34,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.scrollbarCustom::-webkit-scrollbar {
+  width: .5em;
+  background: white
+}
+
+.scrollbarCustom::-webkit-scrollbar-thumb {
+  background-color: #626262;
+  border-radius: 10px;
+  outline: 4px solid #626262;
 }

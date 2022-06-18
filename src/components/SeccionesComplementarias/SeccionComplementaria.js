@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import HeaderAbajo from "../HeaderAbajo";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
+import '../../App.css'
+
 
 
 export default function SeccionComplementaria(props) {
@@ -30,7 +32,7 @@ export default function SeccionComplementaria(props) {
             >
                 <ArrowBackIosNewIcon fontSize="large" />
             </Button>
-            <Container sx={{ marginX: 10, pb: 4 }}>
+            <Container sx={{ marginX: 10, position: 'relative' }}>
                 <Box sx={{ backgroundColor: backgroundColor, color: 'white', zIndex: 1, position: 'relative' }}>
                     <Box
                         sx={{
@@ -56,14 +58,23 @@ export default function SeccionComplementaria(props) {
                             </Grid>
                         </Grid>
                     </Box>
-                    <Box sx={{ p: 4 }}>
+                    <Box className="scrollbarCustom" tabIndex={0}
+                        sx={{
+                            px: 4,
+                            pt: 4,
+                            maxHeight: '70vh',
+                            overflowY: 'scroll',
+                        }}
+                    >
                         {props.contenido}
                     </Box>
-                </Box>
 
+                </Box>
                 <HeaderAbajo />
+
+
             </Container>
 
-        </div>
+        </div >
     )
 }

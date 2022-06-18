@@ -26,46 +26,44 @@ const espacioIconos = 1;
 
 export default function HeaderAbajo() {
     return (
-        <div>
-            <Grid
-                container
-                spacing={5}
-                justifyContent="space-between"
-            >
-                <Grid item>
-                    <HeaderButton
-                        component={Link}
-                        variant="contained"
-                        to="/como-jugar"
-                        size="large"
-                        startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }}/>}
-                    >
-                        ¿Cómo jugar?
-                    </HeaderButton>
-                </Grid>
-                <Grid item>
-                    <HeaderButton
-                        component={Link}
-                        size="large"
-                        variant="contained"
-                        to="/glosario"
-                        startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }}/>}
-                    >
-                        Glosario
-                    </HeaderButton>
-                </Grid>
-                <Grid item>
-                    <HeaderButton
-                        component={Link}
-                        variant="contained"
-                        size="large"
-                        to="/acerca-de-la-app"
-                        startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }}/>}
-                    >
-                        Acerca de la app
-                    </HeaderButton>
-                </Grid>
+        <Grid
+            container
+            justifyContent="space-between"
+            spacing={6}
+        >
+            <Grid item>
+                <HeaderButton
+                    component={Link}
+                    variant="contained"
+                    to="/como-jugar"
+                    size="large"
+                    startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }} />}
+                >
+                    ¿Cómo jugar?
+                </HeaderButton>
             </Grid>
-        </div>
+            <Grid item>
+                <HeaderButton
+                    component={Link}
+                    size="large"
+                    variant="contained"
+                    to="/glosario"
+                    startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }} />}
+                >
+                    Glosario
+                </HeaderButton>
+            </Grid>
+            <Grid item>
+                <HeaderButton
+                    component={Link}
+                    variant="contained"
+                    size="large"
+                    to="/acerca-de-la-app"
+                    startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
+                >
+                    Acerca de la app
+                </HeaderButton>
+            </Grid>
+        </Grid>
     )
 }
