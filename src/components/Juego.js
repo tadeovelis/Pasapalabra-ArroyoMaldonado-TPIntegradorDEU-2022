@@ -8,7 +8,7 @@ import Pausar from './Pausar'
 import RespuestasCorrectas from './RespuestasCorrectas'
 import { Container } from '@mui/system'
 import { useEffect, useState } from 'react'
-import data from '../data/palabras.json'
+import data from '../data/palabrasNuevas.json'
 import ModalIncorrecto from './Modals/ModalIncorrecto'
 import ModalPasapalabra from './Modals/ModalPasapalabra'
 import ModalPausa from './Modals/ModalPausa'
@@ -37,7 +37,7 @@ const tiempoReanudacionPredeterminado = 5;
 
 export default function Juego(props) {
 
-    const [palabras, setPalabras] = useState(data);
+    const [palabras, setPalabras] = useState([]);
     const [posPalabraActual, setPosPalabraActual] = useState(0);
     const [respuestasCorrectas, setRespuestasCorrectas] = useState(0);
     const [tiempoRestante, setTiempoRestante] = useState(tiempoDeJuego);
@@ -55,12 +55,33 @@ export default function Juego(props) {
 
     const [tiempoReanudacion, setTiempoReanudacion] = useState(tiempoReanudacionPredeterminado);
 
-    // Método para agregar el estado 0 (sin responder) a todas las palabras
+    
     useEffect(() => {
+        elegirPalabrasRosco();
+    }, [])
+    
+    useEffect(() => {
+        // Método para agregar el estado 0 (sin responder) a todas las palabras
         palabras.map(p => {
             p.estado = 0
+        });
+    }, [palabras])
+
+    // Elegir las palabras para el rosco
+    const elegirPalabrasRosco = () => {
+        let palabras = [];
+        data.map(l => {
+            // Elegir al azar la palabra
+            const palabra = l.palabras[Math.floor(Math.random() * l.palabras.length)];
+            palabras.push({
+                "letra": l.letra,
+                "palabra": palabra.palabra,
+                "definicion": palabra.definicion,
+                "formato": palabra.formato
+            })
         })
-    }, [])
+        setPalabras(palabras)
+    }
 
     // Tiempo restante
     useEffect(() => {

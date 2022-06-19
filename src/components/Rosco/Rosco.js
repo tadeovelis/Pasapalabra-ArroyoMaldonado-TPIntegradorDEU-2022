@@ -4,16 +4,22 @@ import Letras from "./Letras"
 import PalabraActual from "./PalabraActual"
 
 export default function Rosco(props) {
-    return(
+    return (
         <div>
             <Typography
                 variant="h2"
             >
                 Rosco
             </Typography>
-            <Letras
-                palabras={props.palabras}    
-            />
+            {props.palabras.length ?
+                <Letras
+                    palabras={props.palabras}
+                />
+            :
+                <Typography>
+                    Preparando rosco...
+                </Typography>
+            }
             <PalabraActual
                 palabra={props.palabras[props.posPalabraActual]}
             />

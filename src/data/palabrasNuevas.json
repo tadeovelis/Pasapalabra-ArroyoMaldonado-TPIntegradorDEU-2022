@@ -1,0 +1,277 @@
+[
+    {
+        "letra": "A",
+        "palabras": [
+            {
+                "palabra": "Arroyo",
+                "definicion": "Río pequeño de escaso caudal y profundidad, que puede secarse",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "B",
+        "palabras": [
+            {
+                "palabra": "Bañado",
+                "definicion": "Terreno húmedo, en parte pantanoso y generalmente inundable en época de lluvias",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "C",
+        "palabras": [
+            {
+                "palabra": "Cauce",
+                "definicion": "Concavidad del terreno, natural o artificial, por donde corre un río, un canal o cualquier corriente de agua",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Caudal",
+                "definicion": "Cantidad de agua que lleva una corriente o que fluye de un manantial o fuente",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "D",
+        "palabras": [
+            {
+                "palabra": "Diluvio",
+                "definicion": "Inundación provocada por estas lluvias",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "E",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía ninguna (en blanco)",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "F",
+        "palabras": [
+            {
+                "palabra": "Fluvial",
+                "definicion": "De los ríos o que tiene relación con ellos",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "G",
+        "palabras": [
+            {
+                "palabra": "Gato",
+                "definicion": "'Arroyo del...'. Nombre del arroyo que se extiende 15 km y desemboca en el Río de La Plata",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "H",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "I",
+        "palabras": [
+            {
+                "palabra": "Inundación",
+                "definicion": "Ocupación por parte del agua de zonas que habitualmente están libres de esta",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "J",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "L",
+        "palabras": [
+            {
+                "palabra": "Lluvia",
+                "definicion": "Agua que cae al llover",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "H",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "N",
+        "palabras": [
+            {
+                "palabra": "Naturaleza",
+                "definicion": "Conjunto de las cosas que existen en el mundo o que se producen o modifican sin intervención del ser humano",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "Ñ",
+        "palabras": [
+            {
+                "palabra": "Cañón",
+                "definicion": "Quebrada. Valle profundo y estrecho con laderas empinadas y rocosas provocado por el paso de un río",
+                "formato": "Contiene"
+            }
+        ]
+    },
+    {
+        "letra": "O",
+        "palabras": [
+            {
+                "palabra": "Orilla",
+                "definicion": "Parte de la tierra que está tocando a una masa de agua, como el mar, un lago o un río",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "P",
+        "palabras": [
+            {
+                "palabra": "Precipitación",
+                "definicion": "Caída de agua desde la atmósfera hacia la superficie terrestre",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Polución",
+                "definicion": "Contaminación o impurificación",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "Q",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Contiene"
+            }
+        ]
+    },
+    {
+        "letra": "R",
+        "palabras": [
+            {
+                "palabra": "Riesgo",
+                "definicion": "Probabilidad de que se produzca un suceso no deseado con repercusiones negativas",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "S",
+        "palabras": [
+            {
+                "palabra": "Suelo",
+                "definicion": "Parte externa de la corteza terrestre que es asiento de la vida, formada por la transformación de los minerales y la materia orgánica muerta",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "T",
+        "palabras": [
+            {
+                "palabra": "Tala",
+                "definicion": "Corte de árboles",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Temperatura",
+                "definicion": "Grado o nivel térmico de un cuerpo o de la atmósfera",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "U",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "V",
+        "palabras": [
+            {
+                "palabra": "Viento",
+                "definicion": "Corriente de aire que se produce en la atmósfera al variar la presión",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "W",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Contiene"
+            }
+        ]
+    },
+    {
+        "letra": "X",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Contiene"
+            }
+        ]
+    },
+    {
+        "letra": "Y",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Contiene"
+            }
+        ]
+    },
+    {
+        "letra": "Z",
+        "palabras": [
+            {
+                "palabra": "",
+                "definicion": "Todavía no implementado (en blanco)",
+                "formato": "Contiene"
+            }
+        ]
+    }
+]
