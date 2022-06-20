@@ -5,6 +5,7 @@ import ComoJugar from './components/SeccionesComplementarias/ComoJugar'
 import Glosario from './components/SeccionesComplementarias/Glosario'
 import AcercaDeLaApp from './components/SeccionesComplementarias/AcercaDeLaApp'
 import Configuracion from './components/SeccionesComplementarias/Configuracion'
+import Resultado from './components/Rosco/Resultado'
 
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
@@ -66,6 +67,7 @@ function App() {
           <Routes>
             <Route path='/' index element={<Home />} />
             <Route path="/rosco" element={<Juego />} />
+            <Route path="/rosco/resultado" element={<Resultado />} />
             <Route path="/como-jugar" element={<ComoJugar />} />
             <Route path="/glosario" element={<Glosario />} />
             <Route path="/acerca-de-la-app" element={<AcercaDeLaApp />} />
