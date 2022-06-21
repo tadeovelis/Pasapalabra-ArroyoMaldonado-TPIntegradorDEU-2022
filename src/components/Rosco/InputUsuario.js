@@ -72,11 +72,17 @@ export default function InputUsuario(props) {
                                     borderWidth: 3,
                                     borderRadius: '0px 10px 10px 0px',
                                     borderColor: '#1976d2',
-                                    height: '100%'
+                                    height: '100%',
+                                    '&:hover, &:focus': {
+                                        borderWidth: 5
+                                    }
                                 }}
                             >
                                 <KeyboardVoiceIcon
-                                    sx={{ color: "#1976d2", fontSize: '2em' }}
+                                    sx={{
+                                        color: "#1976d2",
+                                        fontSize: '2em',
+                                    }}
                                 />
                             </Button>
                         </Grid>
