@@ -39,7 +39,7 @@ export default function Home() {
                 direction="column"
             >
                 <Grid item>
-                    <BotonHome texto="Jugar" ruta="/rosco" />
+                    <BotonHome texto="Jugar" ruta="/preparacion" />
                 </Grid>
                 <Grid item>
                     <BotonHome texto="¿Cómo jugar?" ruta="/como-jugar" />

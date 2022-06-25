@@ -166,6 +166,11 @@
                 "palabra": "Polución",
                 "definicion": "Contaminación o impurificación",
                 "formato": "Empieza con"
+            },
+            {
+                "palabra": "Pluvial",
+                "definicion": "De la lluvia o relacionado con ella",
+                "formato": "Empieza con"
             }
         ]
     },

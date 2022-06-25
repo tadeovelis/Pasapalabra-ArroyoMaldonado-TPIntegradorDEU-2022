@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react'
 import crearTema from './helpers/theming';
 
 import configuracionPredeterminada from './data/configuracion.json'
+import PreJuego from './components/PreJuego'
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' index element={<Home />} />
+            <Route path='/preparacion' element={<PreJuego />} />
             <Route path="/rosco" element={<Juego />} />
             <Route path="/rosco/resultado" element={<Resultado />} />
             <Route path="/como-jugar" element={<ComoJugar />} />
