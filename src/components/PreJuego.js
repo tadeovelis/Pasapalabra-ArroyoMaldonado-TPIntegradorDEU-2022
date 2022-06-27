@@ -8,7 +8,7 @@ const steps = [
     "Ultimando detalles"
 ];
 
-const tiempo = 5;
+const tiempo = 3;
 
 export default function PreJuego(props) {
 
@@ -22,17 +22,17 @@ export default function PreJuego(props) {
             const timer = tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
 
             switch (tiempoRestante) {
-                case 0: {
-                    setTermino(true);
-                    setActiveStep(steps.length + 1);
-                    break;
-                }
-                case (tiempo * 0.6): {
+                case ((2/3) * tiempo): {
                     setActiveStep(1)
                     break;
                 }
-                case (tiempo * 0.3): {
+                case ((1/3) * tiempo): {
                     setActiveStep(2);
+                    break;
+                }
+                case 0: {
+                    setTermino(true);
+                    setActiveStep(steps.length + 1);
                     break;
                 }
             }
@@ -106,7 +106,7 @@ export default function PreJuego(props) {
                             px: 5
                         }}
                     >
-                        Jugar
+                        {!termino ? 'Preparando...' : 'Jugar'}
                     </Button>
                 </Grid>
             </Grid>
