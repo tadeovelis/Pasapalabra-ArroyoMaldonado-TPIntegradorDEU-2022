@@ -52,7 +52,10 @@ const paletteClaro = {
     },
     input: {
         main: '#337dd2'
-    }
+    },
+    textoPaper: {
+        main: '#000',
+    },
 };
 
 const paletteOscuro = {
@@ -120,7 +123,10 @@ const paletteExtra = {
     },
     input: {
         main: '#1e9b9c'
-    }
+    },
+    textoPaper: {
+        main: '#fff'
+    },
 };
 
 const paletteContrasteColores = {
