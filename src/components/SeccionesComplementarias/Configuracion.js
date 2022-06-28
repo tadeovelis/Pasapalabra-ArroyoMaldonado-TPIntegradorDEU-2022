@@ -92,6 +92,9 @@ export default function Configuracion(props) {
                                     />
                                 </Grid>
                             </Grid>
+                            <DetallesOpcion
+                                texto="Aún no implementado."
+                            />
                         </Grid>
 
                         {divider}
@@ -110,7 +113,7 @@ export default function Configuracion(props) {
                                 </Grid>
                             </Grid>
                             <DetallesOpcion
-                                texto="Si activás esta opción una voz artificial te leerá las preguntas."
+                                texto="Si activás esta opción una voz artificial te leerá las preguntas. Aún no implementado."
                             />
                         </Grid>
 
@@ -169,6 +172,9 @@ export default function Configuracion(props) {
                                     />
                                 </Grid>
                             </Grid>
+                            <DetallesOpcion
+                                texto="Aún no implementado."
+                            />
                         </Grid>
 
                         {divider}
@@ -186,6 +192,9 @@ export default function Configuracion(props) {
                                     />
                                 </Grid>
                             </Grid>
+                            <DetallesOpcion
+                                texto="Aún no implementado."
+                            />
                         </Grid>
 
                         {divider}

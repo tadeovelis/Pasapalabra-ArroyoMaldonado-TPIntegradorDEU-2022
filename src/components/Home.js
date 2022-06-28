@@ -17,7 +17,7 @@ export default function Home() {
                 background: `linear-gradient(0deg, rgba(6, 30, 52, 0.88), rgba(6, 30, 52, 0.88)), url(${mapa})`,
                 p: 10,
                 mx: '-7vw',
-                mb: '-30px'
+                mb: '-30px',
             }}
         >
             <Typography
@@ -34,8 +34,22 @@ export default function Home() {
                 <span style={{ fontSize: '1.5em' }}>Arroyo Maldonado</span>
                 <span>!</span>
             </Typography>
+            <Typography
+                variant="h4"
+                component="p"
+                color="primary.contrastText"
+                sx={{
+                    fontSize: '1.2em',
+                    mt: 2,
+                    letterSpacing: 2,
+                    maxWidth: '40vw',
+                    mx: 'auto'
+                }}
+            >
+                Juego educativo en el marco de difusión de las inundaciones de la zona del Arroyo Maldonado
+            </Typography>
             <Grid
-                mt={5}
+                mt={3}
                 container
                 spacing={2}
                 direction="column"
@@ -50,7 +64,7 @@ export default function Home() {
                     <BotonHome texto="Glosario" ruta="/glosario" />
                 </Grid>
                 <Grid item>
-                    <BotonHome texto="Acerca de la app" ruta="/acerca-de-la-app" />
+                    <BotonHome texto="Acerca del juego" ruta="/acerca-de-la-app" />
                 </Grid>
                 <Grid item>
                     <BotonConfiguracion />

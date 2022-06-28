@@ -61,7 +61,7 @@ export default function HeaderAbajo() {
                     to="/acerca-de-la-app"
                     startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
                 >
-                    Acerca de la app
+                    Acerca del juego
                 </HeaderButton>
             </Grid>
         </Grid>

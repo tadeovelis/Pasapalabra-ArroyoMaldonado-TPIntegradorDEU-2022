@@ -9,7 +9,7 @@ const espacioIconos = 2;
 export default function AcercaDeLaApp() {
     return (
         <SeccionComplementaria
-            titulo="Acerca de la app"
+            titulo="Acerca del juego"
             icono={<PeopleOutlineIcon sx={{ mr: espacioIconos, fontSize: 30 }} />}
             contenido={
                 <>
