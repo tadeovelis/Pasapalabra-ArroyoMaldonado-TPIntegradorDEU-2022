@@ -14,8 +14,7 @@ export default function ModalTimeOut(props) {
         <Dialog
             open={abierto}
             onClose={cerrar}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
+            aria-labelledby="titulo-dialog"
             PaperProps={{ sx: { borderRadius: 8 } }}
         >
             <Box
@@ -31,8 +30,8 @@ export default function ModalTimeOut(props) {
                         color: 'white',
                     }}>
                     <Typography
+                        id="titulo-dialog"
                         variant="h2"
-                        id="alert-dialog-title"
                         mb={2}
                         sx={{
                             textTransform: 'uppercase',

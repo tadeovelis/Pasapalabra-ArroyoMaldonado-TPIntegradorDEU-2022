@@ -24,7 +24,7 @@ export default function Glosario() {
                         {l.palabras.map(p =>
                             <BoxItemSeccionComplementaria
                                 p={p.palabra}
-                                titulo={p.palabra}
+                                titulo={p.palabra ? p.palabra : '[Por definir]'}
                                 contenido={p.definicion}
                             />
                         )

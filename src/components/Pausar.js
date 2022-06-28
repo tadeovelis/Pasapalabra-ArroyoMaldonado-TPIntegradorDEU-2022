@@ -9,6 +9,7 @@ export default function Pausar(props) {
                 variant="contained"
                 onClick={props.pausar}
                 color="primary"
+                aria-label="Pausar"
                 sx={{
                     '&:focus': {
                         transform: 'scale(1.1)'

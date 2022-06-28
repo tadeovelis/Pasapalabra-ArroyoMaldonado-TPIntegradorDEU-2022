@@ -29,6 +29,7 @@ export default function BotonesFlotantes() {
             <Button
                 variant="contained"
                 component={Link}
+                aria-label="Inicio"
                 sx={{
                     position: 'fixed',
                     fontWeight: '500',
@@ -47,6 +48,7 @@ export default function BotonesFlotantes() {
             <Button
                 variant="contained"
                 component={Link}
+                aria-label="Configuración"
                 sx={{
                     position: 'fixed',
                     fontWeight: '500',

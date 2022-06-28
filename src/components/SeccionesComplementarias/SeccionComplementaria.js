@@ -19,6 +19,7 @@ export default function SeccionComplementaria(props) {
             <Button
                 variant="contained"
                 component={Link}
+                aria-label="Ir atrás"
                 sx={{
                     position: 'fixed',
                     fontWeight: '500',
@@ -32,8 +33,18 @@ export default function SeccionComplementaria(props) {
             >
                 <ArrowBackIosNewIcon fontSize="large" />
             </Button>
-            <Container sx={{ marginX: 10, position: 'relative' }}>
-                <Box sx={{ backgroundColor: backgroundColor, color: 'white', zIndex: 1, position: 'relative' }}>
+            <Container
+                sx={{
+                    position: 'relative',
+                }}>
+                <Box
+                    sx={{
+                        backgroundColor: backgroundColor,
+                        color: 'white',
+                        zIndex: 1,
+                        position: 'relative',
+                        pb: 2
+                    }}>
                     <Box
                         sx={{
                             p: 4,

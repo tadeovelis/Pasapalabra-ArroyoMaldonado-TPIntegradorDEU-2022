@@ -12,10 +12,12 @@ import BotonConfiguracion from "./BotonConfiguracion"
 export default function Home() {
     return (
         <Box
-            p={10}
             sx={{
                 minHeight: '100vh',
-                background: `linear-gradient(0deg, rgba(6, 30, 52, 0.88), rgba(6, 30, 52, 0.88)), url(${mapa})`
+                background: `linear-gradient(0deg, rgba(6, 30, 52, 0.88), rgba(6, 30, 52, 0.88)), url(${mapa})`,
+                p: 10,
+                mx: '-7vw',
+                mb: '-30px'
             }}
         >
             <Typography

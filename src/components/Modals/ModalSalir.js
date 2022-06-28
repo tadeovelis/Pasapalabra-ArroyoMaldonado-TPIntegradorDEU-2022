@@ -14,8 +14,8 @@ export default function ModalSalir(props) {
         <Dialog
             open={abierto}
             onClose={cerrar}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
+            aria-labelledby="titulo-dialog"
+            aria-describedby="descripcion-dialog"
             PaperProps={{ sx: { borderRadius: 8 } }}
         >
             <Box
@@ -31,16 +31,17 @@ export default function ModalSalir(props) {
                         color: 'white',
                     }}>
                     <Typography
+                        id="titulo-dialog"
                         variant="h2"
-                        id="alert-dialog-title"
                         mb={2}
                         sx={{
                             textTransform: 'uppercase',
                         }}
                     >
-                        ¿Estás seguro?
+                        ¿Estás seguro de salir?
                     </Typography>
                     <Typography
+                        id="descripcion-dialog"
                         variant="body2"
                         sx={{
                             textTransform: 'none',

@@ -25,15 +25,15 @@ const tamañosLetrasVariantes = {
 
 const paletteClaro = {
     primary: {
-        main: '#337dd2',
-        medio: '#2a6ab7',
+        main: '#2f74c2',
+        medio: '#2761a7',
         oscuro: '#225386',
     },
     error: {
         main: '#d81b00',
     },
     pasapalabra: {
-        main: '#eee138',
+        main: '#f2e100',
         contrastText: 'white',
         dark: '#ddd027'
     },

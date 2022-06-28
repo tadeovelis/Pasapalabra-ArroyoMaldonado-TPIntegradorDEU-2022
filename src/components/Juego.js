@@ -32,7 +32,7 @@ import { useNavigate } from 'react-router-dom'
 // Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 350;
+const tiempoDeJuego = 180;
 
 const tiempoReanudacionPredeterminado = 5;
 
@@ -194,17 +194,21 @@ export default function Juego(props) {
     
     // Código cuando termina
     useEffect(() => {
-        if (termino) {
-            navigate("/rosco/resultado", {
-                state: {
-                    palabras: palabras,
-                    respuestasCorrectas: respuestasCorrectas,
-                    respuestasIncorrectas: respuestasIncorrectas,
-                    tiempoRestante: tiempoRestante
-                }
-            })
+        if (termino && tiempoRestante !== 0) {
+            irALosResultados();
         }
     }, [termino])
+
+    const irALosResultados = () => {
+        navigate("/rosco/resultado", {
+            state: {
+                palabras: palabras,
+                respuestasCorrectas: respuestasCorrectas,
+                respuestasIncorrectas: respuestasIncorrectas,
+                tiempoRestante: tiempoRestante
+            }
+        })
+    }
 
 
     /* Métodos modals */
@@ -255,7 +259,6 @@ export default function Juego(props) {
                 <Header />
                 <Paper
                     sx={{
-                        marginX: 5,
                         mt: 5,
                         mb: 0,
                         p: 10,
@@ -333,6 +336,7 @@ export default function Juego(props) {
                             cerrar={cerrarModalTimeOut}
                             palabra={palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]]}
                             respuestasCorrectas={respuestasCorrectas}
+                            irALosResultados={irALosResultados}
                         />
                         <Snackbar
                             open={alertCorrectoAbierto}

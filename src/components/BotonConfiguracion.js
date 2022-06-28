@@ -9,6 +9,7 @@ export default function BotonConfiguracion(props) {
         <Button
             variant="contained"
             component={Link}
+            aria-label="Configuración"
             sx={{
                 fontWeight: '500',
                 borderRadius: 100,

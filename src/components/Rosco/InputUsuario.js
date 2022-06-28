@@ -67,6 +67,7 @@ export default function InputUsuario(props) {
                         <Grid item>
                             <Button
                                 variant="outlined"
+                                aria-label="Ingresar palabra con reconocimiento de voz"
                                 onClick={() => alert("Todavía no implementado")}
                                 sx={{
                                     borderWidth: 3,
@@ -94,6 +95,7 @@ export default function InputUsuario(props) {
                                 variant="contained"
                                 onClick={props.respondioPasapalabra}
                                 color="pasapalabra"
+                                aria-label="Pasapalabra"
                             >
                                 <AutorenewIcon />
                             </Button>
@@ -103,6 +105,7 @@ export default function InputUsuario(props) {
                                 variant="contained"
                                 color="primary"
                                 type="submit"
+                                aria-label="Confirmar palabra"
                             >
                                 <KeyboardReturnIcon />
                             </Button>

@@ -15,8 +15,7 @@ export default function ModalPasapalabra(props) {
         <Dialog
             open={abierto}
             onClose={cerrar}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
+            aria-labelledby="titulo-dialog"
             PaperProps={{ sx: { borderRadius: 8 } }}
         >
             <Box
@@ -28,15 +27,12 @@ export default function ModalPasapalabra(props) {
                 <Box
                     p={5}
                     sx={{
-                        backgroundColor: 'success.main',
+                        backgroundColor: 'primary.main',
                         color: 'white',
                     }}>
-                        <Typography>
-                            [En desarrollo, incompleto]
-                        </Typography>
                     <Typography
+                        id="titulo-dialog"
                         variant="h2"
-                        id="alert-dialog-title"
                         mb={2}
                         sx={{
                             textTransform: 'uppercase',
@@ -51,7 +47,7 @@ export default function ModalPasapalabra(props) {
                             fontWeight: 600,
                             lineHeight: 1
                         }}>
-                        ¡Bien jugado! Veamos los resultados.
+                        ¡Bien jugado! Vamos a ver los resultados.
                     </Typography>
                 </Box>
                 <Box
@@ -59,25 +55,25 @@ export default function ModalPasapalabra(props) {
                     sx={{
 
                     }}>
-                    {/* Letra */}
-                    <Typography variant="body1">
-                        Cantidad de palabras que acertaste:  <br />
-
-                    </Typography><Box my={2}><b>{respuestasCorrectas}</b></Box>
-                    <Typography variant="body1">¿Quéres volver a jugar?</Typography>
                     <Grid
                         container
                         justifyContent="center"
                         spacing={4}
                         p={3}
                     >
-
+                        <Grid item>
+                            <Button
+                                variant="outlined"
+                                color="negro"
+                                onClick={() => props.irALosResultados()}
+                            >
+                                Ver los resultados
+                            </Button>
+                        </Grid>
                         <Grid item>
                             <Button component={Link} to="/" variant="contained" color="error">Salir</Button>
                         </Grid>
-                        <Grid item>
-                            <Button variant="outlined" color="negro" onClick={() => window.location.reload(false)} >Volver a jugar</Button>
-                        </Grid>
+
                     </Grid>
                 </Box>
             </Box>
