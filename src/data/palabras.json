@@ -31,6 +31,11 @@
                 "palabra": "Caudal",
                 "definicion": "Cantidad de agua que lleva una corriente o que fluye de un manantial o fuente",
                 "formato": "Empieza con"
+            },
+            {
+                "palabra": "Cuenca",
+                "definicion": "Depresión en el terreno, rodeada por terrenos más altos, en la cual converge el agua proveniente de precipitaciones y que desemboca en un río, laguna, u otro cuerpo de agua",
+                "formato": "Empieza con"
             }
         ]
     },
@@ -41,6 +46,11 @@
                 "palabra": "Diluvio",
                 "definicion": "Inundación provocada por estas lluvias",
                 "formato": "Empieza con"
+            },
+            {
+                "palabra": "Decapitación",
+                "definicion": "Remoción de las capas superficiales del terreno por actividades extractivas de horizontes humíferos o sedimentos profundos",
+                "formato": "Empieza con"
             }
         ]
     },
@@ -48,8 +58,8 @@
         "letra": "E",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía ninguna (en blanco)",
+                "palabra": "Escurrimiento",
+                "definicion": "También llamado escorrentía, porción de la precipitación que fluye como corriente superficial cuando un cauce rebalsa",
                 "formato": "Empieza con"
             }
         ]
@@ -71,6 +81,11 @@
                 "palabra": "Gato",
                 "definicion": "'Arroyo del...'. Nombre del arroyo que se extiende 15 km y desemboca en el Río de La Plata",
                 "formato": "Empieza con"
+            },
+            {
+                "palabra": "Garibaldi",
+                "definicion": "Arroyo que se origina en la estación Arana, de 9 km de extensión, con desarrollo similar al Maldonado",
+                "formato": "Empieza con"
             }
         ]
     },
@@ -78,8 +93,8 @@
         "letra": "H",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Hídrico",
+                "definicion": "Relativo al agua",
                 "formato": "Empieza con"
             }
         ]
@@ -98,8 +113,18 @@
         "letra": "J",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Junco",
+                "definicion": "Planta de hoja cilíndrica, alargada, recta y flexible, usada en cestería y para confeccionar techos",
+                "formato": "Empieza con"
+            }
+        ]
+    },
+    {
+        "letra": "K",
+        "palabras": [
+            {
+                "palabra": "Kilómetro",
+                "definicion": "Unidad de longitud equivalente a mil metros",
                 "formato": "Empieza con"
             }
         ]
@@ -118,8 +143,8 @@
         "letra": "M",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Monasterio",
+                "definicion": "Arroyo de 4 km de longitud, afluente del Maldonado que se encuentra parcialmente entubado",
                 "formato": "Empieza con"
             }
         ]
@@ -178,9 +203,9 @@
         "letra": "Q",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
-                "formato": "Contiene"
+                "palabra": "Quinta",
+                "definicion": "Finca ubicada afuera del centro urbano de una ciudad pero que a su vez está cerca de él, destinada a la recreación o la producción hortícola.",
+                "formato": "Empieza con"
             }
         ]
     },
@@ -200,6 +225,11 @@
             {
                 "palabra": "Suelo",
                 "definicion": "Parte externa de la corteza terrestre que es asiento de la vida, formada por la transformación de los minerales y la materia orgánica muerta",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Samborombón",
+                "definicion": "Río que da nombre a la vertiente de la zona sur del partido de La Plata",
                 "formato": "Empieza con"
             }
         ]
@@ -223,8 +253,8 @@
         "letra": "U",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Urbano",
+                "definicion": "De la ciudad o relativo a ella",
                 "formato": "Empieza con"
             }
         ]
@@ -243,9 +273,9 @@
         "letra": "W",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
-                "formato": "Contiene"
+                "palabra": "Weir",
+                "definicion": "vocablo inglés para designar un tipo de vertedero longitudinal usado frecuentemente para controlar el flujo",
+                "formato": "Empieza con"
             }
         ]
     },
@@ -253,8 +283,8 @@
         "letra": "X",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Convexo",
+                "definicion": "Que tiene, respecto al observador, forma curva más prominente en el centro que en los bordes",
                 "formato": "Contiene"
             }
         ]
@@ -263,8 +293,8 @@
         "letra": "Y",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
+                "palabra": "Abascay",
+                "definicion": "Arroyo que escurre de N-S con una extensión de más de 15 km dentro del partido de La Plata, el más importante de su vertiente",
                 "formato": "Contiene"
             }
         ]
@@ -273,9 +303,9 @@
         "letra": "Z",
         "palabras": [
             {
-                "palabra": "",
-                "definicion": "Todavía no implementado (en blanco)",
-                "formato": "Contiene"
+                "palabra": "Zanjón",
+                "definicion": "Cauce o canal grande y profundo por donde corre el agua, creado por el hombre por el agua que corre",
+                "formato": "Empieza con"
             }
         ]
     }
