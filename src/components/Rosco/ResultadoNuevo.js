@@ -63,6 +63,7 @@ export default function ResultadoNuevo(props) {
                             borderTop: 10,
                             borderBottom: 10,
                             borderColor: gano ? 'success.main' : 'error.main',
+                            color: 'textoPaper.main'
                         }}
                     >
                         <RoscoFinalizado
