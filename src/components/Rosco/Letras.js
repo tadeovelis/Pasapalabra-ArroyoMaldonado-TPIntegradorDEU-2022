@@ -1,4 +1,4 @@
-import Letra from "./Letra";
+import LetraRosco from "./LetraRosco";
 
 export default function Letras(props) {
 
@@ -7,10 +7,11 @@ export default function Letras(props) {
     return (
         <div>
             <h4>
-                {palabras.map(p =>
-                    <Letra
+                {palabras.map((p,i) =>
+                    <LetraRosco
                         key={p.letra}
                         palabra={p}
+                        indice={i}
                     />
                 )}
             </h4>

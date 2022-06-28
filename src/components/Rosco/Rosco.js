@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { Typography, Box } from "@mui/material"
 import { useEffect } from "react"
 import InputUsuario from "./InputUsuario"
 import Letras from "./Letras"
@@ -15,10 +15,13 @@ export default function Rosco(props) {
             </Typography>
             {props.palabras.length ?
                 <>
-                    <Letras
-                        palabras={props.palabras}
-                    />
-
+                    <Box sx={{justifyContent:"center", display:"flex"}}>
+                        <Box sx={{width:"270px", height:"270px", position: "relative"}}>
+                            <Letras
+                                palabras={props.palabras}
+                            />
+                        </Box>
+                    </Box>
                     <PalabraActual
                         palabra={props.palabras[props.posPalabraActual]}
                     />

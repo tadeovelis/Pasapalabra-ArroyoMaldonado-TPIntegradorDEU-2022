@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material"
+import { Button, Typography, Box } from "@mui/material"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import InputUsuario from "./InputUsuario"
@@ -15,9 +15,13 @@ export default function RoscoFinalizado(props) {
 
     return (
         <div>
-            <Letras
-                palabras={palabras}
-            />
+            <Box sx={{justifyContent:"center", display:"flex"}}>
+                <Box sx={{width:"270px", height:"270px", position: "relative"}}>
+                    <Letras
+                        palabras={palabras}
+                    />
+                </Box>
+            </Box>
             <Typography
                 variant="h3"
                 color="error"
