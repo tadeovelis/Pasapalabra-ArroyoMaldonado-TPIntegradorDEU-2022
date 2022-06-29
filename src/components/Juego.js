@@ -30,6 +30,7 @@ import { useNavigate } from 'react-router-dom'
 */
 
 // Si la función de comparación de strings da mayor a este nro la respuesta es correcta.
+// NO USADO POR AHORA
 const exactitudComparacion = 0.75;
 
 const tiempoDeJuego = 180;
@@ -155,7 +156,12 @@ export default function Juego(props) {
 
     // Confirmar el input de la palabra
     function respondio(palabra) {
+        /*
         if (palabraCorrecta(palabra) > exactitudComparacion) {
+            respondioBien();
+        }
+        */
+        if (palabraCorrecta(palabra)) {
             respondioBien();
         }
         else {
@@ -186,9 +192,19 @@ export default function Juego(props) {
         })
     }
 
+    function quitarAcentos(s){
+        const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'};
+        return s.split('').map( letra => acentos[letra] || letra).join('').toString();	
+    }
+
     // Se fija si es correcta la palabra ingresada 
     function palabraCorrecta(palabra) {
-        return compareTwoStrings(palabra, palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra.toLowerCase())
+        //return compareTwoStrings(palabra, palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra.toLowerCase())
+        const pIngresada = quitarAcentos(palabra).toLowerCase();
+        const pOriginal = quitarAcentos(palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra).toLowerCase();
+        console.log("Ingresada: " + pIngresada);
+        console.log("Original: " + pOriginal);
+        return pIngresada === pOriginal
     }
 
     
