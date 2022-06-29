@@ -255,7 +255,7 @@ export default function crearTema(configuraciones) {
             },
             body1: {
                 fontFamily: 'Roboto, sans-serif',
-                fontWeight: 400
+                fontWeight: 500
             },
         },
         components: getComponents()

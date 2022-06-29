@@ -24,7 +24,7 @@ function App() {
 
   // Ajustes de configuración
   const [musica, setMusica] = useState(true);
-  const [lecturaPreguntas, setLecturaPreguntas] = useState(false);
+  const [escucharDefiniciones, setEscucharDefiniciones] = useState(false);
   const [contrasteColores, setContrasteColores] = useState(false);
   const [modoDaltonico, setModoDaltonico] = useState(false);
   const [tamañoLetra, setTamañoLetra] = useState(configuracionPredeterminada.tamañoLetraPredeterminado);
@@ -46,7 +46,7 @@ function App() {
   // Cuando se cambia alguno, aplico los cambios (excepto el tamaño de letra que es manual con "Aplicar")
   useEffect(() => {
     aplicarConfiguraciones();
-  }, [musica, tema, lecturaPreguntas, contrasteColores, efectosSonidos, respuestaPorVoz])
+  }, [musica, tema, escucharDefiniciones, contrasteColores, efectosSonidos, respuestaPorVoz])
 
   const aplicarConfiguraciones = () => {
     cambiarTema()
@@ -78,7 +78,7 @@ function App() {
                 cambiarTema={cambiarTema}
                 configuraciones={{
                   'musica': musica,
-                  'lecturaPreguntas': lecturaPreguntas,
+                  'escucharDefiniciones': escucharDefiniciones,
                   'contrasteColores': contrasteColores,
                   'tamañoLetra': tamañoLetra,
                   'efectosSonidos': efectosSonidos,
@@ -87,7 +87,7 @@ function App() {
                 }}
                 settersConfiguraciones={{
                   'musica': setMusica,
-                  'lecturaPreguntas': setLecturaPreguntas,
+                  'escucharDefiniciones': setEscucharDefiniciones,
                   'contrasteColores': setContrasteColores,
                   'tamañoLetra': setTamañoLetra,
                   'efectosSonidos': setEfectosSonidos,

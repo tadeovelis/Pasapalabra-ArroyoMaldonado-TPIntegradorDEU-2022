@@ -15,13 +15,17 @@ export default function AcercaDeLaApp() {
                 <>
                     <BoxItemSeccionComplementaria
                         titulo="¿De qué trata?"
-                        contenido={
+                        contenido={<>
                             <p>
                                 Este juego está basado en el formato del programa de televisión
                                 <i> "Pasapalabras"</i>, el cual, a su vez, es una versión adaptada del original británico
-                                <i> "The Alphabet Game"</i>. Este juego pone a prueba tus conocimientos sobre la lengua utilizada y sobre
+                                <i> "The Alphabet Game"</i>. Este formato de juego pone a prueba tus conocimientos sobre la lengua utilizada en concreto y sobre
                                 conceptos de cualquier índole, de una forma dinámica y muy entretenida.
                             </p>
+                            <p>
+                                La versión original se juega de a dos, pero nosotros la adaptamos para poder jugarlo individualmente.
+                            </p>
+                        </>
                         }
                     />
                     <BoxItemSeccionComplementaria

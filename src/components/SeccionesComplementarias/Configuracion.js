@@ -101,13 +101,13 @@ export default function Configuracion(props) {
 
                         <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
                             <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Lectura de preguntas</Typography></Grid>
+                                <Grid item><Typography variant="h3">Escuchar definiciones</Typography></Grid>
                                 <Grid item>
                                     <Switch
-                                        name="lectura-preguntas"
+                                        name="escuchar-definiciones"
                                         size="large"
-                                        checked={c.lecturaPreguntas}
-                                        onChange={e => setters.lecturaPreguntas(e.target.checked)}
+                                        checked={c.escucharDefiniciones}
+                                        onChange={e => setters.escucharDefiniciones(e.target.checked)}
                                         inputProps={{ 'aria-label': 'controlled' }}
                                     />
                                 </Grid>
