@@ -15,11 +15,44 @@ Se crea el tema. Recibe algunos parámetros customizables:
 // Acá se cambia la relación de tamaño de todas las tipografías,
 // con respecto al fontSize del theme (definido en App.js)
 const tamañosLetrasVariantes = {
-    'h1': '2.3em !important',
-    'h2': '2.5em !important',
-    'h3': '1.5em !important',
-    'body1': '1.2em !important',
-    'body2': '1.2em !important'
+    'h1': {
+        'xs': '1.7em !important',
+        'sm': '2em !important',
+        'lg': '2.3em !important'
+    },
+    'h2': {
+        'xs': '2.2em !important',
+        'sm': '2.3em !important',
+        'lg': '2.5em !important'
+    },
+    'h3': {
+        'xs': '1.2em !important',
+        'sm': '1.3em !important',
+        'lg': '1.5em !important'
+    },
+    'body1': {
+        'xs': '1em !important',
+        'sm': '1.1em !important',
+        'lg': '1.2em !important'
+    },
+    'body2': {
+        'xs': '1em !important',
+        'sm': '1.1em !important',
+        'lg': '1.2em !important'
+    },
+    'button': {
+        'xs': '1.1em !important',
+        'sm': '1.3em !important',
+        'lg': '1.5em !important'
+    }
+}
+
+const breakpoints = {
+    'xs': '0px',
+    'sm': '600px',
+    'md': '900px',
+    'lg': '1200px',
+    'xl': '1536px'
 }
 
 
@@ -203,21 +236,60 @@ export default function crearTema(configuraciones) {
                         src: `url(${RowdiesFontLight}), url(${RowdiesFontRegular}), url(${RowdiesFontBold}) format('ttf')`
                     },
                     h1: {
-                        fontSize: tamañosLetrasVariantes.h1
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.h1.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.h1.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.h1.lg
                     },
                     h2: {
-                        fontSize: tamañosLetrasVariantes.h2
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.h2.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.h2.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.h2.lg
                     },
                     h3: {
-                        fontSize: tamañosLetrasVariantes.h3
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.h3.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.h3.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.h3.lg
                     },
                     'p.MuiTypography-body1': {
-                        fontSize: tamañosLetrasVariantes.body1
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.body1.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.body1.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.body1.lg,
                     },
                     'p.MuiTypography-body2': {
-                        fontSize: tamañosLetrasVariantes.body2
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.body2.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.body2.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.body2.lg,
                     },
-                },
+                    'a.MuiButton-root': {
+                        [`@media (max-width:${breakpoints.lg})`]: {
+                            fontSize: tamañosLetrasVariantes.button.sm,
+                        },
+                        [`@media (max-width:${breakpoints.sm})`]: {
+                            fontSize: tamañosLetrasVariantes.button.xs,
+                        },
+                        fontSize: tamañosLetrasVariantes.button.lg,
+                    }
+                }
             },
             MuiButton: {
                 styleOverrides: {
@@ -242,11 +314,12 @@ export default function crearTema(configuraciones) {
         // Colores
         palette: getPalette(),
 
+        // Tipografías
         typography: {
             fontSize: tamañoLetra,
             fontFamily: 'Rowdies, Roboto',
 
-            // Acá, por X razón, no funciona el fontSize con rem o em, así que están abajo de todo.
+            // Acá, por X razón, no funciona el fontSize con rem o em, así que están abajo de todo (en components).
             h2: {
                 fontWeight: 800
             },
