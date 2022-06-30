@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper'
 import Header from './Header'
-import { Alert, Grid, Snackbar } from '@mui/material'
+import { Alert, Grid, Snackbar, useMediaQuery } from '@mui/material'
 import Salir from './Salir'
 import TiempoRestante from './TiempoRestante'
 import Rosco from './Rosco/Rosco'
@@ -17,6 +17,7 @@ import ModalTimeOut from './Modals/ModalTimeOut'
 import { compareTwoStrings } from 'string-similarity'
 import BotonesFlotantes from './BotonesFlotantes'
 import { useNavigate } from 'react-router-dom'
+import { useTheme } from '@emotion/react'
 
 
 /* Estados palabras/letras
@@ -38,6 +39,9 @@ const tiempoDeJuego = 180;
 const tiempoReanudacionPredeterminado = 5;
 
 export default function Juego(props) {
+
+    const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [palabras, setPalabras] = useState([]);
     const [indicesPalabrasAResponder, setIndicesPalabrasAResponder] = useState(
@@ -184,7 +188,7 @@ export default function Juego(props) {
             setearALasPasapalabrasSinResponder();
         }
     }, [posIndicesPalabrasAResponder])
-    
+
     // A las pasapalabras las pone en estado sin responder para dar otra vuelta al rosco
     function setearALasPasapalabrasSinResponder() {
         indicesPalabrasAResponder.map(i => {
@@ -192,9 +196,9 @@ export default function Juego(props) {
         })
     }
 
-    function quitarAcentos(s){
-        const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'};
-        return s.split('').map( letra => acentos[letra] || letra).join('').toString();	
+    function quitarAcentos(s) {
+        const acentos = { 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U' };
+        return s.split('').map(letra => acentos[letra] || letra).join('').toString();
     }
 
     // Se fija si es correcta la palabra ingresada 
@@ -207,7 +211,7 @@ export default function Juego(props) {
         return pIngresada === pOriginal
     }
 
-    
+
     // Código cuando termina
     useEffect(() => {
         if (termino && tiempoRestante !== 0) {
@@ -264,38 +268,48 @@ export default function Juego(props) {
 
     return (
         <>
-            <BotonesFlotantes />
-            <Container maxWidth={false}
+            {!esMobile && <BotonesFlotantes />}
+            <Grid container justifyContent="center"
                 sx={{
                     background: "backgroundGeneral.main",
                     minHeight: '100vh',
-                    margin: 0
+                    margin: 0,
                 }}
             >
                 <Header />
                 <Paper
                     sx={{
                         mt: 5,
-                        mb: 0,
-                        p: 10,
-                        bgcolor: "backgroundPaper.main",
-                        color: "textoPaper.main",
+                        height: 'fit-content'
                     }}
                 >
-                    <Grid container>
-                        <Grid item xs={3}>
-                            <Grid item xs={6}>
+                    <Grid
+                        container
+                        justifyContent="center"
+                        sx={{
+                            mb: 0,
+                            p: {
+                                xs: 3,
+                                sm: 5,
+                                lg: 7
+                            },
+                            bgcolor: "backgroundPaper.main",
+                            color: "textoPaper.main",
+                        }}
+                    >
+                        <Grid justifyContent="center" item xs={6} sm={6} lg={3} order={{ xs: 2, sm: 2, lg: 1 }}>
+                            <Grid item>
                                 <Salir
                                     salir={salir}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item>
                                 <TiempoRestante
                                     tiempoRestante={tiempoRestante}
                                 />
                             </Grid>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid justifyContent="center" container item xs={12} sm={12} lg={6} order={{ xs: 1, sm: 1, lg: 2 }}>
                             <Grid item>
                                 <Rosco
                                     palabras={palabras}
@@ -307,7 +321,7 @@ export default function Juego(props) {
                                 />
                             </Grid>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={6} sm={6} lg={3} order={{ xs: 3, sm: 3, lg: 3 }}>
                             <Grid item>
                                 <Pausar
                                     pausar={pausar}
@@ -372,7 +386,7 @@ export default function Juego(props) {
                     </>
                 }
 
-            </Container>
+            </Grid>
         </>
     )
 }

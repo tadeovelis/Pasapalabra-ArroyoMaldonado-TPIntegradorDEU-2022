@@ -21,9 +21,9 @@ const tamañosLetrasVariantes = {
         'lg': '2.3em !important'
     },
     'h2': {
-        'xs': '2.2em !important',
-        'sm': '2.3em !important',
-        'lg': '2.5em !important'
+        'xs': '1.6em !important',
+        'sm': '1.9em !important',
+        'lg': '2.2em !important'
     },
     'h3': {
         'xs': '1.2em !important',
@@ -331,7 +331,8 @@ export default function crearTema(configuraciones) {
                 fontWeight: 500
             },
         },
-        components: getComponents()
+
+        components: getComponents(),
     };
 
     return opcionesTema
