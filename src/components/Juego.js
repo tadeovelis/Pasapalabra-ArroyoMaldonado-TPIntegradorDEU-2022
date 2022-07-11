@@ -272,7 +272,7 @@ export default function Juego(props) {
             <Grid container justifyContent="center"
                 sx={{
                     background: "backgroundGeneral.main",
-                    minHeight: '100vh',
+                    //minHeight: '100vh',
                     margin: 0,
                 }}
             >
