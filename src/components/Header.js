@@ -1,5 +1,5 @@
 import { Box } from "@mui/system"
-import { Drawer, Grid, Typography, useMediaQuery, Divider } from "@mui/material"
+import { Drawer, Grid, Typography, useMediaQuery, Divider, Fab } from "@mui/material"
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 
@@ -7,11 +7,47 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import '../App.css'
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
+
+
+const EntradaMenuMobile = (titulo, icono, ruta) => {
+    return (
+        <Grid item container
+            component="li"
+        >
+            <Grid item container
+                component={Link}
+                to={ruta}
+                sx={{
+                    textDecoration: 'none',
+                    '&:hover, &:focus': {
+                        transform: 'translatex(-4px)'
+                    },
+                    transition: 'transform .1s ease-in-out'
+                }}      
+                justifyContent='flex-end'
+                alignItems='center'
+                spacing={1}
+                color="primary.contrastText"
+            >
+                <Grid item>
+                    <Typography variant="h3">
+                        {titulo}
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    {icono}
+                </Grid>
+            </Grid>
+        </Grid>
+    )
+}
 
 const HeaderButton = styled(Button)({
     fontSize: '1.5em',
@@ -23,7 +59,7 @@ const HeaderButton = styled(Button)({
     }
 });
 
-const divider = (
+const MyDivider = (
     <Grid item sx={{ width: '100%' }}>
         <Divider sx={{ width: '100%', borderBottomWidth: 0.3, bgcolor: 'primary.contrastText' }} />
     </Grid>
@@ -40,10 +76,11 @@ export default function Header() {
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
 
     const buttonHeaderMobile = (
-        <Button
+        <Fab
             variant="contained"
+            color="primary"
+            size="large"
             sx={{
-                borderRadius: '20px',
                 position: 'fixed',
                 top: 0,
                 right: 0,
@@ -53,8 +90,8 @@ export default function Header() {
             aria-label="Abrir menú de navegación"
             onClick={() => setHeaderMobileAbierto(!headerMobileAbierto)}
         >
-            <MenuIcon />
-        </Button>
+            <MenuIcon fontSize="large" />
+        </Fab>
     )
 
     return (
@@ -125,12 +162,12 @@ export default function Header() {
                         <Grid
                             container
                             sx={{
-                                width: '70vw',
+                                width: '80vw',
                                 color: 'primary.contrastText',
 
                             }}
                         >
-                            <Grid container item sx={{ bgcolor: 'primary.oscuro', pl: 5, pr: 3, py: 3 }}>
+                            <Grid container item sx={{ bgcolor: 'primary.oscuro', pl: 5, pr: 3, py: 4 }}>
                                 <Grid item>
                                     <Typography variant="h1">
                                         Menú
@@ -138,42 +175,28 @@ export default function Header() {
                                 </Grid>
                                 {buttonHeaderMobile}
                             </Grid>
-                            <Grid container item
-                                spacing={1.5}
-                                direction="column"
-                                alignItems="flex-end"
-                                sx={{
-                                    bgcolor: 'primary.medio', px: 3, pb: 3, pt: 1, m: 0
-                                }}
+
+                            <Grid item container
+                                component="nav"
                             >
-                                <Grid item>
-                                    <Typography variant="h3">
-                                        Ir a la bienvenida
-                                    </Typography>
-                                </Grid>
-                                {divider}
-                                <Grid item>
-                                    <Typography variant="h3">
-                                        ¿Cómo jugar?
-                                    </Typography>
-                                </Grid>
-                                {divider}
-                                <Grid item>
-                                    <Typography variant="h3">
-                                        Glosario
-                                    </Typography>
-                                </Grid>
-                                {divider}
-                                <Grid item>
-                                    <Typography variant="h3">
-                                        Acerca del juego
-                                    </Typography>
-                                </Grid>
-                                {divider}
-                                <Grid item>
-                                    <Typography variant="h3">
-                                        Opciones
-                                    </Typography>
+                                <Grid container item
+                                    spacing={1.5}
+                                    direction="column"
+                                    alignItems="flex-end"
+                                    sx={{
+                                        bgcolor: 'primary.medio', px: 3, pb: 3, pt: 1, m: 0
+                                    }}
+                                    component="ul"
+                                >
+                                    {EntradaMenuMobile("Ir a la bienvenida", <HomeIcon fontSize="large" />, "/")}
+                                    {MyDivider}
+                                    {EntradaMenuMobile("¿Cómo jugar?", <HelpOutlineIcon fontSize="large" />, "/como-jugar")}
+                                    {MyDivider}
+                                    {EntradaMenuMobile("Glosario", <ImportContactsIcon fontSize="large" />, "/glosario")}
+                                    {MyDivider}
+                                    {EntradaMenuMobile("Acerca del juego", <PeopleOutlineIcon fontSize="large" />, "/acerca-de-la-app")}
+                                    {MyDivider}
+                                    {EntradaMenuMobile("Configuración", <SettingsIcon fontSize="large" />, "/configuraciones")}
                                 </Grid>
                             </Grid>
                         </Grid>
