@@ -277,64 +277,65 @@ export default function Juego(props) {
                 }}
             >
                 <Header />
-                <Paper
+                <Grid
+                    container
+                    justifyContent="center"
                     sx={{
-                        mt: 5,
-                        height: 'fit-content'
+                        m: 3,
+                        p: {
+                            xs: 3,
+                            sm: 3,
+                            lg: 3
+                        },
+                        bgcolor: "backgroundPaper.main",
+                        color: "textoPaper.main",
+                        borderRadius: 2
                     }}
+                    spacing={1}
                 >
-                    <Grid
-                        container
+                    <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 2, sm: 2, lg: 1 }}
                         justifyContent="center"
-                        sx={{
-                            mb: 0,
-                            p: {
-                                xs: 3,
-                                sm: 5,
-                                lg: 7
-                            },
-                            bgcolor: "backgroundPaper.main",
-                            color: "textoPaper.main",
-                        }}
+                        alignItems="center"
                     >
-                        <Grid justifyContent="center" item xs={6} sm={6} lg={3} order={{ xs: 2, sm: 2, lg: 1 }}>
-                            <Grid item>
-                                <Salir
-                                    salir={salir}
-                                />
-                            </Grid>
-                            <Grid item>
-                                <TiempoRestante
-                                    tiempoRestante={tiempoRestante}
-                                />
-                            </Grid>
+                        <Grid item xs={12}>
+                            <Salir
+                                salir={salir}
+                            />
                         </Grid>
-                        <Grid justifyContent="center" container item xs={12} sm={12} lg={6} order={{ xs: 1, sm: 1, lg: 2 }}>
-                            <Grid item>
-                                <Rosco
-                                    palabras={palabras}
-                                    posPalabraActual={indicesPalabrasAResponder[posIndicesPalabrasAResponder]}
-                                    respondioBien={respondioBien}
-                                    respondioMal={respondioMal}
-                                    respondioPasapalabra={respondioPasapalabra}
-                                    respondio={respondio}
-                                />
-                            </Grid>
-                        </Grid>
-                        <Grid item xs={6} sm={6} lg={3} order={{ xs: 3, sm: 3, lg: 3 }}>
-                            <Grid item>
-                                <Pausar
-                                    pausar={pausar}
-                                />
-                            </Grid>
-                            <Grid item>
-                                <RespuestasCorrectas
-                                    respuestasCorrectas={respuestasCorrectas}
-                                />
-                            </Grid>
+                        <Grid item xs={12}>
+                            <TiempoRestante
+                                tiempoRestante={tiempoRestante}
+                            />
                         </Grid>
                     </Grid>
-                </Paper>
+                    <Grid justifyContent="center" container item xs={12} sm={12} lg={6} order={{ xs: 1, sm: 1, lg: 2 }}>
+                        <Grid item>
+                            <Rosco
+                                palabras={palabras}
+                                posPalabraActual={indicesPalabrasAResponder[posIndicesPalabrasAResponder]}
+                                respondioBien={respondioBien}
+                                respondioMal={respondioMal}
+                                respondioPasapalabra={respondioPasapalabra}
+                                respondio={respondio}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 3, sm: 3, lg: 3 }}
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <Grid item xs={12}>
+                            <Pausar
+                                pausar={pausar}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <RespuestasCorrectas
+                                respuestasCorrectas={respuestasCorrectas}
+                            />
+                        </Grid>
+                    </Grid>
+                </Grid>
 
                 {/* Modals */}
                 {palabras.length &&

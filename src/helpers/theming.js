@@ -89,6 +89,12 @@ const paletteClaro = {
     textoPaper: {
         main: '#000',
     },
+    tiempoRestante: {
+        main: '#ce5c8c'
+    },
+    respuestasCorrectas: {
+        main: '#e27600'
+    },
 };
 
 const paletteOscuro = {
@@ -123,6 +129,12 @@ const paletteOscuro = {
     },
     input: {
         contrastText: '#fff'
+    },
+    tiempoRestante: {
+        main: '#ce5c8c'
+    },
+    respuestasCorrectas: {
+        main: '#e27600'
     },
     contrastThreshold: 3
 };
@@ -160,6 +172,12 @@ const paletteExtra = {
     textoPaper: {
         main: '#fff'
     },
+    tiempoRestante: {
+        main: '#ce5c8c'
+    },
+    respuestasCorrectas: {
+        main: '#e27600'
+    },
 };
 
 const paletteContrasteColores = {
@@ -196,7 +214,13 @@ const paletteContrasteColores = {
     input: {
         main: '#fff',
         contrastText: '#fff'
-    }
+    },
+    tiempoRestante: {
+        main: '#ce5c8c'
+    },
+    respuestasCorrectas: {
+        main: '#e27600'
+    },
 };
 
 
