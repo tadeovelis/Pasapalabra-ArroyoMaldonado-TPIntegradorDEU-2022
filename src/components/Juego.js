@@ -34,9 +34,9 @@ import { useTheme } from '@emotion/react'
 // NO USADO POR AHORA
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 2;
+const tiempoDeJuego = 200;
 
-const tiempoReanudacionPredeterminado = 200;
+const tiempoReanudacionPredeterminado = 5;
 
 export default function Juego(props) {
 
