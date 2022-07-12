@@ -20,6 +20,7 @@ import crearTema from './helpers/theming';
 import configuracionPredeterminada from './data/configuracion.json'
 import PreJuego from './components/PreJuego'
 
+
 function App() {
 
   // Ajustes de configuración
@@ -31,6 +32,85 @@ function App() {
   const [efectosSonidos, setEfectosSonidos] = useState(false);
   const [respuestaPorVoz, setRespuestaPorVoz] = useState(false);
   const [tema, setTema] = useState("claro");
+
+  /* Opciones configurables */
+  // El checked se completa después
+  const opcionesConfigurables = {
+    'switchers': [
+      {
+        'name': 'musica',
+        'titulo': 'Música',
+        'textoDetalle': 'Aún no implementado.',
+        'value': musica,
+        'setter': setMusica
+      },
+      {
+        'name': 'escuchar-definiciones',
+        'titulo': 'Escuchar definiciones',
+        'textoDetalle': 'Si activás esta opción una voz artificial te leerá las preguntas. Aún no implementado.',
+        'value': escucharDefiniciones,
+        'setter': setEscucharDefiniciones
+      },
+      {
+        'name': 'contraste-colores',
+        'titulo': 'Contraste de colores',
+        'textoDetalle': 'Si activás esta opción los colores de los textos contrastarán mucho más con los fondos.',
+        'value': contrasteColores,
+        'setter': setContrasteColores
+      },
+      {
+        'name': 'modo-daltonico',
+        'titulo': 'Modo daltónico',
+        'textoDetalle': 'Aún no implementado.',
+        'value': modoDaltonico,
+        'setter': setModoDaltonico
+      },
+      {
+        'name': 'efectos-sonido',
+        'titulo': 'Efectos de sonido',
+        'textoDetalle': 'Aún no implementado.',
+        'value': efectosSonidos,
+        'setter': setEfectosSonidos
+      },
+      {
+        'name': 'respuesta-por-voz',
+        'titulo': 'Respuesta por voz',
+        'textoDetalle': 'Aún no implementado.',
+        'value': respuestaPorVoz,
+        'setter': setRespuestaPorVoz
+      }
+    ],
+    'tamañoLetra': {
+      'name': 'tamaño-letra',
+      'titulo': 'Tamaño de letra',
+      'textoDetalle': 'Podés elegir entre 5 tamaños de letra distintos. Mové el círculo y hacé click en "Aplicar".',
+      'value': tamañoLetra,
+      'setter': setTamañoLetra
+    },
+    'tema': {
+      'name': 'tema',
+      'titulo': 'Tema de colores',
+      'textoDetalle': !contrasteColores ? '¡Cambiá los colores de la interfaz del juego!' : 'Para cambiar los temas primero tenés que desactivar la opción "Contraste de colores".',
+      'value': tema,
+      'setter': setTema,
+      'estado': contrasteColores,
+      'temas': [
+        {
+          'texto': 'Claro (predeterminado)',
+          'value': 'claro'
+        },
+        {
+          'texto': 'Oscuro',
+          'value': 'oscuro'
+        },
+        {
+          'texto': 'Extra',
+          'value': 'extra'
+        },
+      ]
+    }
+  }
+
 
   const [theme, setTheme] = useState(createTheme(crearTema(tamañoLetra)));
 
@@ -76,24 +156,7 @@ function App() {
             <Route path="/configuracion" element={
               <Configuracion
                 cambiarTema={cambiarTema}
-                configuraciones={{
-                  'musica': musica,
-                  'escucharDefiniciones': escucharDefiniciones,
-                  'contrasteColores': contrasteColores,
-                  'tamañoLetra': tamañoLetra,
-                  'efectosSonidos': efectosSonidos,
-                  'respuestaPorVoz': respuestaPorVoz,
-                  'tema': tema
-                }}
-                settersConfiguraciones={{
-                  'musica': setMusica,
-                  'escucharDefiniciones': setEscucharDefiniciones,
-                  'contrasteColores': setContrasteColores,
-                  'tamañoLetra': setTamañoLetra,
-                  'efectosSonidos': setEfectosSonidos,
-                  'respuestaPorVoz': setRespuestaPorVoz,
-                  'tema': setTema
-                }}
+                opcionesConfigurables={opcionesConfigurables}
                 aplicarCambioTamañoLetra={aplicarCambioTamañoLetra}
               />
             } />

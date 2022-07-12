@@ -17,6 +17,7 @@ export default function SeccionComplementaria(props) {
     const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const backgroundColor = (props.backgroundColor === undefined) ? 'primary.main' : props.backgroundColor;
+    const backgroundColorMobile = (props.backgroundColor === undefined) ? 'backgroundGeneral' : props.backgroundColor;
 
     return (
         <div>
@@ -100,7 +101,9 @@ export default function SeccionComplementaria(props) {
                 <Container
                     sx={{
                         color: 'white',
-                        minHeight: '100vh'
+                        minHeight: '100vh',
+                        px: 0,
+                        //bgcolor: backgroundColorMobile
                     }}
                 >
                     <HeaderMobile />

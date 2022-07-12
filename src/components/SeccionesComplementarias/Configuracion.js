@@ -1,7 +1,7 @@
 import SeccionComplementaria from "./SeccionComplementaria"
 
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select } from "@mui/material";
+import { Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import configuracion from '../../data/configuracion.json'
@@ -12,57 +12,58 @@ import InfoIcon from '@mui/icons-material/Info';
 
 const espacioIconos = 2;
 
-
 const divider = (
     <Grid item sx={{ width: '100%' }}>
         <Divider sx={{ width: '100%', borderBottomWidth: 2 }} />
     </Grid>
 )
 
-
 // Devuelve el texto para los tamaños de letra
 const valueLabelFormat = (value) => {
     return configuracion.tamañosLetra.find(t => t.value === value).texto
 }
 
-const DetallesOpcion = (props) => {
-    return (
-        <Grid item container spacing={1} xs={6} wrap="nowrap">
-            <Grid item><InfoIcon color="primary.oscuro"></InfoIcon></Grid>
-            <Grid item><Typography color="primary.oscuro" variant="body2" sx={{ textAlign: 'left' }}>
-                {props.texto}
-            </Typography>
-            </Grid>
-        </Grid>
-    )
-}
 
 export default function Configuracion(props) {
 
-    const setters = props.settersConfiguraciones;
-    const c = props.configuraciones;
+    const opcionesConfigurables = props.opcionesConfigurables;
 
     const [hayCambiosDeTamañoDeLetraAAplicar, setHayCambiosDeTamañoDeLetraAAplicar] = useState(false);
 
     const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const colorMobileDetalles = (!esMobile ? 'primary.oscuro' : 'primary.contrastText');
 
     // Se ejecuta cuando se mueve el slider
     const cambiarTamañoLetra = (e) => {
-        setters.tamañoLetra(e.target.value);
+        opcionesConfigurables.tamañoLetra.setter(e.target.value);
     };
 
+    const cambiarTemaDeColores = (e) => {
+        opcionesConfigurables.tema.setter(e.target.value);
+    }
+
     const chequearSiHayCambiosDeTamañoLetraAAplicar = () => {
-        if (c.tamañoLetra !== theme.typography.fontSize)
+        if (opcionesConfigurables.tamañoLetra.value !== theme.typography.fontSize)
             setHayCambiosDeTamañoDeLetraAAplicar(true)
         else setHayCambiosDeTamañoDeLetraAAplicar(false)
     }
 
     useEffect(() => {
         chequearSiHayCambiosDeTamañoLetraAAplicar();
-    }, [c.tamañoLetra])
+    }, [opcionesConfigurables.tamañoLetra.value])
 
-    const cambiarTemaDeColores = (e) => {
-        setters.tema(e.target.value);
+    const DetallesOpcion = (props) => {
+        return (
+            <Grid item container spacing={1} xs={6} wrap="nowrap">
+                <Grid item><InfoIcon color={colorMobileDetalles}></InfoIcon></Grid>
+                <Grid item><Typography color={colorMobileDetalles} variant="body2" sx={{ textAlign: 'left' }}>
+                    {props.texto}
+                </Typography>
+                </Grid>
+            </Grid>
+        )
     }
 
 
@@ -76,136 +77,60 @@ export default function Configuracion(props) {
                     <Grid
                         container
                         display="flex"
-                        color="primary.main"
+                        color={!esMobile ? "primary.main" : "primary.contrastText"}
                         spacing={2}
                     >
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Música</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="musica"
-                                        size="large"
-                                        checked={c.musica}
-                                        onChange={e => setters.musica(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Aún no implementado."
-                            />
-                        </Grid>
 
-                        {divider}
+                        {opcionesConfigurables.switchers.map(s => {
+                            return (
+                                <>
+                                    <Grid item container alignItems="center" justifyContent="space-between"
+                                        spacing={2}
+                                    >
+                                        <Grid item container alignItems="center" xs={6}
+                                            spacing={2}
+                                            sx={{
+                                                textAlign: 'left'
+                                            }}
+                                        >
+                                            <Grid item xs={12} lg='auto'><Typography variant="h3">{s.titulo}</Typography></Grid>
+                                            <Grid item>
+                                                <Switch
+                                                    name={s.name}
+                                                    size="large"
+                                                    checked={s.value}
+                                                    onChange={e => s.setter(e.target.checked)}
+                                                    inputProps={{ 'aria-label': 'controlled' }}
+                                                />
+                                            </Grid>
+                                        </Grid>
+                                        <DetallesOpcion
+                                            texto={s.textoDetalle}
+                                        />
+                                    </Grid>
+                                    {divider}
+                                </>
+                            )
+                        })}
 
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Escuchar definiciones</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="escuchar-definiciones"
-                                        size="large"
-                                        checked={c.escucharDefiniciones}
-                                        onChange={e => setters.escucharDefiniciones(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Si activás esta opción una voz artificial te leerá las preguntas. Aún no implementado."
-                            />
-                        </Grid>
-
-                        {divider}
-
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Contraste de colores</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="contraste-colores"
-                                        size="large"
-                                        checked={c.contrasteColores}
-                                        onChange={e => setters.contrasteColores(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Si activás esta opción los colores de los textos contrastarán mucho más con los fondos."
-                            />
-                        </Grid>
-
-                        {divider}
-
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Modo daltónico</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="modo-daltonico"
-                                        size="large"
-                                        checked={c.modoDaltonico}
-                                        onChange={e => setters.modoDaltonico(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Aún no implementado."
-                            />
-                        </Grid>
-
-                        {divider}
-
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Efectos de sonido</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="efectos-sonidos"
-                                        size="large"
-                                        checked={c.efectosSonidos}
-                                        onChange={e => setters.efectosSonidos(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Aún no implementado."
-                            />
-                        </Grid>
-
-                        {divider}
-
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Respuesta por voz</Typography></Grid>
-                                <Grid item>
-                                    <Switch
-                                        name="respuesta-por-voz"
-                                        size="large"
-                                        checked={c.respuestaPorVoz}
-                                        onChange={e => setters.respuestaPorVoz(e.target.checked)}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                </Grid>
-                            </Grid>
-                            <DetallesOpcion
-                                texto="Aún no implementado."
-                            />
-                        </Grid>
-
-                        {divider}
-
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Tamaño de letra</Typography></Grid>
+                        <Grid item container alignItems="center" justifyContent="space-between"
+                            spacing={{
+                                xs: 2,
+                                sm: 2,
+                                lg: 2
+                            }}
+                        >
+                            <Grid item container alignItems="center" spacing={2} xs={6}
+                                sx={{
+                                    textAlign: 'left'
+                                }}
+                            >
+                                <Grid item><Typography variant="h3">{opcionesConfigurables.tamañoLetra.titulo}</Typography></Grid>
                                 <Grid item>
                                     <Slider
-                                        aria-label="Tamaño letra"
-                                        value={c.tamañoLetra}
+                                        name={opcionesConfigurables.tamañoLetra.name}
+                                        aria-label={opcionesConfigurables.tamañoLetra.titulo}
+                                        value={opcionesConfigurables.tamañoLetra.value}
                                         onChange={cambiarTamañoLetra}
                                         max={configuracion.tamañosLetra[configuracion.tamañosLetra.length - 1].value}
                                         min={configuracion.tamañosLetra[0].value}
@@ -228,36 +153,83 @@ export default function Configuracion(props) {
                                 </Grid>
                             </Grid>
                             <DetallesOpcion
-                                texto="Podés elegir entre 5 tamaños de letra distintos. Mové el círculo y hacé click en 'Aplicar'."
+                                texto={opcionesConfigurables.tamañoLetra.textoDetalle}
                             />
                         </Grid>
-
                         {divider}
 
-                        <Grid item container alignItems="center" justifyContent="space-between" spacing={2}>
-                            <Grid item container alignItems="center" spacing={2} xs={6}>
-                                <Grid item><Typography variant="h3">Tema de colores</Typography></Grid>
+                        <Grid item container alignItems="center" justifyContent="space-between"
+                            spacing={{
+                                xs: 3,
+                                sm: 2,
+                                lg: 2
+                            }}
+                        >
+                            <Grid item container alignItems="center" spacing={2} xs={6}
+                                sx={{
+                                    textAlign: 'left'
+                                }}
+                            >
+                                <Grid item><Typography variant="h3">{opcionesConfigurables.tema.titulo}</Typography></Grid>
                                 <Grid item>
-                                    <FormControl fullWidth>
+                                    <FormControl fullWidth
+                                        sx={{
+                                            maxWidth: {
+                                                xs: 150,
+                                                lg: 'inherit'
+                                            }
+                                        }}
+                                    >
                                         <Select
-                                            disabled={c.contrasteColores}
-                                            labelId="tema"
-                                            id="tema"
-                                            value={c.tema}
-                                            label="Tema"
+                                            name={opcionesConfigurables.tema.name}
+                                            disabled={opcionesConfigurables.tema.estado}
+                                            labelId={opcionesConfigurables.tema.name}
+                                            id={opcionesConfigurables.tema.name}
+                                            value={opcionesConfigurables.tema.value}
+                                            label={opcionesConfigurables.tema.titulo}
                                             onChange={cambiarTemaDeColores}
+                                            sx={{
+                                                color: {
+                                                    xs: 'white',
+                                                    sm: 'inherit',
+                                                    lg: 'inherit'
+                                                },
+                                                '.MuiOutlinedInput-notchedOutline': {
+                                                    borderColor: {
+                                                        xs: 'white',
+                                                        sm: 'inherit',
+                                                        lg: 'inherit'
+                                                    }
+                                                },
+                                                '&:hover .MuiOutlinedInput-notchedOutline': {
+                                                    borderColor: {
+                                                        xs: 'white',
+                                                        sm: 'inherit',
+                                                        lg: 'inherit'
+                                                    }
+                                                },
+                                                '.MuiSelect-icon': {
+                                                    fill: {
+                                                        xs: 'white',
+                                                        sm: 'inherit',
+                                                        lg: 'inherit'
+                                                    }
+                                                }
+                                            }}
                                         >
-                                            <MenuItem value="claro">Claro (predeterminado)</MenuItem>
-                                            <MenuItem value="oscuro">Oscuro</MenuItem>
-                                            <MenuItem value="extra">Extra</MenuItem>
+                                            {opcionesConfigurables.tema.temas.map(t =>
+                                                <MenuItem value={t.value}>{t.texto}</MenuItem>
+                                            )}
                                         </Select>
                                     </FormControl>
                                 </Grid>
                             </Grid>
                             <DetallesOpcion
-                                texto={!c.contrasteColores ? "¡Cambiá los colores de la interfaz del juego!" : "Para cambiar los temas primero tenes que desactivar la opción 'Contraste de colores'."}
+                                texto={opcionesConfigurables.tema.textoDetalle}
                             />
                         </Grid>
+                        {divider}
+
                     </Grid>
                 </>
             }

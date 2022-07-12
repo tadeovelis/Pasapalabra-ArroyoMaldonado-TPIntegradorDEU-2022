@@ -127,7 +127,7 @@ export default function HeaderMobile() {
                             {HeaderMobileDivider}
                             {EntradaMenuMobile("Acerca del juego", <PeopleOutlineIcon fontSize="large" />, "/acerca-de-la-app")}
                             {HeaderMobileDivider}
-                            {EntradaMenuMobile("Configuración", <SettingsIcon fontSize="large" />, "/configuraciones")}
+                            {EntradaMenuMobile("Configuración", <SettingsIcon fontSize="large" />, "/configuracion")}
                         </Grid>
                     </Grid>
                 </Grid>
