@@ -1,5 +1,6 @@
 
 import { Button } from "@mui/material"
+import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function Salir(props) {
@@ -16,7 +17,9 @@ export default function Salir(props) {
                         transform: 'scale(1.1)'
                     }
                 }}
-            >X</Button>
+            >
+                <CloseIcon />
+            </Button>
         </div>
     )
 }

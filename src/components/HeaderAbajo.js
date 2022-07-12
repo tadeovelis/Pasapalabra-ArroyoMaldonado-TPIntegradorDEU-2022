@@ -11,7 +11,6 @@ import '../App.css'
 import styled from "@emotion/styled";
 
 const HeaderButton = styled(Button)(({ theme }) => ({
-    fontSize: '1.5em',
     padding: '15px 35px',
     borderRadius: '0 0 10px 10px',
     backgroundColor: theme.palette.primary.oscuro,
@@ -61,7 +60,7 @@ export default function HeaderAbajo() {
                     to="/acerca-de-la-app"
                     startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
                 >
-                    Acerca de la app
+                    Acerca del juego
                 </HeaderButton>
             </Grid>
         </Grid>

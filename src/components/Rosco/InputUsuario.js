@@ -51,7 +51,7 @@ export default function InputUsuario(props) {
         <div>
             <form onSubmit={respondio}>
                 <Grid container spacing={2}>
-                    <Grid container item xs={12} alignItems="stretch" justifyContent="center">
+                    <Grid container item xs={12} alignItems="stretch" justifyContent="center" wrap={false}>
                         <Grid item>
                             <CssTextField
                                 id="palabra"
