@@ -1,13 +1,17 @@
-import { Typography, Box } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import { useEffect } from "react";
 
 
 export default function Letra(props) {
 
+    const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
     const palabra = props.palabra;
     const angle = props.indice / 26 * 2 * Math.PI - Math.PI / 2;
-    const radius = 120;
-    const symbolSize = 27;
+    const radius = esMobile ? 123 : 182;
+    const symbolSize = esMobile ? 25 : 38;
 
     const x = radius + radius * Math.cos(angle);
     const y = radius + radius * Math.sin(angle);

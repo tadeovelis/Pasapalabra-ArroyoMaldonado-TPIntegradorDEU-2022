@@ -1,10 +1,16 @@
-import { Typography, Box } from "@mui/material"
+import { useTheme } from "@emotion/react"
+import { Typography, Box, useMediaQuery } from "@mui/material"
 import { useEffect } from "react"
 import InputUsuario from "./InputUsuario"
 import Letras from "./Letras"
 import PalabraActual from "./PalabraActual"
 
 export default function Rosco(props) {
+
+    const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
+    const tamañoRosco = esMobile ? '270px' : '400px';
 
     return (
         <div>
@@ -16,16 +22,23 @@ export default function Rosco(props) {
             </Typography>
             {props.palabras.length ?
                 <>
-                    <Box sx={{justifyContent:"center", display:"flex", mb: 2}}>
-                        <Box sx={{width:"270px", height:"270px", position: "relative"}}>
+                    <Box sx={{ justifyContent: "center", display: "flex", mb: 4 }}>
+                        <Box sx={{ width: tamañoRosco, height: tamañoRosco, position: "relative" }}>
                             <Letras
                                 palabras={props.palabras}
                             />
+                            {!esMobile &&
+                                <PalabraActual
+                                    palabra={props.palabras[props.posPalabraActual]}
+                                />
+                            }
                         </Box>
                     </Box>
-                    <PalabraActual
-                        palabra={props.palabras[props.posPalabraActual]}
-                    />
+                    {esMobile &&
+                        <PalabraActual
+                            palabra={props.palabras[props.posPalabraActual]}
+                        />
+                    }
                     <InputUsuario
                         respondioBien={props.respondioBien}
                         respondioMal={props.respondioMal}

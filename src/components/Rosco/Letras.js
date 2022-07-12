@@ -6,15 +6,13 @@ export default function Letras(props) {
 
     return (
         <div>
-            <h4>
-                {palabras.map((p,i) =>
-                    <LetraRosco
-                        key={p.letra}
-                        palabra={p}
-                        indice={i}
-                    />
-                )}
-            </h4>
+            {palabras.map((p, i) =>
+                <LetraRosco
+                    key={p.letra}
+                    palabra={p}
+                    indice={i}
+                />
+            )}
         </div>
     )
 }

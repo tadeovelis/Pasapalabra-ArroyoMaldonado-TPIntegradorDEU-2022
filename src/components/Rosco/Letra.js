@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 
 
@@ -8,7 +8,7 @@ export default function Letra(props) {
 
     // Le doy un color rápido para identificar el estado
     function getColor() {
-        switch(palabra.estado) {
+        switch (palabra.estado) {
             case 1:
                 return 'success.main'
             case 2:
@@ -16,18 +16,26 @@ export default function Letra(props) {
             case 3:
                 return 'pasapalabra.main'
             default:
-                return 'primary'
+                return 'primary.main'
         }
     }
 
     return (
-        <Typography
-            variant="string"
+        <Box
             sx={{
-                color: getColor(),
+                bgcolor: getColor(),
+                width: '50px',
+                height: '50px',
+                borderRadius: "50%",
+                margin: '0 auto',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
             }}
         >
-            {palabra.letra}{" "}
-        </Typography>
+            <Typography sx={{ fontWeight: "bold", color: "primary.contrastText" }}>
+                {palabra.letra}
+            </Typography>
+        </Box>
     )
 }
