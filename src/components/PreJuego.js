@@ -59,12 +59,25 @@ export default function PreJuego(props) {
                     <Typography variant="h2">¡Estamos preparando el rosco!</Typography>
                 </Grid>
 
-                <Grid item xs={12} sx={{ mx: 15, my: 4 }}>
+                <Grid item xs={12}
+                    sx={{
+                        mx: {
+                            xs: 0,
+                            sm: 5,
+                            lg: 15
+                        },
+                        my: 4
+                    }}
+                >
                     <Stepper
                         activeStep={activeStep}
                         alternativeLabel
                         sx={{
-                            fontSize: '1.3em'
+                            fontSize: {
+                                xs: '1em',
+                                sm: '.6em',
+                                lg: '1.3em',
+                            }
                         }}>
                         {steps.map((label) => {
                             return (

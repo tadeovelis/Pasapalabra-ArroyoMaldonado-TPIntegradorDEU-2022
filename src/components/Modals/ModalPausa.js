@@ -19,14 +19,21 @@ export default function ModalPausa(props) {
             <Box
                 sx={{
                     textAlign: 'center',
-                    minWidth: '450px',
-                    maxWidth: '450px'
+                    width: {
+                        xs: '80vw',
+                        sm: '450px',
+                        lg: '450px'
+                    }
                 }}>
                 <Box
-                    p={5}
                     sx={{
                         backgroundColor: 'primary.main',
                         color: 'white',
+                        p: {
+                            xs: 4,
+                            sm: 3,
+                            lg: 5
+                        },
                     }}>
                     <Typography
                         id="titulo-dialog"

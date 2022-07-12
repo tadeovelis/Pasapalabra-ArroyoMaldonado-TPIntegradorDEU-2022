@@ -12,14 +12,24 @@ export default function Recapitulacion(props) {
             <Grid item>
                 <Box
                     sx={{
-                        p: 4,
+                        pl: 4,
+                        pr: {
+                            xs: 7,
+                            sm: 2,
+                            lg: 4
+                        },
+                        py: {
+                            xs: 2,
+                            sm: 2,
+                            lg: 4
+                        },
                         top: 0,
                         zIndex: 99,
                         backgroundColor: 'primary.medio',
                         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);',
                     }}
                 >
-                    <Grid container direction="column" spacing={1}>
+                    <Grid container direction="column" spacing={{xs: 0, sm: 0, lg: 1}}>
                         <Grid item>
                             <Typography variant="h1"
                                 sx={{
@@ -27,7 +37,7 @@ export default function Recapitulacion(props) {
                                     textTransform: 'uppercase'
                                 }}
                             >
-                                Terminó el juego
+                                ¡Terminó el juego!
                             </Typography>
                         </Grid>
                         <Grid item>
@@ -48,7 +58,8 @@ export default function Recapitulacion(props) {
                 item
                 sx={{
                     overflowY: 'scroll',
-                    p: 4
+                    p: 4,
+                    mb: 2
                 }}
             >
                 {palabras.map(p => {
@@ -68,29 +79,7 @@ export default function Recapitulacion(props) {
                     )
                 })}
             </Grid>
-
-            {/*
-            <Grid
-                item
-                sx={{
-                    overflowY: 'scroll',
-                    
-                }}
-            >
-                {palabras.map(p => {
-                    return (
-                        <BoxItemSeccionComplementaria
-                            titulo={p.palabra}
-                            contenido={
-                                p.definicion
-                            }
-                        />
-                    )
-                })}
-            </Grid>
-            */}
         </>
-
     )
 
 }

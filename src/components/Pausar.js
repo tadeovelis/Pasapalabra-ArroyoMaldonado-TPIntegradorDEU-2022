@@ -1,5 +1,7 @@
 
 import { Button } from "@mui/material"
+import PauseIcon from '@mui/icons-material/Pause';
+
 
 export default function Pausar(props) {
     return (
@@ -15,7 +17,8 @@ export default function Pausar(props) {
                         transform: 'scale(1.1)'
                     }
                 }}
-            >||
+            >
+                <PauseIcon />
             </Button>
         </div>
     )

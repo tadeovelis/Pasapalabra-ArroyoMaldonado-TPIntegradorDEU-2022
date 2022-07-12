@@ -25,7 +25,7 @@ export default function Glosario() {
                             <BoxItemSeccionComplementaria
                                 p={p.palabra}
                                 titulo={p.palabra ? p.palabra : '[Por definir]'}
-                                contenido={p.definicion}
+                                contenido={p.definicion + "."}
                             />
                         )
                         }

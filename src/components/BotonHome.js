@@ -9,12 +9,11 @@ export default function BotonHome(props) {
             component={Link}
             to={props.ruta}
             sx={{
-                px: 6,
-                fontSize: '1.5em',
+                fontSize: '1.7em',
                 fontWeight: 900,
                 letterSpacing: 1,
                 borderRadius: 2.5,
-                minWidth: '25vw',
+                width: '100%',
                 '&:hover, &:focus': {
                     transform: 'scalex(.98)',
                     transition: 'transform .1s ease-in-out'

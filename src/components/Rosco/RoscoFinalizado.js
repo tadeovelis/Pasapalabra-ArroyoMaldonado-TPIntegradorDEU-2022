@@ -20,7 +20,7 @@ export default function RoscoFinalizado(props) {
             />
             <Typography
                 variant="h3"
-                color="error"
+                color={gano ? 'success.main' : 'error.main'}
                 gutterBottom
             >
                 {gano ? '¡Felicitaciones!' : '¡Casi!'}
