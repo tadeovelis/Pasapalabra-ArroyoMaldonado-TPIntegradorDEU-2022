@@ -34,14 +34,14 @@ import { useTheme } from '@emotion/react'
 // NO USADO POR AHORA
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 180;
+const tiempoDeJuego = 2;
 
-const tiempoReanudacionPredeterminado = 5;
+const tiempoReanudacionPredeterminado = 200;
 
 export default function Juego(props) {
 
     const theme = useTheme();
-    const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
     const [palabras, setPalabras] = useState([]);
     const [indicesPalabrasAResponder, setIndicesPalabrasAResponder] = useState(

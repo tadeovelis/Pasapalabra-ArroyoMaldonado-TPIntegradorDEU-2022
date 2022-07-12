@@ -72,7 +72,7 @@ const espacioIconos = 1;
 export default function Header() {
 
     const theme = useTheme();
-    const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
 

@@ -20,14 +20,21 @@ export default function ModalTimeOut(props) {
             <Box
             sx={{
                 textAlign: 'center',
-                minWidth: '450px',
-                maxWidth: '450px'
+                width: {
+                    xs: '80vw',
+                    sm: '450px',
+                    lg: '450px'
+                }
             }}>
                 <Box
-                    p={5}
                     sx={{
                         backgroundColor: 'pasapalabra.main',
                         color: 'white',
+                        p: {
+                            xs: 4,
+                            sm: 5,
+                            lg: 5
+                        },
                     }}>
                     <Typography
                         id="titulo-dialog"
@@ -52,15 +59,15 @@ export default function ModalTimeOut(props) {
                 <Box
                     p={3}
                     sx={{
-
+                        color: 'primary.oscuro'
                     }}>
-                    <Typography variant="body1">
+                    <Typography variant="body2">
                         Ahora toca una palabra que <br/>
                         <span style={{textTransform: 'uppercase'}}>{palabra.formato}</span>
                     </Typography>
                     {/* Letra */}
                     <Box my={2}><b><Letra palabra={palabra} /></b></Box>
-                    <Typography variant="body1">Seguimos en <b>{tiempoReanudacion}</b>...</Typography>
+                    <Typography variant="body2">Seguimos en <b>{tiempoReanudacion}</b>...</Typography>
                 </Box>
             </Box>
         </Dialog>

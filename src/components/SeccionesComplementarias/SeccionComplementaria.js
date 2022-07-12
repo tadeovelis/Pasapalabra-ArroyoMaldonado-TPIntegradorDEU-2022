@@ -14,7 +14,7 @@ import HeaderMobile from "../HeaderMobile";
 export default function SeccionComplementaria(props) {
 
     const theme = useTheme();
-    const esMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
     const backgroundColor = (props.backgroundColor === undefined) ? 'primary.main' : props.backgroundColor;
     const backgroundColorMobile = (props.backgroundColor === undefined) ? 'backgroundGeneral' : props.backgroundColor;
