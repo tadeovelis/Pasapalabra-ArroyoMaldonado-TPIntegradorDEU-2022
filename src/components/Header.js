@@ -73,6 +73,7 @@ export default function Header() {
 
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
+    const esLandscape = useMediaQuery('(orientation: landscape)');
 
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
 
@@ -147,7 +148,9 @@ export default function Header() {
                 </nav>
 
             ) : (
-                <HeaderMobile />
+                <HeaderMobile
+                    esLandscape={esLandscape}
+                />
             )
             }
         </>

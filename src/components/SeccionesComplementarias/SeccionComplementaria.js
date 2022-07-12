@@ -7,7 +7,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 import '../../App.css'
 import { useTheme } from "@emotion/react";
-import HeaderMobile from "../HeaderMobile";
+import Header from "../Header";
 
 
 
@@ -106,7 +106,7 @@ export default function SeccionComplementaria(props) {
                         //bgcolor: backgroundColorMobile
                     }}
                 >
-                    <HeaderMobile />
+                    <Header />
                     <Grid container
                         sx={{
                             position: 'fixed',

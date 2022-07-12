@@ -43,16 +43,13 @@ const EntradaMenuMobile = (titulo, icono, ruta) => {
     )
 }
 
-const HeaderMobileDivider = (
-    <Grid item sx={{ width: '100%' }}>
-        <Divider sx={{ width: '100%', borderBottomWidth: 0.3, bgcolor: 'primary.contrastText' }} />
-    </Grid>
-)
 
 
-export default function HeaderMobile() {
-   
+
+export default function HeaderMobile(props) {
+
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
+    const esLandscape = props.esLandscape;
 
     const buttonHeaderMobile = (
         <Fab
@@ -60,7 +57,7 @@ export default function HeaderMobile() {
             color="primary"
             size="large"
             sx={{
-                position: 'fixed',
+                position: (esLandscape && headerMobileAbierto) ? 'absolute' : 'fixed',
                 top: 0,
                 right: 0,
                 m: 2,
@@ -73,6 +70,12 @@ export default function HeaderMobile() {
         </Fab>
     )
 
+    const HeaderMobileDivider = (
+        <Grid item sx={{ width: !esLandscape ? '100%' : '0' }}>
+            <Divider sx={{ width: '100%', borderBottomWidth: 0.3, bgcolor: 'primary.contrastText' }} />
+        </Grid>
+    )
+
     return (
         <>
             {buttonHeaderMobile}
@@ -83,7 +86,7 @@ export default function HeaderMobile() {
                 onClose={() => setHeaderMobileAbierto(false)}
                 sx={{
                     '& .MuiDrawer-paper': {
-                        height: 'fit-content',
+                        height: !esLandscape ? 'fit-content' : '80vh',
                         borderRadius: '0px 0px 0px 50px'
                     },
 
@@ -93,14 +96,20 @@ export default function HeaderMobile() {
                 <Grid
                     container
                     sx={{
-                        width: '80vw',
+                        width: !esLandscape ? '80vw' : 'fit-content',
                         color: 'primary.contrastText',
 
                     }}
                 >
-                    <Grid container item sx={{ bgcolor: 'primary.oscuro', pl: 5, pr: 3, py: 4 }}>
+                    <Grid container item
+                        sx={{
+                            bgcolor: 'primary.oscuro',
+                            pl: 5,
+                            pr: 3,
+                            py: 4,
+                        }}>
                         <Grid item>
-                            <Typography variant="h1" sx={{textTransform: 'uppercase'}}>
+                            <Typography variant="h1" sx={{ textTransform: 'uppercase' }}>
                                 Menú
                             </Typography>
                         </Grid>
