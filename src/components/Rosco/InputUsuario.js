@@ -60,6 +60,7 @@ export default function InputUsuario(props) {
                                 value={palabra}
                                 placeholder="¡Ingresá aquí la palabra!"
                                 label="¡Ingresá aquí la palabra!"
+                                autoComplete="off"
                             />
                         </Grid>
 
