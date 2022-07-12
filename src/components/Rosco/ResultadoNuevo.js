@@ -37,7 +37,7 @@ export default function ResultadoNuevo(props) {
                 pt: {
                     xs: 2,
                     sm: 2,
-                    lg: 3
+                    lg: 0
                 }
             }}
         >
