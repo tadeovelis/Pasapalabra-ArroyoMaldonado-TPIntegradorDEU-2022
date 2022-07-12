@@ -10,12 +10,13 @@ export default function Rosco(props) {
         <div>
             <Typography
                 variant="h2"
+                mb={2}
             >
                 Rosco
             </Typography>
             {props.palabras.length ?
                 <>
-                    <Box sx={{justifyContent:"center", display:"flex"}}>
+                    <Box sx={{justifyContent:"center", display:"flex", mb: 2}}>
                         <Box sx={{width:"270px", height:"270px", position: "relative"}}>
                             <Letras
                                 palabras={props.palabras}
