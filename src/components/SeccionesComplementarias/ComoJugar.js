@@ -63,7 +63,7 @@ export default function ComoJugar() {
                                     </Grid>
                                 </Grid>
                                 <Grid item>
-                                    <span>No necesitás responder, pasás directamente a la siguiente. De todas formas, cuando el rosco dé toda la vuelta, te va a tocar de nuevo, así que ¡recordá la definición!</span>
+                                    <span>No necesitás responder, pasás directamente a la siguiente. De todas formas, cuando el rosco dé toda la vuelta, te va a tocar de nuevo, así que... ¡Recordá la definición!</span>
                                 </Grid>
                             </Grid>
                             <Grid container sx={{ my: 3 }} >
@@ -206,7 +206,7 @@ export default function ComoJugar() {
                                 </Grid>
                             </Grid>
                             <Grid item>
-                                <span>Con esta opción activada una voz artificial te leerá las definiciones de las palabras. Esta función se puede activar en la sección de "Configuración".</span>
+                                <span>Con esta opción activada, una voz artificial te leerá las definiciones de las palabras. Esta función se puede activar en la sección de "Configuración".</span>
                             </Grid>
                         </Grid>
                     </>}

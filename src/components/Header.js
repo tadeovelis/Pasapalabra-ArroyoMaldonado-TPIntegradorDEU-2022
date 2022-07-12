@@ -14,6 +14,7 @@ import '../App.css'
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
+import HeaderMobile from "./HeaderMobile";
 
 
 const EntradaMenuMobile = (titulo, icono, ruta) => {
@@ -144,68 +145,9 @@ export default function Header() {
                         </Grid>
                     </Grid>
                 </nav>
-                
+
             ) : (
-
-                <>
-                    {buttonHeaderMobile}
-
-                    <Drawer
-                        anchor='right'
-                        open={headerMobileAbierto}
-                        onClose={() => setHeaderMobileAbierto(false)}
-                        sx={{
-                            '& .MuiDrawer-paper': {
-                                height: 'fit-content',
-                                borderRadius: '0px 0px 0px 50px'
-                            },
-
-                        }}
-
-                    >
-                        <Grid
-                            container
-                            sx={{
-                                width: '80vw',
-                                color: 'primary.contrastText',
-
-                            }}
-                        >
-                            <Grid container item sx={{ bgcolor: 'primary.oscuro', pl: 5, pr: 3, py: 4 }}>
-                                <Grid item>
-                                    <Typography variant="h1">
-                                        Menú
-                                    </Typography>
-                                </Grid>
-                                {buttonHeaderMobile}
-                            </Grid>
-
-                            <Grid item container
-                                component="nav"
-                            >
-                                <Grid container item
-                                    spacing={1.5}
-                                    direction="column"
-                                    alignItems="flex-end"
-                                    sx={{
-                                        bgcolor: 'primary.medio', px: 3, pb: 3, pt: 1, m: 0
-                                    }}
-                                    component="ul"
-                                >
-                                    {EntradaMenuMobile("Ir a la bienvenida", <HomeIcon fontSize="large" />, "/")}
-                                    {MyDivider}
-                                    {EntradaMenuMobile("¿Cómo jugar?", <HelpOutlineIcon fontSize="large" />, "/como-jugar")}
-                                    {MyDivider}
-                                    {EntradaMenuMobile("Glosario", <ImportContactsIcon fontSize="large" />, "/glosario")}
-                                    {MyDivider}
-                                    {EntradaMenuMobile("Acerca del juego", <PeopleOutlineIcon fontSize="large" />, "/acerca-de-la-app")}
-                                    {MyDivider}
-                                    {EntradaMenuMobile("Configuración", <SettingsIcon fontSize="large" />, "/configuraciones")}
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Drawer>
-                </>
+                <HeaderMobile />
             )
             }
         </>
