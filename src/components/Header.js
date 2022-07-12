@@ -30,7 +30,7 @@ const EntradaMenuMobile = (titulo, icono, ruta) => {
                         transform: 'translatex(-4px)'
                     },
                     transition: 'transform .1s ease-in-out'
-                }}      
+                }}
                 justifyContent='flex-end'
                 alignItems='center'
                 spacing={1}
@@ -97,50 +97,54 @@ export default function Header() {
     return (
         <>
             {!esMobile ? (
-                <Grid
-                    container
-                    spacing={5}
-                    justifyContent="center"
-                    wrap={false}
-                    sx={{
-                        mb: 2
-                    }}
-                >
-                    <Grid item>
-                        <HeaderButton
-                            component={Link}
-                            variant="contained"
-                            to="/como-jugar"
-                            size="large"
-                            startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }} />}
-                        >
-                            ¿Cómo jugar?
-                        </HeaderButton>
+                <nav>
+                    <Grid
+                        container
+                        spacing={5}
+                        justifyContent="center"
+                        wrap={false}
+                        sx={{
+                            mb: 2,
+                            listStyle: 'none'
+                        }}
+                        component="ul"
+                    >
+                        <Grid item component="li">
+                            <HeaderButton
+                                component={Link}
+                                variant="contained"
+                                to="/como-jugar"
+                                size="large"
+                                startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }} />}
+                            >
+                                ¿Cómo jugar?
+                            </HeaderButton>
+                        </Grid>
+                        <Grid item component="li">
+                            <HeaderButton
+                                component={Link}
+                                size="large"
+                                variant="contained"
+                                to="/glosario"
+                                startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }} />}
+                            >
+                                Glosario
+                            </HeaderButton>
+                        </Grid>
+                        <Grid item component="li">
+                            <HeaderButton
+                                component={Link}
+                                variant="contained"
+                                size="large"
+                                to="/acerca-de-la-app"
+                                startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
+                            >
+                                Acerca del juego
+                            </HeaderButton>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <HeaderButton
-                            component={Link}
-                            size="large"
-                            variant="contained"
-                            to="/glosario"
-                            startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }} />}
-                        >
-                            Glosario
-                        </HeaderButton>
-                    </Grid>
-                    <Grid item>
-                        <HeaderButton
-                            component={Link}
-                            variant="contained"
-                            size="large"
-                            to="/acerca-de-la-app"
-                            startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
-                        >
-                            Acerca del juego
-                        </HeaderButton>
-                    </Grid>
-                </Grid>
-
+                </nav>
+                
             ) : (
 
                 <>
