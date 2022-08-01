@@ -31,6 +31,8 @@ export default function Letra(props) {
                 return 'error.main'
             case 3:
                 return 'pasapalabra.main'
+            case 4:
+                return 'current.main'
             default:
                 return 'primary.main'
         }

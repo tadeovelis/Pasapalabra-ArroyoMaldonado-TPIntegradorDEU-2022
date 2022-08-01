@@ -73,6 +73,9 @@ const paletteClaro = {
     success: {
         main: '#7fcc30'
     },
+    current: {
+        main: '#83B8F6'
+    },
     negro: {
         main: '#000000',
         dark: '#222222'
@@ -113,6 +116,9 @@ const paletteOscuro = {
     },
     success: {
         main: '#7fcc30'
+    },
+    current: {
+        main: '#386190'
     },
     negro: {
         main: '#000000',
@@ -156,6 +162,9 @@ const paletteExtra = {
     success: {
         main: '#7fcc30'
     },
+    current: {
+        main: '#56BEBF'
+    },
     negro: {
         main: '#000000',
         dark: '#222222'
@@ -196,6 +205,9 @@ const paletteContrasteColores = {
     },
     success: {
         main: '#38ef0b'
+    },
+    current: {
+        main: '#373737'
     },
     negro: {
         main: '#000000',

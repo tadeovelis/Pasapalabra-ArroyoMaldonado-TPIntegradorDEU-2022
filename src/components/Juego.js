@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper'
 import Header from './Header'
 import { Alert, Grid, Snackbar, useMediaQuery } from '@mui/material'
 import Salir from './Salir'
@@ -6,7 +5,6 @@ import TiempoRestante from './TiempoRestante'
 import Rosco from './Rosco/Rosco'
 import Pausar from './Pausar'
 import RespuestasCorrectas from './RespuestasCorrectas'
-import { Container } from '@mui/system'
 import { useEffect, useState } from 'react'
 import data from '../data/palabras.json'
 import ModalIncorrecto from './Modals/ModalIncorrecto'
@@ -182,12 +180,17 @@ export default function Juego(props) {
         else removerIndice(indicesPalabrasAResponder[posIndicesPalabrasAResponder]);
     }
 
-    // Al comenzar una nueva vuelta al rosco...
+    
     useEffect(() => {
+        // Al comenzar una nueva vuelta al rosco...
         if (palabras.length && posIndicesPalabrasAResponder === 0) {
             setearALasPasapalabrasSinResponder();
         }
     }, [posIndicesPalabrasAResponder])
+
+    useEffect(() => {
+        if (palabras.length) palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].estado = 4;
+    }, [indicesPalabrasAResponder, posIndicesPalabrasAResponder])
 
     // A las pasapalabras las pone en estado sin responder para dar otra vuelta al rosco
     function setearALasPasapalabrasSinResponder() {
@@ -210,8 +213,6 @@ export default function Juego(props) {
         //return compareTwoStrings(palabra, palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra.toLowerCase())
         const pIngresada = quitarAcentos(quitarEspacios(palabra)).toLowerCase();
         const pOriginal = quitarAcentos(palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra).toLowerCase();
-        console.log("Ingresada: " + pIngresada);
-        console.log("Original: " + pOriginal);
         return pIngresada === pOriginal
     }
 
