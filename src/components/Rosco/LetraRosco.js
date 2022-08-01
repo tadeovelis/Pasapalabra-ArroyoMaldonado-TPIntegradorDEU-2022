@@ -8,18 +8,17 @@ export default function Letra(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    // Falta agregarles los valores mobile
-    const cAngle = 26;
-    const cRadius = !props.roscoEnResultado ? 182 : 160;
-    const cSymbolSize = !props.roscoEnResultado ? 38 : 33;
+    const sizeRosco = props.sizeRosco;
+    const radio = sizeRosco/2;
+    const sizeFondoLetra = sizeRosco / 10;
+    const negMargin = Math.round(sizeFondoLetra/2)*(-1);
 
     const palabra = props.palabra;
-    const angle = props.indice / cAngle * 2 * Math.PI - Math.PI / 2;
-    const radius = esMobile ? 123 : cRadius;
-    const symbolSize = esMobile ? 25 : cSymbolSize;
+    //const transformBox = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate(calc(' + sizeRosco + '/ 2))';
+    const transformBox = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate('+radio+'px)';
+    const transformTypo = 'rotate(calc(90deg - ' + props.indice + ' * (360deg / 26)))';
 
-    const x = radius + radius * Math.cos(angle);
-    const y = radius + radius * Math.sin(angle);
+    
 
     // Le doy un color rápido para identificar el estado
     function getColor() {
@@ -38,19 +37,29 @@ export default function Letra(props) {
     return (
         <Box
             sx={{
+                width: sizeFondoLetra +'px',
+                height: sizeFondoLetra +'px',
                 bgcolor: getColor(),
-                minWidth: symbolSize + "px",
-                minHeight: symbolSize + "px",
                 borderRadius: "50%",
-                top: y,
-                left: x,
+                left: '50%',
+                top: '50%',
+                marginLeft: negMargin +'px',
+                marginTop: negMargin +'px',
                 position: "absolute",
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex"
+                transform: transformBox,
             }}
         >
-            <Typography sx={{ fontWeight: "bold", color: "primary.contrastText" }}>
+            <Typography
+                sx={{
+                    fontWeight: "bold",
+                    color: "primary.contrastText",
+                    transform: transformTypo,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    height: '100%'
+                }}>
                 {palabra.letra}
             </Typography>
         </Box>
