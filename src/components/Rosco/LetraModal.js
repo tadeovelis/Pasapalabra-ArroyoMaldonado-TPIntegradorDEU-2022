@@ -1,10 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import { useEffect } from "react";
 
 
 export default function Letra(props) {
 
+    const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
     const palabra = props.palabra;
+
+    const sizeLetra = 40;
 
     // Le doy un color rápido para identificar el estado
     function getColor() {
@@ -23,17 +29,23 @@ export default function Letra(props) {
     return (
         <Box
             sx={{
+                width: sizeLetra +'px',
+                height: sizeLetra +'px',
                 bgcolor: getColor(),
-                width: '50px',
-                height: '50px',
                 borderRadius: "50%",
-                margin: '0 auto',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                margin:'0 auto'
             }}
         >
-            <Typography sx={{ fontWeight: "bold", color: "primary.contrastText" }}>
+            <Typography
+                sx={{
+                    fontWeight: "bold",
+                    color: "primary.contrastText",
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    height: '100%'
+                }}>
                 {palabra.letra}
             </Typography>
         </Box>

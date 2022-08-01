@@ -1,7 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import Letra from "../Rosco/Letra";
 import { Link } from "react-router-dom";
 
 export default function ModalPasapalabra(props) {

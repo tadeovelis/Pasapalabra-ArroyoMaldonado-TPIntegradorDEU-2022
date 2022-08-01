@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import Letra from "../Rosco/Letra";
+import LetraModal from "../Rosco/LetraModal";
 
 export default function ModalTimeOut(props) {
 
@@ -66,7 +66,7 @@ export default function ModalTimeOut(props) {
                         <span style={{textTransform: 'uppercase'}}>{palabra.formato}</span>
                     </Typography>
                     {/* Letra */}
-                    <Box my={2}><b><Letra palabra={palabra} /></b></Box>
+                    <Box my={2}><b><LetraModal palabra={palabra} /></b></Box>
                     <Typography variant="body2">Seguimos en <b>{tiempoReanudacion}</b>...</Typography>
                 </Box>
             </Box>

@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react"
-import { Typography, Box, useMediaQuery } from "@mui/material"
+import { Typography, Box, useMediaQuery, Grid } from "@mui/material"
 import { useEffect } from "react"
 import InputUsuario from "./InputUsuario"
 import Letras from "./Letras"
@@ -10,10 +10,10 @@ export default function Rosco(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    const tamañoRosco = esMobile ? '270px' : '400px';
+    const sizeRosco = !esMobile ? 350 : 250; // en pixeles
 
     return (
-        <div>
+        <Grid>
             <Typography
                 variant="h2"
                 mb={2}
@@ -22,18 +22,24 @@ export default function Rosco(props) {
             </Typography>
             {props.palabras.length ?
                 <>
-                    <Box sx={{ justifyContent: "center", display: "flex", mb: 4 }}>
-                        <Box sx={{ width: tamañoRosco, height: tamañoRosco, position: "relative" }}>
+                    <Grid
+                        container
+                        sx={{
+                            position: "relative",
+                            height: sizeRosco +'px',
+                            justifyContent: 'center',
+                            my: 4
+                        }}>
                             <Letras
                                 palabras={props.palabras}
+                                sizeRosco={sizeRosco}
                             />
                             {!esMobile &&
                                 <PalabraActual
                                     palabra={props.palabras[props.posPalabraActual]}
                                 />
                             }
-                        </Box>
-                    </Box>
+                    </Grid>
                     {esMobile &&
                         <PalabraActual
                             palabra={props.palabras[props.posPalabraActual]}
@@ -51,6 +57,6 @@ export default function Rosco(props) {
                     Preparando rosco...
                 </Typography>
             }
-        </div>
+        </Grid>
     )
 }

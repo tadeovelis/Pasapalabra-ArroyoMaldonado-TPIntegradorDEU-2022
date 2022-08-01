@@ -5,7 +5,7 @@ import ComoJugar from './components/SeccionesComplementarias/ComoJugar'
 import Glosario from './components/SeccionesComplementarias/Glosario'
 import AcercaDeLaApp from './components/SeccionesComplementarias/AcercaDeLaApp'
 import Configuracion from './components/SeccionesComplementarias/Configuracion'
-import Resultado from './components/Rosco/ResultadoNuevo'
+import Resultado from './components/Rosco/Resultado'
 
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from 'react-router-dom'

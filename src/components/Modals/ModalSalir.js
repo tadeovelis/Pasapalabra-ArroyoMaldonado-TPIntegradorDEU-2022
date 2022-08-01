@@ -2,7 +2,6 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Letra from "../Rosco/Letra";
 
 export default function ModalSalir(props) {
 
