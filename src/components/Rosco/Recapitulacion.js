@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import BoxItemSeccionComplementaria from '../SeccionesComplementarias/BoxItemSeccionComplementaria'
-import Letra from "./Letra";
+import LetraRecapitulacion from "./LetraRecapitulacion";
 
 export default function Recapitulacion(props) {
 
@@ -29,7 +29,7 @@ export default function Recapitulacion(props) {
                         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);',
                     }}
                 >
-                    <Grid container direction="column" spacing={{xs: 0, sm: 0, lg: 1}}>
+                    <Grid container direction="column" spacing={{ xs: 0, sm: 0, lg: 1 }}>
                         <Grid item>
                             <Typography variant="h1"
                                 sx={{
@@ -62,22 +62,39 @@ export default function Recapitulacion(props) {
                     mb: 2
                 }}
             >
-                {palabras.map(p => {
-                    return (
-                        <BoxItemSeccionComplementaria
-                            key={p.letra}
-                            titulo={
-                                <>
-                                    <Letra palabra={p} />
-                                    <span>{p.palabra}</span>
-                                </>
-                            }
-                            contenido={
-                                p.definicion
-                            }
-                        />
-                    )
-                })}
+                {palabras.map(p =>
+                    <Grid container mb={4} spacing={1}>
+                        <Grid container item
+                            justifyContent="left"
+                            alignItems="center"
+                            spacing={2}
+                        >
+                            <Grid item><LetraRecapitulacion palabra={p} /></Grid>
+                            <Grid item>
+                                <Typography
+                                    variant='h3'
+                                    sx={{
+                                        textTransform: 'uppercase',
+                                        mt: 0
+                                    }}
+                                >{p.palabra}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    lineHeight: 1.2,
+                                    m: 0,
+                                    textAlign: "left"
+                                }}
+                            >
+                                {p.definicion}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                )}
             </Grid>
         </>
     )

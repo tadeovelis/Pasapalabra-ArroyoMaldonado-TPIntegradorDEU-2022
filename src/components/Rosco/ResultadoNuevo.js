@@ -70,7 +70,7 @@ export default function ResultadoNuevo(props) {
                             xs={5}
                             sx={{
                                 bgcolor: "backgroundPaper.main",
-                                p: 5,
+                                p: 2,
                                 maxHeight: 'inherit',
                                 borderTop: 10,
                                 borderBottom: 10,

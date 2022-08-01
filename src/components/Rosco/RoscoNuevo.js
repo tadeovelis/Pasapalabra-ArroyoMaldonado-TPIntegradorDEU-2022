@@ -10,7 +10,7 @@ export default function Rosco(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    const sizeRosco = 350; // en pixeles
+    const sizeRosco = !esMobile ? 350 : 250; // en pixeles
 
     return (
         <Grid>
