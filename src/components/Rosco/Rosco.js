@@ -4,13 +4,18 @@ import { useEffect } from "react"
 import InputUsuario from "./InputUsuario"
 import Letras from "./Letras"
 import PalabraActual from "./PalabraActual"
+import configuracionPredeterminada from '../../data/configuracion.json'
 
 export default function Rosco(props) {
 
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    const sizeRosco = !esMobile ? 350 : 250; // en pixeles
+    //const sizeRosco = !esMobile ? 350 : 250; // en pixeles
+    const sizeRosco = !esMobile ? configuracionPredeterminada.tamañoRosco.enJuego.desktop : configuracionPredeterminada.tamañoRosco.enJuego.mobile;
+    const usarPixeles = esMobile;
+
+    const unidad = usarPixeles ? 'px' : 'em';
 
     return (
         <Grid>
@@ -26,13 +31,15 @@ export default function Rosco(props) {
                         container
                         sx={{
                             position: "relative",
-                            height: sizeRosco +'px',
+                            height: sizeRosco +unidad,
                             justifyContent: 'center',
-                            my: 4
+                            mt: 4,
+                            mb: '3em'
                         }}>
                             <Letras
                                 palabras={props.palabras}
                                 sizeRosco={sizeRosco}
+                                usarPixeles={usarPixeles}
                             />
                             {!esMobile &&
                                 <PalabraActual

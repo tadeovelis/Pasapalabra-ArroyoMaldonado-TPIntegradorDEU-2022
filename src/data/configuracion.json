@@ -21,5 +21,15 @@
             "texto": "¡Muy muy grande!",
             "value": 20
         }
-    ]
+    ],
+    "tamañoRosco": {
+        "enJuego": {
+            "mobile": 290,
+            "desktop": 25
+        },        
+        "enResultado": {
+            "mobile": 250,
+            "desktop": 320
+        }
+    }
 }

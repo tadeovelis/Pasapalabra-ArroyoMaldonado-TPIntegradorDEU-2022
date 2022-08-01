@@ -8,6 +8,8 @@ export default function Letra(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
+    const unidad = props.usarPixeles ? 'px' : 'em';
+
     const sizeRosco = props.sizeRosco;
     const radio = sizeRosco/2;
     const sizeFondoLetra = sizeRosco / 10;
@@ -15,7 +17,7 @@ export default function Letra(props) {
 
     const palabra = props.palabra;
     //const transformBox = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate(calc(' + sizeRosco + '/ 2))';
-    const transformBox = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate('+radio+'px)';
+    const transformBox = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate('+radio+unidad+')';
     const transformTypo = 'rotate(calc(90deg - ' + props.indice + ' * (360deg / 26)))';
 
     
@@ -37,14 +39,14 @@ export default function Letra(props) {
     return (
         <Box
             sx={{
-                width: sizeFondoLetra +'px',
-                height: sizeFondoLetra +'px',
+                width: sizeFondoLetra +unidad,
+                height: sizeFondoLetra +unidad,
                 bgcolor: getColor(),
                 borderRadius: "50%",
                 left: '50%',
                 top: '50%',
-                marginLeft: negMargin +'px',
-                marginTop: negMargin +'px',
+                marginLeft: negMargin+unidad,
+                marginTop: negMargin +unidad,
                 position: "absolute",
                 transform: transformBox,
             }}

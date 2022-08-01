@@ -1,10 +1,9 @@
 import { useTheme } from "@emotion/react"
 import { Button, Typography, Box, useMediaQuery, Grid } from "@mui/material"
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import InputUsuario from "./InputUsuario"
 import Letras from "./Letras"
-import PalabraActual from "./PalabraActual"
+import configuracionPredeterminada from '../../data/configuracion.json'
+
 
 export default function RoscoFinalizado(props) {
 
@@ -17,20 +16,23 @@ export default function RoscoFinalizado(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    const sizeRosco = !esMobile ? 330 : 250; // en pixeles
+    //const sizeRosco = !esMobile ? 330 : 250; // en pixeles
+    const sizeRosco = !esMobile ? configuracionPredeterminada.tamañoRosco.enResultado.desktop : configuracionPredeterminada.tamañoRosco.enResultado.mobile;
 
     return (
         <div>
             <Grid
                 sx={{
                     position: "relative",
-                    height: sizeRosco+30 + 'px',
+                    height: sizeRosco +'px',
                     justifyContent: 'center',
-                    mb: 3
+                    top: 10,
+                    mb: 7
                 }}>
                 <Letras
                     palabras={palabras}
                     sizeRosco={sizeRosco}
+                    usarPixeles={true}
                     roscoEnResultado={true}
                 />
                 <Box
