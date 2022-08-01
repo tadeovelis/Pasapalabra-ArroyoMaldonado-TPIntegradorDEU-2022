@@ -201,10 +201,14 @@ export default function Juego(props) {
         return s.split('').map(letra => acentos[letra] || letra).join('').toString();
     }
 
+    function quitarEspacios(s) {
+        return s.replace(/\s+/g, '');
+    }
+
     // Se fija si es correcta la palabra ingresada 
     function palabraCorrecta(palabra) {
         //return compareTwoStrings(palabra, palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra.toLowerCase())
-        const pIngresada = quitarAcentos(palabra).toLowerCase();
+        const pIngresada = quitarAcentos(quitarEspacios(palabra)).toLowerCase();
         const pOriginal = quitarAcentos(palabras[indicesPalabrasAResponder[posIndicesPalabrasAResponder]].palabra).toLowerCase();
         console.log("Ingresada: " + pIngresada);
         console.log("Original: " + pOriginal);
