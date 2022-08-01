@@ -11,6 +11,7 @@ export default function Letras(props) {
                     key={p.letra}
                     palabra={p}
                     indice={i}
+                    roscoEnResultado={props.roscoEnResultado ? props.roscoEnResultado : false}
                 />
             )}
         </div>

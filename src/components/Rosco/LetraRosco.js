@@ -8,10 +8,15 @@ export default function Letra(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
+    // Falta agregarles los valores mobile
+    const cAngle = 26;
+    const cRadius = !props.roscoEnResultado ? 182 : 160;
+    const cSymbolSize = !props.roscoEnResultado ? 38 : 33;
+
     const palabra = props.palabra;
-    const angle = props.indice / 26 * 2 * Math.PI - Math.PI / 2;
-    const radius = esMobile ? 123 : 182;
-    const symbolSize = esMobile ? 25 : 38;
+    const angle = props.indice / cAngle * 2 * Math.PI - Math.PI / 2;
+    const radius = esMobile ? 123 : cRadius;
+    const symbolSize = esMobile ? 25 : cSymbolSize;
 
     const x = radius + radius * Math.cos(angle);
     const y = radius + radius * Math.sin(angle);

@@ -1,4 +1,5 @@
-import { Button, Typography, Box } from "@mui/material"
+import { useTheme } from "@emotion/react"
+import { Button, Typography, Box, useMediaQuery } from "@mui/material"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import InputUsuario from "./InputUsuario"
@@ -13,12 +14,18 @@ export default function RoscoFinalizado(props) {
     const tiempoRestante = props.resultados.tiempoRestante;
     const gano = props.gano;
 
+    const theme = useTheme();
+    const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
+    const tamañoRosco = esMobile ? '270px' : '350px';
+
     return (
         <div>
-            <Box sx={{justifyContent:"center", display:"flex"}}>
-                <Box sx={{width:"270px", height:"270px", position: "relative"}}>
+            <Box sx={{justifyContent:"center", display:"flex", mb: 4}}>
+                <Box sx={{width: tamañoRosco, height: '200px', position: "relative"}}>
                     <Letras
                         palabras={palabras}
+                        roscoEnResultado={true}
                     />
                 </Box>
             </Box>
