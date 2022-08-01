@@ -79,7 +79,12 @@ export default function Juego(props) {
         palabras.map(p => {
             p.estado = 0
         });
+        setPrimeraComoActual();
     }, [palabras])
+
+    const setPrimeraComoActual = () => {
+        if (palabras.length) palabras[0].estado = 4
+    }
 
     // Elegir las palabras para el rosco
     const elegirPalabrasRosco = () => {
