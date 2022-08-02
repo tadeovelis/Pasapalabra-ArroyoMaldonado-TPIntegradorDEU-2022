@@ -5,6 +5,8 @@ import BienIcon from '@mui/icons-material/ThumbUp';
 import MalIcon from '@mui/icons-material/ThumbDown';
 import PasapalabraIcon from '@mui/icons-material/RestartAlt';
 
+import {getColor, getIcon} from '../../helpers/estadoDePalabra';
+
 
 export default function Letra(props) {
 
@@ -27,7 +29,7 @@ export default function Letra(props) {
     const transformTypo = 'rotate(calc(90deg - ' + props.indice + ' * (360deg / 26)))';
     const transformIcon = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate(' + (radio - shiftRadioIcon) + unidad + ') scale(.8)';
 
-
+    /*
     // Le doy un color rápido para identificar el estado
     function getColor() {
         switch (palabra.estado) {
@@ -78,6 +80,7 @@ export default function Letra(props) {
             />
         )
     }
+    */
 
     return (
         <div>
@@ -85,7 +88,7 @@ export default function Letra(props) {
                 sx={{
                     width: sizeFondoLetra + unidad,
                     height: sizeFondoLetra + unidad,
-                    bgcolor: getColor(),
+                    bgcolor: getColor(palabra.estado),
                     borderRadius: "50%",
                     left: '50%',
                     top: '50%',
@@ -120,7 +123,7 @@ export default function Letra(props) {
                     transform: transformIcon,
                 }}
             >
-                {getIcon()}
+                {getIcon(palabra.estado, transformTypo)}
             </Box>
         </div>
     )
