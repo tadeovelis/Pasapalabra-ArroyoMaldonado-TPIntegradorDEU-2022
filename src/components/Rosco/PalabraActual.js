@@ -14,7 +14,7 @@ export default function PalabraActual(props) {
         {
             position: 'absolute',
             top: '50%',
-            width: '65%',
+            width: '55%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
         }
@@ -26,7 +26,7 @@ export default function PalabraActual(props) {
             <Typography gutterBottom variant="body2">
                 {palabra.formato} {palabra.letra}
             </Typography>
-            <Typography>
+            <Typography sx={{lineHeight: 1.3}}>
                 {palabra.definicion}
             </Typography>
         </Box>
