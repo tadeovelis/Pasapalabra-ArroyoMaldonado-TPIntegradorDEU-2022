@@ -11,9 +11,8 @@ export default function Rosco(props) {
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-    //const sizeRosco = !esMobile ? 350 : 250; // en pixeles
     const sizeRosco = !esMobile ? configuracionPredeterminada.tamañoRosco.enJuego.desktop : configuracionPredeterminada.tamañoRosco.enJuego.mobile;
-    const usarPixeles = esMobile;
+    const usarPixeles = esMobile; // si es mobile uso píxeles como medida, no 'em'
 
     const unidad = usarPixeles ? 'px' : 'em';
 

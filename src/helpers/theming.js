@@ -66,7 +66,7 @@ const paletteClaro = {
         main: '#d81b00',
     },
     pasapalabra: {
-        main: '#f1c40c',
+        main: '#e27600',
         contrastText: 'white',
         dark: '#ddd027'
     },
