@@ -1,9 +1,5 @@
 import { useTheme } from "@emotion/react";
 import { Typography, Box, useMediaQuery } from "@mui/material";
-import { useEffect } from "react";
-import BienIcon from '@mui/icons-material/ThumbUp';
-import MalIcon from '@mui/icons-material/ThumbDown';
-import PasapalabraIcon from '@mui/icons-material/RestartAlt';
 
 import {getColor, getIcon} from '../../helpers/estadoDePalabra';
 
@@ -29,58 +25,6 @@ export default function Letra(props) {
     const transformTypo = 'rotate(calc(90deg - ' + props.indice + ' * (360deg / 26)))';
     const transformIcon = 'rotate(calc(-90deg + ' + props.indice + ' * (360deg / 26))) translate(' + (radio - shiftRadioIcon) + unidad + ') scale(.8)';
 
-    /*
-    // Le doy un color rápido para identificar el estado
-    function getColor() {
-        switch (palabra.estado) {
-            case 1:
-                return 'success.main'
-            case 2:
-                return 'error.main'
-            case 3:
-                return 'pasapalabra.main'
-            case 4:
-                return 'current.main'
-            default:
-                return 'primary.main'
-        }
-    }
-
-    // Devuelve el icono correspondiente
-    function getIcon() {
-        console.log(palabra.estado);
-        const icons = {
-            bien: BienIcon,
-            mal: MalIcon,
-            pasapalabra: PasapalabraIcon
-        };
-
-        let tipoIcono = "";
-        switch (palabra.estado) {
-            case 1:
-                tipoIcono = "bien";
-                break;
-            case 2:
-                tipoIcono = "mal";
-                break;
-            case 3:
-                tipoIcono = "pasapalabra";
-                break;
-            default:
-                return false
-        };
-
-        const Icon = icons[tipoIcono];
-        return (
-            <Icon
-                sx={{
-                    transform: transformTypo,
-                    color: getColor()
-                }}
-            />
-        )
-    }
-    */
 
     return (
         <div>

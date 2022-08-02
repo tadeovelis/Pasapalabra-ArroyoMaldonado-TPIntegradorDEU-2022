@@ -3,6 +3,9 @@ import { Box } from "@mui/system";
 import BoxItemSeccionComplementaria from '../SeccionesComplementarias/BoxItemSeccionComplementaria'
 import LetraRecapitulacion from "./LetraRecapitulacion";
 
+import {getIcon} from '../../helpers/estadoDePalabra';
+
+
 export default function Recapitulacion(props) {
 
     const palabras = props.palabras;
@@ -69,6 +72,7 @@ export default function Recapitulacion(props) {
                             alignItems="center"
                             spacing={2}
                         >
+                            <Grid item>{getIcon(p.estado)}</Grid>
                             <Grid item><LetraRecapitulacion palabra={p} /></Grid>
                             <Grid item>
                                 <Typography

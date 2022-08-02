@@ -1,29 +1,16 @@
 import { Box, Typography } from "@mui/material";
-import { useEffect } from "react";
+
+import {getColor} from '../../helpers/estadoDePalabra';
 
 
 export default function Letra(props) {
 
     const palabra = props.palabra;
 
-    // Le doy un color rápido para identificar el estado
-    function getColor() {
-        switch (palabra.estado) {
-            case 1:
-                return 'success.main'
-            case 2:
-                return 'error.main'
-            case 3:
-                return 'pasapalabra.main'
-            default:
-                return 'primary.main'
-        }
-    }
-
     return (
         <Box
             sx={{
-                bgcolor: getColor(),
+                bgcolor: getColor(palabra.estado),
                 width: '35px',
                 height: '35px',
                 borderRadius: "50%",
