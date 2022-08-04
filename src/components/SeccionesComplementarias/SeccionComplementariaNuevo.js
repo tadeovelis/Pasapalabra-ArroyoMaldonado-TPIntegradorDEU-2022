@@ -19,6 +19,8 @@ export default function SeccionComplementaria(props) {
     const backgroundColor = (props.backgroundColor === undefined) ? 'primary.main' : props.backgroundColor;
     const backgroundColorMobile = (props.backgroundColor === undefined) ? 'backgroundGeneral' : props.backgroundColor;
 
+    const seccionComplementaria = props.seccionComplementaria;
+
     return (
         <Box>
 
@@ -27,7 +29,6 @@ export default function SeccionComplementaria(props) {
                     {/* Botón ATRÁS */}
                     <Button
                         variant="contained"
-                        component={Link}
                         aria-label="Ir atrás"
                         sx={{
                             position: 'fixed',
@@ -38,7 +39,7 @@ export default function SeccionComplementaria(props) {
                             ml: 2,
                             borderRadius: 100
                         }}
-                        to="/rosco"
+                        onClick={props.irAtras}
                     >
                         <ArrowBackIosNewIcon fontSize="large" />
                     </Button>
@@ -65,7 +66,7 @@ export default function SeccionComplementaria(props) {
                                 }}
                             >
                                 <Grid container alignItems="center" direction="row">
-                                    <Grid item sx={{ position: 'relative', top: '4px' }}>{props.icono}</Grid>
+                                    <Grid item sx={{ position: 'relative', top: '4px' }}>{seccionComplementaria.icono}</Grid>
                                     <Grid item>
                                         <Typography variant="h1" color="white"
                                             sx={{
@@ -73,7 +74,7 @@ export default function SeccionComplementaria(props) {
                                                 textTransform: 'uppercase'
                                             }}
                                         >
-                                            {props.titulo}
+                                            {seccionComplementaria.titulo}
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -86,12 +87,15 @@ export default function SeccionComplementaria(props) {
                                     overflowY: 'scroll',
                                 }}
                             >
-                                {props.contenido}
+                                {seccionComplementaria.componente}
                             </Box>
 
                         </Box>
 
-                        
+                        <HeaderAbajo
+                            renderSeccionComplementaria={props.renderSeccionComplementaria}
+                            seccionComplementariaActual={props.seccionComplementariaActual}
+                        />
 
 
                     </Container>
@@ -107,7 +111,11 @@ export default function SeccionComplementaria(props) {
                         //bgcolor: backgroundColorMobile
                     }}
                 >
-                    <Header />
+                    <Header
+                        renderSeccionComplementaria={props.renderSeccionComplementaria}
+                        seccionComplementariaActual={props.seccionComplementariaActual}
+                    />
+
                     <Grid container
                         sx={{
                             position: 'fixed',
@@ -125,11 +133,10 @@ export default function SeccionComplementaria(props) {
                             {/* Botón ATRÁS */}
                             <Fab
                                 variant="contained"
-                                component={Link}
                                 color="primary"
                                 size="large"
                                 aria-label="Ir atrás"
-                                to="/rosco"
+                                onClick={props.irAtras}
                             >
                                 <ArrowBackIosNewIcon fontSize="large" />
                             </Fab>
@@ -140,11 +147,11 @@ export default function SeccionComplementaria(props) {
                                     textTransform: 'uppercase'
                                 }}
                             >
-                                {props.titulo}
+                                {seccionComplementaria.titulo}
                             </Typography>
                         </Grid>
                         <Grid item xs={2}>
-                            
+
                         </Grid>
                     </Grid>
                     <Box className="scrollbarCustom"
@@ -152,7 +159,7 @@ export default function SeccionComplementaria(props) {
                             pt: 15,
                         }}
                     >
-                        {props.contenido}
+                        {seccionComplementaria.componente}
                     </Box>
                 </Container>
             )}

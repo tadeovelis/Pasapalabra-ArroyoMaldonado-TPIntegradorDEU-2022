@@ -1,55 +1,86 @@
 import { Divider, Drawer, Fab, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from "react-router-dom";
 
-
-const EntradaMenuMobile = (titulo, icono, ruta) => {
-    return (
-        <Grid item container
-            component="li"
-        >
-            <Grid item container
-                component={Link}
-                to={ruta}
-                sx={{
-                    textDecoration: 'none',
-                    '&:hover, &:focus': {
-                        transform: 'translatex(-4px)'
-                    },
-                    transition: 'transform .1s ease-in-out'
-                }}
-                justifyContent='flex-end'
-                alignItems='center'
-                spacing={1}
-                color="primary.contrastText"
-            >
-                <Grid item>
-                    <Typography variant="h3">
-                        {titulo}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    {icono}
-                </Grid>
-            </Grid>
-        </Grid>
-    )
-}
-
-
+import cargarSeccionesComplementarias from "../helpers/cargarSeccionesComplementarias";
 
 
 export default function HeaderMobile(props) {
 
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
     const esLandscape = props.esLandscape;
+
+    const secciones = cargarSeccionesComplementarias();
+
+
+    const EntradaMenuMobile = (sc) => {
+        return (
+            <Grid item container
+                component="li"
+            >
+                <Grid item container
+                    sx={{
+                        textDecoration: 'none',
+                        '&:hover, &:focus': {
+                            transform: 'translatex(-4px)'
+                        },
+                        transition: 'transform .1s ease-in-out'
+                    }}
+                    justifyContent='flex-end'
+                    alignItems='center'
+                    spacing={1}
+                    color="primary.contrastText"
+                    onClick={() => props.renderSeccionComplementaria(sc)}
+                >
+                    <Grid item>
+                        <Typography variant="h3">
+                            {sc.titulo}
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        {sc.icono}
+                    </Grid>
+                </Grid>
+            </Grid>
+        )
+    }
+
+    const EntradaMenuMobileHome = () => {
+        return (
+            <Grid item container
+                component="li"
+            >
+                <Grid item container
+                    sx={{
+                        textDecoration: 'none',
+                        '&:hover, &:focus': {
+                            transform: 'translatex(-4px)'
+                        },
+                        transition: 'transform .1s ease-in-out'
+                    }}
+                    justifyContent='flex-end'
+                    alignItems='center'
+                    spacing={1}
+                    color="primary.contrastText"
+                    component={Link}
+                    to="/"
+                >
+                    <Grid item>
+                        <Typography variant="h3">
+                            Ir a la bienvenida
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <HomeIcon sx={{ mr: 1, fontSize: 30 }} />
+                    </Grid>
+                </Grid>
+            </Grid>
+        )
+    }
 
     const buttonHeaderMobile = (
         <Fab
@@ -128,15 +159,13 @@ export default function HeaderMobile(props) {
                             }}
                             component="ul"
                         >
-                            {EntradaMenuMobile("Ir a la bienvenida", <HomeIcon fontSize="large" />, "/")}
+                            {EntradaMenuMobileHome()}
                             {HeaderMobileDivider}
-                            {EntradaMenuMobile("¿Cómo jugar?", <HelpOutlineIcon fontSize="large" />, "/como-jugar")}
-                            {HeaderMobileDivider}
-                            {EntradaMenuMobile("Glosario", <ImportContactsIcon fontSize="large" />, "/glosario")}
-                            {HeaderMobileDivider}
-                            {EntradaMenuMobile("Acerca del juego", <PeopleOutlineIcon fontSize="large" />, "/acerca-de-la-app")}
-                            {HeaderMobileDivider}
-                            {EntradaMenuMobile("Configuración", <SettingsIcon fontSize="large" />, "/configuracion")}
+                            {secciones.map(sc => <>
+                                {EntradaMenuMobile(sc)}
+                                {HeaderMobileDivider}
+                            </>)
+                            }
                         </Grid>
                     </Grid>
                 </Grid>

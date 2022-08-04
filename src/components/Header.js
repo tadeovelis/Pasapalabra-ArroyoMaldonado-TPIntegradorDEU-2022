@@ -13,9 +13,12 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import '../App.css'
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import HeaderMobile from "./HeaderMobile";
+import ComoJugar from "./SeccionesComplementarias/ComoJugar";
+import { PropaneSharp } from "@mui/icons-material";
 
+import cargarSeccionesComplementarias from "../helpers/cargarSeccionesComplementarias";
 
 const EntradaMenuMobile = (titulo, icono, ruta) => {
     return (
@@ -69,13 +72,15 @@ const MyDivider = (
 
 const espacioIconos = 1;
 
-export default function Header() {
+export default function Header(props) {
 
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
     const esLandscape = useMediaQuery('(orientation: landscape)');
 
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
+
+    const secciones = cargarSeccionesComplementarias();
 
     const buttonHeaderMobile = (
         <Fab
@@ -111,45 +116,25 @@ export default function Header() {
                         }}
                         component="ul"
                     >
-                        <Grid item component="li">
-                            <HeaderButton
-                                component={Link}
-                                variant="contained"
-                                to="/como-jugar"
-                                size="large"
-                                startIcon={<HelpOutlineIcon sx={{ mr: espacioIconos }} />}
-                            >
-                                ¿Cómo jugar?
-                            </HeaderButton>
-                        </Grid>
-                        <Grid item component="li">
-                            <HeaderButton
-                                component={Link}
-                                size="large"
-                                variant="contained"
-                                to="/glosario"
-                                startIcon={<ImportContactsIcon sx={{ mr: espacioIconos }} />}
-                            >
-                                Glosario
-                            </HeaderButton>
-                        </Grid>
-                        <Grid item component="li">
-                            <HeaderButton
-                                component={Link}
-                                variant="contained"
-                                size="large"
-                                to="/acerca-de-la-app"
-                                startIcon={<PeopleOutlineIcon sx={{ mr: espacioIconos }} />}
-                            >
-                                Acerca del juego
-                            </HeaderButton>
-                        </Grid>
+                        {secciones.map(sc =>
+                            <Grid item component="li">
+                                <HeaderButton
+                                    variant="contained"
+                                    size="large"
+                                    startIcon={sc.icono}
+                                    onClick={() => props.renderSeccionComplementaria(sc)}
+                                >
+                                    {sc.titulo}
+                                </HeaderButton>
+                            </Grid>
+                        )}
                     </Grid>
                 </nav>
 
             ) : (
                 <HeaderMobile
                     esLandscape={esLandscape}
+                    renderSeccionComplementaria={props.renderSeccionComplementaria}
                 />
             )
             }

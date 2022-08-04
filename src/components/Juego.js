@@ -1,5 +1,5 @@
 import Header from './Header'
-import { Alert, Grid, Snackbar, useMediaQuery } from '@mui/material'
+import { Alert, Grid, Snackbar, Typography, useMediaQuery } from '@mui/material'
 import Salir from './Salir'
 import TiempoRestante from './TiempoRestante'
 import Rosco from './Rosco/Rosco'
@@ -16,6 +16,12 @@ import { compareTwoStrings } from 'string-similarity'
 import BotonesFlotantes from './BotonesFlotantes'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@emotion/react'
+import AcercaDeLaApp from './SeccionesComplementarias/AcercaDeLaApp'
+import Glosario from './SeccionesComplementarias/Glosario'
+import Configuracion from './SeccionesComplementarias/Configuracion'
+import ComoJugar from './SeccionesComplementarias/ComoJugar'
+import HeaderAbajo from './HeaderAbajo'
+import SeccionComplementaria from './SeccionesComplementarias/SeccionComplementariaNuevo'
 
 
 /* Estados palabras/letras
@@ -62,6 +68,10 @@ export default function Juego(props) {
     const [termino, setTermino] = useState(false);
 
     const [tiempoReanudacion, setTiempoReanudacion] = useState(tiempoReanudacionPredeterminado);
+
+    // Render logical para las secciones complementarias y rosco
+    const [showSeccionComplementaria, setShowSeccionComplementaria] = useState(false);
+    const [seccionComplementariaActual, setSeccionComplementariaActual] = useState(null);
 
     const navigate = useNavigate();
 
@@ -185,7 +195,7 @@ export default function Juego(props) {
         else removerIndice(indicesPalabrasAResponder[posIndicesPalabrasAResponder]);
     }
 
-    
+
     useEffect(() => {
         // Al comenzar una nueva vuelta al rosco...
         if (palabras.length && posIndicesPalabrasAResponder === 0) {
@@ -276,9 +286,17 @@ export default function Juego(props) {
         setModalSalirAbierto(true);
     }
 
+    /* Renders de las secciones complementarias */
+    const renderSeccionComplementaria = (seccionComplementaria) => {
+        setSeccionComplementariaActual(seccionComplementaria);
+        setShowSeccionComplementaria(true);
+    }
+
+
     return (
         <>
             {!esMobile && <BotonesFlotantes />}
+
             <Grid container justifyContent="center"
                 sx={{
                     background: "backgroundGeneral.main",
@@ -286,66 +304,85 @@ export default function Juego(props) {
                     margin: 0,
                 }}
             >
-                <Header />
-                <Grid
-                    container
-                    justifyContent="center"
-                    sx={{
-                        m: 3,
-                        p: {
-                            xs: 3,
-                            sm: 3,
-                            lg: 3
-                        },
-                        bgcolor: "backgroundPaper.main",
-                        color: "textoPaper.main",
-                        borderRadius: 2
-                    }}
-                    spacing={1}
-                >
-                    <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 2, sm: 2, lg: 1 }}
+
+                {!showSeccionComplementaria ? <>
+
+                    <Header
+                        renderSeccionComplementaria={renderSeccionComplementaria}
+                    />
+
+                    <Grid
+                        container
                         justifyContent="center"
-                        alignItems="center"
+                        sx={{
+                            m: 3,
+                            p: {
+                                xs: 3,
+                                sm: 3,
+                                lg: 3
+                            },
+                            bgcolor: "backgroundPaper.main",
+                            color: "textoPaper.main",
+                            borderRadius: 2
+                        }}
+                        spacing={1}
                     >
-                        <Grid item xs={12}>
-                            <Salir
-                                salir={salir}
-                            />
+                        <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 2, sm: 2, lg: 1 }}
+                            justifyContent="center"
+                            alignItems="center"
+                        >
+                            <Grid item xs={12}>
+                                <Salir
+                                    salir={salir}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TiempoRestante
+                                    tiempoRestante={tiempoRestante}
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <TiempoRestante
-                                tiempoRestante={tiempoRestante}
-                            />
+                        <Grid justifyContent="center" container item xs={12} sm={12} lg={6} order={{ xs: 1, sm: 1, lg: 2 }}>
+                            <Grid item>
+                                <Rosco
+                                    palabras={palabras}
+                                    posPalabraActual={indicesPalabrasAResponder[posIndicesPalabrasAResponder]}
+                                    respondioBien={respondioBien}
+                                    respondioMal={respondioMal}
+                                    respondioPasapalabra={respondioPasapalabra}
+                                    respondio={respondio}
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 3, sm: 3, lg: 3 }}
+                            justifyContent="center"
+                            alignItems="center"
+                        >
+                            <Grid item xs={12}>
+                                <Pausar
+                                    pausar={pausar}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <RespuestasCorrectas
+                                    respuestasCorrectas={respuestasCorrectas}
+                                />
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <Grid justifyContent="center" container item xs={12} sm={12} lg={6} order={{ xs: 1, sm: 1, lg: 2 }}>
-                        <Grid item>
-                            <Rosco
-                                palabras={palabras}
-                                posPalabraActual={indicesPalabrasAResponder[posIndicesPalabrasAResponder]}
-                                respondioBien={respondioBien}
-                                respondioMal={respondioMal}
-                                respondioPasapalabra={respondioPasapalabra}
-                                respondio={respondio}
-                            />
-                        </Grid>
-                    </Grid>
-                    <Grid container spacing={3} item xs={6} sm={6} lg={3} order={{ xs: 3, sm: 3, lg: 3 }}
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Grid item xs={12}>
-                            <Pausar
-                                pausar={pausar}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <RespuestasCorrectas
-                                respuestasCorrectas={respuestasCorrectas}
-                            />
-                        </Grid>
-                    </Grid>
-                </Grid>
+                </>
+
+                    : <>
+                        {/* Secciones complementarias */}
+                        <SeccionComplementaria
+                            seccionComplementaria={seccionComplementariaActual}
+                            renderSeccionComplementaria={renderSeccionComplementaria}
+                            irAtras={() => setShowSeccionComplementaria(false)}
+                            seccionComplementariaActual={seccionComplementariaActual}
+                        />
+                    </>
+
+                }
 
                 {/* Modals */}
                 {palabras.length &&
