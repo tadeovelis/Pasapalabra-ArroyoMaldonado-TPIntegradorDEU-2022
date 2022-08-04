@@ -6,8 +6,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { useEffect, useState } from "react";
 import { useTheme } from "@emotion/react";
 
+import { cargarSeccionComplementariaConfiguracion } from '../helpers/cargarSeccionesComplementarias';
 
-export default function BotonesFlotantes() {
+import ModalConfirmacionConfiguracion from './Modals/ModalConfirmacionConfiguracion'
+import ModalConfirmacionHome from "./Modals/ModalConfirmacionHome";
+
+
+export default function BotonesFlotantes(props) {
+
+    const [modalConfiguracionAbierto, setModalConfiguracionAbierto] = useState(false);
+    const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
 
     const navigate = useNavigate();
 
@@ -23,12 +31,31 @@ export default function BotonesFlotantes() {
         theme.typography.fontSize = e.target.value;
     }
 
+    const seccionConfiguracion = cargarSeccionComplementariaConfiguracion();
+
+    const irAConfiguracion = () => {
+        setModalConfiguracionAbierto(true);
+        props.pausar();
+    }
+    const cerrarModalConfiguracion = () => {
+        setModalConfiguracionAbierto(false);
+        props.sacarPausa();
+    }
+
+    const irAlHome = () => {
+        setModalSalirAbierto(true);
+        props.pausar();
+    }
+    const cerrarModalSalir = () => {
+        setModalSalirAbierto(false);
+        props.sacarPausa();
+    }
+
     return (
         <div>
             {/* Botón HOME */}
             <Button
                 variant="contained"
-                component={Link}
                 aria-label="Inicio"
                 sx={{
                     position: 'fixed',
@@ -39,7 +66,7 @@ export default function BotonesFlotantes() {
                     ml: 2,
                     borderRadius: 100
                 }}
-                to="/"
+                onClick={irAlHome}
             >
                 <HomeIcon fontSize="large" />
             </Button>
@@ -47,7 +74,6 @@ export default function BotonesFlotantes() {
             {/* Botón CONFIGURACIÓN */}
             <Button
                 variant="contained"
-                component={Link}
                 aria-label="Configuración"
                 sx={{
                     position: 'fixed',
@@ -58,10 +84,20 @@ export default function BotonesFlotantes() {
                     ml: 2,
                     borderRadius: 100
                 }}
-                to="/configuracion"
+                onClick={irAConfiguracion}
             >
-                <SettingsIcon fontSize="large" />
+                {seccionConfiguracion.icono}
             </Button>
+
+
+            <ModalConfirmacionConfiguracion
+                abierto={modalConfiguracionAbierto}
+                cerrar={cerrarModalConfiguracion}
+            />
+            <ModalConfirmacionHome
+                abierto={modalSalirAbierto}
+                cerrar={cerrarModalSalir}
+            />
 
         </div>
     )

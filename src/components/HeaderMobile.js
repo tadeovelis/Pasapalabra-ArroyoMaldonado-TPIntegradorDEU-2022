@@ -4,9 +4,11 @@ import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import cargarSeccionesComplementarias from "../helpers/cargarSeccionesComplementarias";
+import ModalConfirmacionConfiguracion from "./Modals/ModalConfirmacionConfiguracion";
+import ModalConfirmacionHome from "./Modals/ModalConfirmacionHome";
 
 
 export default function HeaderMobile(props) {
@@ -14,7 +16,30 @@ export default function HeaderMobile(props) {
     const [headerMobileAbierto, setHeaderMobileAbierto] = useState(false);
     const esLandscape = props.esLandscape;
 
+    const [modalConfiguracionAbierto, setModalConfiguracionAbierto] = useState(false);
+    const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
+
     const secciones = cargarSeccionesComplementarias();
+
+    const irAConfiguracion = () => {
+        setModalConfiguracionAbierto(true);
+        props.pausar();
+    }
+    const cerrarModalConfiguracion = () => {
+        setModalConfiguracionAbierto(false);
+        props.sacarPausa();
+    }
+
+    const irAlHome = () => {
+        setModalSalirAbierto(true);
+        props.pausar();
+    }
+    const cerrarModalSalir = () => {
+        setModalSalirAbierto(false);
+        props.sacarPausa();
+    }
+
+    const location = useLocation();
 
 
     const EntradaMenuMobile = (sc) => {
@@ -66,8 +91,7 @@ export default function HeaderMobile(props) {
                     alignItems='center'
                     spacing={1}
                     color="primary.contrastText"
-                    component={Link}
-                    to="/"
+                    onClick={irAlHome}
                 >
                     <Grid item>
                         <Typography variant="h3">
@@ -76,6 +100,38 @@ export default function HeaderMobile(props) {
                     </Grid>
                     <Grid item>
                         <HomeIcon sx={{ mr: 1, fontSize: 30 }} />
+                    </Grid>
+                </Grid>
+            </Grid>
+        )
+    }
+
+    const EntradaMenuMobileConfiguracion = () => {
+        return (
+            <Grid item container
+                component="li"
+            >
+                <Grid item container
+                    sx={{
+                        textDecoration: 'none',
+                        '&:hover, &:focus': {
+                            transform: 'translatex(-4px)'
+                        },
+                        transition: 'transform .1s ease-in-out'
+                    }}
+                    justifyContent='flex-end'
+                    alignItems='center'
+                    spacing={1}
+                    color="primary.contrastText"
+                    onClick={irAConfiguracion}
+                >
+                    <Grid item>
+                        <Typography variant="h3">
+                            Configuración
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <SettingsIcon sx={{ mr: 1, fontSize: 30 }} />
                     </Grid>
                 </Grid>
             </Grid>
@@ -159,17 +215,30 @@ export default function HeaderMobile(props) {
                             }}
                             component="ul"
                         >
-                            {EntradaMenuMobileHome()}
-                            {HeaderMobileDivider}
+                            {(location.pathname == "/rosco") && <>
+                                {EntradaMenuMobileHome()}
+                                {HeaderMobileDivider}
+                            </>
+                            }
                             {secciones.map(sc => <>
                                 {EntradaMenuMobile(sc)}
-                                {HeaderMobileDivider}
+                                {!(sc.id == 3 && location.pathname != "/rosco") && HeaderMobileDivider}
                             </>)
                             }
+                            {(location.pathname == "/rosco") && EntradaMenuMobileConfiguracion()}
                         </Grid>
                     </Grid>
                 </Grid>
             </Drawer>
+
+            <ModalConfirmacionConfiguracion
+                abierto={modalConfiguracionAbierto}
+                cerrar={cerrarModalConfiguracion}
+            />
+            <ModalConfirmacionHome
+                abierto={modalSalirAbierto}
+                cerrar={cerrarModalSalir}
+            />
         </>
     )
 }

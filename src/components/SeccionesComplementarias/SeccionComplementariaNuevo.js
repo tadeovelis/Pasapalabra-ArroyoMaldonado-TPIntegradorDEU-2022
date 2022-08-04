@@ -94,7 +94,7 @@ export default function SeccionComplementaria(props) {
 
                         <HeaderAbajo
                             renderSeccionComplementaria={props.renderSeccionComplementaria}
-                            seccionComplementariaActual={props.seccionComplementariaActual}
+                            seccionComplementariaActual={props.seccionComplementaria}
                         />
 
 
@@ -113,7 +113,7 @@ export default function SeccionComplementaria(props) {
                 >
                     <Header
                         renderSeccionComplementaria={props.renderSeccionComplementaria}
-                        seccionComplementariaActual={props.seccionComplementariaActual}
+                        seccionComplementariaActual={props.seccionComplementaria}
                     />
 
                     <Grid container

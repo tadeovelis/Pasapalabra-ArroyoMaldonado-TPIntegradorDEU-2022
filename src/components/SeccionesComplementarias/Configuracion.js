@@ -1,4 +1,4 @@
-import SeccionComplementaria from "./SeccionComplementaria"
+import SeccionComplementaria from "./ContenedorConfiguracion"
 
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Grid, Slider, Switch, Typography, Button, Divider, FormControl, MenuItem, Select, useMediaQuery } from "@mui/material";

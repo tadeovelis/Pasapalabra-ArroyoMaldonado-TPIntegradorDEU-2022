@@ -38,7 +38,7 @@ export default function SeccionComplementaria(props) {
                             ml: 2,
                             borderRadius: 100
                         }}
-                        to="/rosco"
+                        to="/"
                     >
                         <ArrowBackIosNewIcon fontSize="large" />
                     </Button>
@@ -107,7 +107,7 @@ export default function SeccionComplementaria(props) {
                         //bgcolor: backgroundColorMobile
                     }}
                 >
-                    <Header />
+                    
                     <Grid container
                         sx={{
                             position: 'fixed',
@@ -117,11 +117,10 @@ export default function SeccionComplementaria(props) {
                             bgcolor: 'primary.oscuro',
                             zIndex: 9
                         }}
-                        spacing={2}
                         justifyContent="center"
                         alignItems="center"
                     >
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             {/* Botón ATRÁS */}
                             <Fab
                                 variant="contained"
@@ -129,12 +128,12 @@ export default function SeccionComplementaria(props) {
                                 color="primary"
                                 size="large"
                                 aria-label="Ir atrás"
-                                to="/rosco"
+                                to="/"
                             >
                                 <ArrowBackIosNewIcon fontSize="large" />
                             </Fab>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Typography variant="h1"
                                 sx={{
                                     textTransform: 'uppercase'

@@ -264,6 +264,7 @@ export default function Juego(props) {
     }
     const cerrarModalSalir = () => {
         setModalSalirAbierto(false);
+        setPausa(false);
     }
     const cerrarModalTimeOut = () => {
         setModalTimeOutAbierto(false);
@@ -283,6 +284,7 @@ export default function Juego(props) {
     /* Salir */
     const salir = () => {
         // Abrir modal
+        setPausa(true);
         setModalSalirAbierto(true);
     }
 
@@ -295,7 +297,13 @@ export default function Juego(props) {
 
     return (
         <>
-            {!esMobile && <BotonesFlotantes />}
+            {!esMobile &&
+                <BotonesFlotantes
+                    renderSeccionComplementaria={renderSeccionComplementaria}
+                    pausar={() => setPausa(true)}
+                    sacarPausa={sacarPausa}
+                />
+            }
 
             <Grid container justifyContent="center"
                 sx={{
@@ -309,6 +317,8 @@ export default function Juego(props) {
 
                     <Header
                         renderSeccionComplementaria={renderSeccionComplementaria}
+                        pausar={() => setPausa(true)}
+                        sacarPausa={sacarPausa}
                     />
 
                     <Grid
@@ -378,7 +388,6 @@ export default function Juego(props) {
                             seccionComplementaria={seccionComplementariaActual}
                             renderSeccionComplementaria={renderSeccionComplementaria}
                             irAtras={() => setShowSeccionComplementaria(false)}
-                            seccionComplementariaActual={seccionComplementariaActual}
                         />
                     </>
 

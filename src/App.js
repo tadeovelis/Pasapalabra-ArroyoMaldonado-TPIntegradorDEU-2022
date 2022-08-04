@@ -1,13 +1,10 @@
 import './App.css'
 import Home from './components/Home'
 import Juego from './components/Juego'
-import ComoJugar from './components/SeccionesComplementarias/ComoJugar'
-import Glosario from './components/SeccionesComplementarias/Glosario'
-import AcercaDeLaApp from './components/SeccionesComplementarias/AcercaDeLaApp'
 import Configuracion from './components/SeccionesComplementarias/Configuracion'
 import Resultado from './components/Rosco/Resultado'
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Link, useNavigate } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -138,6 +135,7 @@ function App() {
   }
 
 
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -150,9 +148,7 @@ function App() {
             <Route path='/preparacion' element={<PreJuego />} />
             <Route path="/rosco" element={<Juego />} />
             <Route path="/rosco/resultado" element={<Resultado />} />
-            <Route path="/como-jugar" element={<ComoJugar />} />
-            <Route path="/glosario" element={<Glosario />} />
-            <Route path="/acerca-de-la-app" element={<AcercaDeLaApp />} />
+     
             <Route path="/configuracion" element={
               <Configuracion
                 cambiarTema={cambiarTema}
@@ -161,6 +157,7 @@ function App() {
               />
             } />
           </Routes>
+
         </BrowserRouter>
       </div>
     </ThemeProvider>

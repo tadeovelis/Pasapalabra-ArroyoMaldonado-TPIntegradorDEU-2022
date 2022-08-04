@@ -3,20 +3,13 @@ import { Drawer, Grid, Typography, useMediaQuery, Divider, Fab } from "@mui/mate
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import SettingsIcon from '@mui/icons-material/Settings';
 
 import '../App.css'
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import React, { useState } from "react";
 import HeaderMobile from "./HeaderMobile";
-import ComoJugar from "./SeccionesComplementarias/ComoJugar";
-import { PropaneSharp } from "@mui/icons-material";
 
 import cargarSeccionesComplementarias from "../helpers/cargarSeccionesComplementarias";
 
@@ -135,6 +128,8 @@ export default function Header(props) {
                 <HeaderMobile
                     esLandscape={esLandscape}
                     renderSeccionComplementaria={props.renderSeccionComplementaria}
+                    pausar={props.pausar}
+                    sacarPausa={props.sacarPausa}
                 />
             )
             }
