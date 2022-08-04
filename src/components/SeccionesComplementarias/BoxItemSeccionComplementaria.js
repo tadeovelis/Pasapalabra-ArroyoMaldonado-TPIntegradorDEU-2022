@@ -5,6 +5,7 @@ export default function BoxItemSeccionComplementaria(props) {
     return (
         <Box sx={{ textAlign: 'left', mb: 3 }} tabIndex={0}>
             <Typography
+                id={props.titulo}
                 variant='h3'
                 sx={{
                     textTransform: 'uppercase',

@@ -53,7 +53,7 @@ export default function SeccionComplementaria(props) {
                                 color: 'white',
                                 zIndex: 1,
                                 position: 'relative',
-                                pb: 2
+                                pb: 2,
                             }}>
                             <Box
                                 sx={{
