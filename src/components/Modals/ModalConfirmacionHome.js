@@ -63,7 +63,7 @@ export default function ModalConfirmacionHome(props) {
                     p={3}
                 >
                     <Grid item>
-                        <Button variant="contained" color="primary" component={Link} to="/configuracion">Ir al home</Button>
+                        <Button variant="contained" color="primary" component={Link} to="/">Ir al home</Button>
                     </Grid>
                     <Grid item>
                         <Button variant="outlined" color="negro" onClick={cerrar}>Terminar la partida</Button>

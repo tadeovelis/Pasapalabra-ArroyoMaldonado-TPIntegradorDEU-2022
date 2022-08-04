@@ -63,6 +63,8 @@ export default function Juego(props) {
     const [modalSalirAbierto, setModalSalirAbierto] = useState(false);
     const [modalTimeOutAbierto, setModalTimeOutAbierto] = useState(false);
     const [alertCorrectoAbierto, setAlertCorrectoAbierto] = useState(false);
+    const [alertPausaAbierto, setAlertPausaAbierto] = useState(false);
+    const [alertPausaTexto, setAlertPausaTexto] = useState("");
 
     const [pausa, setPausa] = useState(false);
     const [termino, setTermino] = useState(false);
@@ -140,6 +142,8 @@ export default function Juego(props) {
         // Abrir modal
         setModalErrorAbierto(true);
         setTiempoReanudacion(tiempoReanudacionPredeterminado);
+
+        setPausa(true);
     }
 
     useEffect(() => {
@@ -159,6 +163,8 @@ export default function Juego(props) {
         // Abrir modal
         setModalPasapalabraAbierto(true);
         setTiempoReanudacion(tiempoReanudacionPredeterminado);
+
+        setPausa(true);
 
         if (posIndicesPalabrasAResponder === indicesPalabrasAResponder.length - 1) {
             setPosIndicesPalabrasAResponder(0);
@@ -254,9 +260,11 @@ export default function Juego(props) {
     /* Métodos modals */
     const cerrarModalError = () => {
         setModalErrorAbierto(false);
+        setPausa(false);
     }
     const cerrarModalPasapalabra = () => {
         setModalPasapalabraAbierto(false);
+        setPausa(false);
     }
     const cerrarModalPausa = () => {
         setModalPausaAbierto(false);
@@ -293,6 +301,20 @@ export default function Juego(props) {
         setSeccionComplementariaActual(seccionComplementaria);
         setShowSeccionComplementaria(true);
     }
+
+    // Se pausa el tiempo cuando abre alguna sección complementaria
+    useEffect(() => {
+        if (!showSeccionComplementaria && alertPausaTexto != "") {
+            setAlertPausaAbierto(true);
+            setAlertPausaTexto("¡Sigue el juego!");
+            setPausa(false);
+        }
+        else {
+            setAlertPausaTexto("Pausamos el tiempo");
+            setPausa(showSeccionComplementaria);
+            setAlertPausaAbierto(showSeccionComplementaria);
+        }
+    }, [showSeccionComplementaria])
 
 
     return (
@@ -431,6 +453,21 @@ export default function Juego(props) {
                             onClose={() => setAlertCorrectoAbierto(false)}
                             anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                             message="¡Correcto!"
+                            ContentProps={{
+                                sx: {
+                                    bgcolor: 'success.main',
+                                    fontSize: '1.7em',
+                                    textAlign: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }}
+                        />
+                        <Snackbar
+                            open={alertPausaAbierto}
+                            autoHideDuration={2000}
+                            onClose={() => setAlertPausaAbierto(false)}
+                            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                            message={alertPausaTexto}
                             ContentProps={{
                                 sx: {
                                     bgcolor: 'success.main',
