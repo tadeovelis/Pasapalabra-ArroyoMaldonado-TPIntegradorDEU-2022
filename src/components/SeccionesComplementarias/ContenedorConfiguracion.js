@@ -52,7 +52,7 @@ export default function SeccionComplementaria(props) {
                                 color: 'white',
                                 zIndex: 1,
                                 position: 'relative',
-                                pb: 2
+                                pb: 2,
                             }}>
                             <Box
                                 sx={{
@@ -82,7 +82,7 @@ export default function SeccionComplementaria(props) {
                                 sx={{
                                     px: 4,
                                     pt: 4,
-                                    maxHeight: '70vh',
+                                    maxHeight: '80vh',
                                     overflowY: 'scroll',
                                 }}
                             >
