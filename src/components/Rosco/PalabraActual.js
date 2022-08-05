@@ -16,7 +16,7 @@ export default function PalabraActual(props) {
         {
             position: 'absolute',
             top: '50%',
-            width: '55%',
+            width: '45%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
         }
