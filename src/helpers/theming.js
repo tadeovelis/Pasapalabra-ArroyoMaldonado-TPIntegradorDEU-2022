@@ -67,8 +67,8 @@ const paletteClaro = {
     },
     pasapalabra: {
         main: '#e27600',
+        dark: '#d46f00',
         contrastText: 'white',
-        dark: '#ddd027'
     },
     success: {
         main: '#7fcc30'
@@ -113,9 +113,9 @@ const paletteOscuro = {
         main: '#d81b00',
     },
     pasapalabra: {
-        main: '#eee138',
+        main: '#e27600',
+        dark: '#d46f00',
         contrastText: 'white',
-        dark: '#ddd027'
     },
     success: {
         main: '#7fcc30'
@@ -161,9 +161,9 @@ const paletteExtra = {
         main: '#d81b00',
     },
     pasapalabra: {
-        main: '#eee138',
+        main: '#e27600',
+        dark: '#d46f00',
         contrastText: 'white',
-        dark: '#ddd027'
     },
     success: {
         main: '#7fcc30'
@@ -209,8 +209,8 @@ const paletteContrasteColores = {
     },
     pasapalabra: {
         main: '#e27600',
+        dark: '#d46f00',
         contrastText: 'white',
-        dark: '#f38744'
     },
     success: {
         main: '#37e00d'

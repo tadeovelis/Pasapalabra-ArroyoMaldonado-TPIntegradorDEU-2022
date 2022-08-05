@@ -16,15 +16,9 @@ import { compareTwoStrings } from 'string-similarity'
 import BotonesFlotantes from './BotonesFlotantes'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@emotion/react'
-import AcercaDeLaApp from './SeccionesComplementarias/AcercaDeLaApp'
-import Glosario from './SeccionesComplementarias/Glosario'
-import Configuracion from './SeccionesComplementarias/Configuracion'
-import ComoJugar from './SeccionesComplementarias/ComoJugar'
-import HeaderAbajo from './HeaderAbajo'
 import SeccionComplementaria from './SeccionesComplementarias/SeccionComplementariaNuevo'
 
-import { motion } from "framer-motion"
-
+import configuracionPredeterminada from '../data/configuracion.json'
 
 
 /* Estados palabras/letras
@@ -41,11 +35,11 @@ import { motion } from "framer-motion"
 // NO USADO POR AHORA
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 250;
+const tiempoDeJuego = configuracionPredeterminada.tiempoDeJuego;
 
-const tiempoReanudacionPredeterminado = 5;
+const tiempoReanudacionPredeterminado = configuracionPredeterminada.tiempoReanudacion;
 
-export default function Juego(props) {
+export default function Juego() {
 
     const theme = useTheme();
     const esMobile = useMediaQuery(theme.breakpoints.down('lg'));
@@ -122,13 +116,22 @@ export default function Juego(props) {
         if (!pausa && !termino) {
             const timer = tiempoRestante > 0 && setInterval(() => setTiempoRestante(tiempoRestante - 1), 1000);
             if (tiempoRestante === 0) {
-                setModalTimeOutAbierto(true);
-                setTermino(true);
+                terminoPorTiempo();   
             }
 
             return () => clearInterval(timer);
         }
     }, [tiempoRestante, pausa, termino]);
+
+    function terminoPorTiempo() {
+        setModalTimeOutAbierto(true);
+        setTermino(true);
+
+        // Las que me quedaron responder las pongo como incorrectas
+        indicesPalabrasAResponder.map(i => {
+            palabras[i].estado = 2;
+        })
+    }
 
 
     function respondioBien() {

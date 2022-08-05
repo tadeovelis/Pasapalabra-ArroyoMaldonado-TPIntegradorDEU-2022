@@ -31,5 +31,7 @@
             "mobile": 250,
             "desktop": 320
         }
-    }
+    },
+    "tiempoDeJuego": 250,
+    "tiempoReanudacion": 5
 }
