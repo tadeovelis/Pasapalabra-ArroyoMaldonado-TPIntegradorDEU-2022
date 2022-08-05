@@ -29,7 +29,7 @@
         },        
         "enResultado": {
             "mobile": 250,
-            "desktop": 320
+            "desktop": 300
         }
     },
     "tiempoDeJuego": 250,

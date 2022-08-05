@@ -120,12 +120,12 @@ export default function ResultadoNuevo(props) {
                                 sx={{
                                     bgcolor: "backgroundPaper.main",
                                     p: 2,
-                                    maxHeight: 'inherit',
                                     borderTop: 10,
                                     borderBottom: 10,
                                     borderColor: gano ? 'success.main' : 'error.main',
                                     color: 'textoPaper.main',
-                                    overflow: 'auto'
+                                    overflow: 'auto',
+                                    maxHeight: 'inherit'
                                 }}
                             >
                                 <RoscoFinalizado

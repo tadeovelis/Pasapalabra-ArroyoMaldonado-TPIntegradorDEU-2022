@@ -20,11 +20,33 @@ export default function RoscoFinalizado(props) {
     const sizeRosco = !esMobile ? configuracionPredeterminada.tamañoRosco.enResultado.desktop : configuracionPredeterminada.tamañoRosco.enResultado.mobile;
 
     return (
-        <div>
-            <Grid
+        <>
+            <Grid item xs={12} sx={{mt: 3, mb: 4}}>
+                <Typography
+                    variant="h3"
+                    color={gano ? 'success.main' : 'error.main'}
+                    gutterBottom
+                >
+                    {gano ? '¡Felicitaciones!' : '¡Casi!'}
+                </Typography>
+                <Typography
+                    variant="body2"
+                    gutterBottom
+                >
+                    {gano ? '¡Intentá ganar otro más!' : 'No te rindas, intentá de vuelta'}
+                </Typography>
+                <Button
+                    variant="contained"
+                    component={Link}
+                    to="/preparacion"
+                >
+                    ¡Jugar otro!
+                </Button>
+            </Grid>
+            <Grid item xs={12}
                 sx={{
                     position: "relative",
-                    height: sizeRosco +'px',
+                    height: sizeRosco + 'px',
                     justifyContent: 'center',
                     top: 10,
                     mb: 7
@@ -38,44 +60,24 @@ export default function RoscoFinalizado(props) {
                 <Box
                     sx={{
                         position: 'absolute',
+                        width: '40%',
                         top: '50%',
                         left: '50%',
-                        width: '65%',
                         transform: 'translate(-50%, -50%)'
-                    }}>
-                    <Typography
-                        variant="h3"
-                        color={gano ? 'success.main' : 'error.main'}
-                        gutterBottom
-                    >
-                        {gano ? '¡Felicitaciones!' : '¡Casi!'}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        gutterBottom
-                    >
-                        {gano ? '¡Intentá ganar otro más!' : 'No te rindas, intentá de vuelta'}
-                    </Typography>
-                    <Button
-                        variant="contained"
+                    }}
+                >
+                    <Typography variant="body2" gutterBottom
                         sx={{
-                            mb: 3
+                            lineHeight: 1.2
                         }}
-                        component={Link}
-                        to="/preparacion"
                     >
-                        ¡Jugar otro!
-                    </Button>
+                        Respondiste <b>{respuestasCorrectas}</b> de {palabras.length} palabras correctamente
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                        Tiempo restante: <b>{tiempoRestante}</b>
+                    </Typography>
                 </Box>
             </Grid>
-            <Grid>
-                <Typography variant="body2" gutterBottom>
-                    Respondiste <b>{respuestasCorrectas}</b> de {palabras.length} palabras correctamente
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                    Tiempo restante: <b>{tiempoRestante}</b>
-                </Typography>
-            </Grid>
-        </div>
+        </>
     )
 }
