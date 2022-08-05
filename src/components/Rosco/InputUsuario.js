@@ -98,6 +98,9 @@ export default function InputUsuario(props) {
                                 onClick={props.respondioPasapalabra}
                                 color="pasapalabra"
                                 aria-label="Pasapalabra"
+                                sx={{
+                                    p: 1,
+                                }}
                             >
                                 <AutorenewIcon />
                             </Button>
@@ -108,6 +111,9 @@ export default function InputUsuario(props) {
                                 color="primary"
                                 type="submit"
                                 aria-label="Confirmar palabra"
+                                sx={{
+                                    p: 1,
+                                }}
                             >
                                 <KeyboardReturnIcon />
                             </Button>
