@@ -39,6 +39,7 @@ export default function Letra(props) {
                     marginTop: negMargin + unidad,
                     position: "absolute",
                     transform: transformBox,
+                    border: theme.modoContrasteActivado && '1px solid #fff',
                 }}
             >
 

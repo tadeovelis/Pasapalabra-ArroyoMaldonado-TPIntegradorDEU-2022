@@ -58,7 +58,7 @@ export default function ModalPausa(props) {
                 <Box
                     p={3}
                 >
-                    <Typography variant="body1">
+                    <Typography variant="body2">
                         Ahora toca una palabra que <br />
                         <span style={{ textTransform: 'uppercase' }}>{palabra.formato}</span>
                     </Typography>

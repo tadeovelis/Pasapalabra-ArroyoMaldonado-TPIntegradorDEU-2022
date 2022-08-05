@@ -98,6 +98,9 @@ const paletteClaro = {
     respuestasCorrectas: {
         main: '#e27600'
     },
+    pausa: {
+        main: '#2f74c2',
+    }
 };
 
 const paletteOscuro = {
@@ -141,6 +144,9 @@ const paletteOscuro = {
     },
     respuestasCorrectas: {
         main: '#e27600'
+    },
+    pausa: {
+        main: '#16385e',
     },
     contrastThreshold: 3
 };
@@ -187,6 +193,9 @@ const paletteExtra = {
     respuestasCorrectas: {
         main: '#e27600'
     },
+    pausa: {
+        main: '#1e9b9c',
+    },
 };
 
 const paletteContrasteColores = {
@@ -199,12 +208,12 @@ const paletteContrasteColores = {
         main: '#eb1705'
     },
     pasapalabra: {
-        main: '#ffec2a',
+        main: '#e27600',
         contrastText: 'white',
-        dark: '#fff'
+        dark: '#f38744'
     },
     success: {
-        main: '#38ef0b'
+        main: '#37e00d'
     },
     current: {
         main: '#373737'
@@ -232,6 +241,9 @@ const paletteContrasteColores = {
     },
     respuestasCorrectas: {
         main: '#e27600'
+    },
+    pausa: {
+        main: '#2f74c2',
     },
 };
 
@@ -346,6 +358,8 @@ export default function crearTema(configuraciones) {
 
     // Cambiar theme global de la app
     const opcionesTema = {
+
+        modoContrasteActivado: configuraciones.contrasteColores,
 
         // Colores
         palette: getPalette(),

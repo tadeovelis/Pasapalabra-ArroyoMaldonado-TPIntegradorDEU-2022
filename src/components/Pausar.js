@@ -5,9 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
 
 import { motion } from "framer-motion"
+import { useTheme } from "@emotion/react";
 
 
 export default function Pausar(props) {
+
+    const theme = useTheme();
+
     return (
         <motion.div
             animate={{ scale: 1 }}
@@ -17,9 +21,9 @@ export default function Pausar(props) {
             <Typography variant="body2"
                 sx={{
                     textTransform: 'uppercase',
-                    color: 'primary.main',
+                    color: !theme.modoContrasteActivado ? 'primary.main' : 'pausa.main',
                     mb: 1,
-                    letterSpacing: 1
+                    letterSpacing: 1,
                 }}
             >Pausar
             </Typography>
@@ -35,10 +39,10 @@ export default function Pausar(props) {
                     transition: 'transform .1s ease-in-out',
                     fontSize: '3em',
                     color: 'white',
-                    bgcolor: 'primary.main',
+                    bgcolor: !theme.modoContrasteActivado ? 'primary.main' : 'pausa.main',
                     borderRadius: 3,
                     px: 3,
-                    py: 2
+                    py: 2,
                 }}
             >
                 <FontAwesomeIcon icon={faPause}/>

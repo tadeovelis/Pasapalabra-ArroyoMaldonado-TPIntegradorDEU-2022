@@ -63,10 +63,11 @@ export default function SeccionComplementaria(props) {
                                     zIndex: 99,
                                     backgroundColor: 'primary.medio',
                                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);',
+                                    border: theme.modoContrasteActivado && '3px solid #fff',
                                 }}
                             >
                                 <Grid container alignItems="center" direction="row">
-                                    <Grid item sx={{ position: 'relative', top: '4px' }}>{seccionComplementaria.icono}</Grid>
+                                    <Grid item sx={{ position: 'relative', top: '4px', fontSize: 30 }}>{seccionComplementaria.icono}</Grid>
                                     <Grid item>
                                         <Typography variant="h1" color="white"
                                             sx={{

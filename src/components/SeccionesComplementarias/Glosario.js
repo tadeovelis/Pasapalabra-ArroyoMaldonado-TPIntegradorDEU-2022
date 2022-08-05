@@ -40,9 +40,9 @@ const divider = (
     </Grid>
 )
 
-export default function Glosario() {
+export default function Glosario(props) {
 
-    const [revelar, setRevelar] = useState(false);
+    const [revelar, setRevelar] = useState(props.revelar ? props.revelar : false);
     const [tabActual, setTabActual] = useState(0);
 
     const window = document.querySelector('.scrollbarCustom');
@@ -63,7 +63,7 @@ export default function Glosario() {
 
     const scrollWithOffset = (el) => {
         const elementPosition = el.offsetTop - offsetScroll;
-        window.scrollBy({
+        document.querySelector('.scrollbarCustom').scrollBy({
             top: elementPosition,
             left: 0,
             behavior: 'smooth'
@@ -71,7 +71,7 @@ export default function Glosario() {
     }
 
     const scrollToTop = () => {
-        window.scrollTo({
+        document.querySelector('.scrollbarCustom').scroll({
             top: 0,
             left: 0,
             behavior: 'smooth'
@@ -214,8 +214,9 @@ export default function Glosario() {
                     zIndex: 99,
                 }}
                 arial-label="Volver arriba de todo"
+                onClick={scrollToTop}
             >
-                <HashLink to="/#" smooth scroll={scrollToTop}><KeyboardArrowUpIcon sx={{ fontSize: '4em', color: 'primary.main' }} /></HashLink>
+                <KeyboardArrowUpIcon sx={{ fontSize: '4em', color: 'primary.main' }} />
             </Fab>
 
 

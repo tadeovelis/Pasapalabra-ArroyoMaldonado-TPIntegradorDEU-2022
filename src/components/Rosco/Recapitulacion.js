@@ -1,12 +1,17 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import BoxItemSeccionComplementaria from '../SeccionesComplementarias/BoxItemSeccionComplementaria'
 import LetraRecapitulacion from "./LetraRecapitulacion";
 
-import {getIcon} from '../../helpers/estadoDePalabra';
-
+import { getIcon } from '../../helpers/estadoDePalabra';
+import { useTheme } from "@emotion/react";
+import { cloneElement } from "react";
 
 export default function Recapitulacion(props) {
+
+    const theme = useTheme();
+
+    const glosario = props.glosario;
 
     const palabras = props.palabras;
 
@@ -30,6 +35,7 @@ export default function Recapitulacion(props) {
                         zIndex: 99,
                         backgroundColor: 'primary.medio',
                         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25);',
+                        borderBottom: theme.modoContrasteActivado && '3px solid #fff'
                     }}
                 >
                     <Grid container direction="column" spacing={{ xs: 0, sm: 0, lg: 1 }}>
@@ -83,6 +89,37 @@ export default function Recapitulacion(props) {
                                     }}
                                 >{p.palabra}
                                 </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Tooltip
+                                    title={
+                                        <Typography
+                                            sx={{
+                                                fontSize: '2em'
+                                            }}
+                                        >
+                                            Ver en glosario
+                                        </Typography>
+                                    }
+                                    placement="right"
+                                    arrow
+                                >
+                                    <IconButton
+                                        component="span"
+                                        size="medium"
+                                        sx={{
+                                            p: 1.3,
+                                            m: 0,
+                                            color: 'primary.contrastText',
+                                            '&:hover': {
+                                                bgcolor: 'primary.oscuro'
+                                            },
+                                        }}
+                                        onClick={() => props.mostrarEnGlosario(p)}
+                                    >
+                                        {cloneElement(glosario.icono, {sx: {m: 0}})}
+                                    </IconButton>
+                                </Tooltip>
                             </Grid>
                         </Grid>
                         <Grid item>

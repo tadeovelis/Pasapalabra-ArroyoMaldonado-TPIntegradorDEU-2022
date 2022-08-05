@@ -41,7 +41,7 @@ import { motion } from "framer-motion"
 // NO USADO POR AHORA
 const exactitudComparacion = 0.75;
 
-const tiempoDeJuego = 200;
+const tiempoDeJuego = 250;
 
 const tiempoReanudacionPredeterminado = 5;
 
@@ -358,7 +358,8 @@ export default function Juego(props) {
                             },
                             bgcolor: "backgroundPaper.main",
                             color: "textoPaper.main",
-                            borderRadius: 2
+                            borderRadius: 2,
+                            border: theme.modoContrasteActivado && '3px solid #fff',
                         }}
                         spacing={1}
                     >

@@ -7,13 +7,10 @@ export default function ModalPasapalabra(props) {
 
     const abierto = props.abierto;
     const cerrar = props.cerrar;
-    const palabra = props.palabra;
-    const respuestasCorrectas = props.respuestasCorrectas;
 
     return (
         <Dialog
             open={abierto}
-            onClose={cerrar}
             aria-labelledby="titulo-dialog"
             PaperProps={{ sx: { borderRadius: 8 } }}
         >

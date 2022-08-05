@@ -18,21 +18,21 @@ export default function cargarSeccionesComplementarias() {
             id: 1,
             ruta: "como-jugar",
             titulo: "Cómo jugar",
-            icono: <HelpOutlineIcon sx={{ mr: espacioIconos, fontSize: 30 }} />,
+            icono: <HelpOutlineIcon sx={{ mr: espacioIconos, fontSize: '100%' }} />,
             componente: <ComoJugar />
         },
         {
             id: 2,
             ruta: "glosario",
             titulo: "Glosario",
-            icono: <ImportContactsIcon sx={{ mr: espacioIconos, fontSize: 30 }} />,
+            icono: <ImportContactsIcon sx={{ mr: espacioIconos, fontSize: '100%' }} />,
             componente: <Glosario />
         },
         {
             id: 3,
             ruta: "acerca-de-la-app",
             titulo: "Acerca del juego",
-            icono: <PeopleOutlineIcon sx={{ mr: espacioIconos, fontSize: 30 }} />,
+            icono: <PeopleOutlineIcon sx={{ mr: espacioIconos, fontSize: '100%' }} />,
             componente: <AcercaDeLaApp />
         }
     ]

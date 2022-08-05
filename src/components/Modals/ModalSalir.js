@@ -1,13 +1,11 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ModalSalir(props) {
 
     const abierto = props.abierto;
     const cerrar = props.cerrar;
-    const palabra = props.palabra;
 
     return (
         <Dialog

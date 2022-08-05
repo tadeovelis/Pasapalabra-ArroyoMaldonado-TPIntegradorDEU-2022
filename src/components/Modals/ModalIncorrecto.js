@@ -61,7 +61,7 @@ export default function ModalIncorrecto(props) {
                     sx={{
 
                     }}>
-                    <Typography variant="body1">
+                    <Typography variant="body2">
                         Ahora toca una palabra que <br/>
                         <span style={{textTransform: 'uppercase'}}>{palabra.formato}</span>
                     </Typography>
