@@ -1,0 +1,37 @@
+{
+    "tamañoLetraPredeterminado": 12,
+    "tamañosLetra": [
+        {
+            "texto": "Chica",
+            "value": 10
+        },
+        {
+            "texto": "Normal",
+            "value": 12
+        },
+        {
+            "texto": "Grande",
+            "value": 14
+        },
+        {
+            "texto": "Muy grande",
+            "value": 17
+        },
+        {
+            "texto": "¡Muy muy grande!",
+            "value": 20
+        }
+    ],
+    "tamañoRosco": {
+        "enJuego": {
+            "mobile": 290,
+            "desktop": 25
+        },        
+        "enResultado": {
+            "mobile": 250,
+            "desktop": 300
+        }
+    },
+    "tiempoDeJuego": 250,
+    "tiempoReanudacion": 5
+}

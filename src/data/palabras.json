@@ -1,158 +1,302 @@
 [
     {
         "letra": "A",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Arroyo",
+                "definicion": "Río pequeño de escaso caudal y profundidad, que puede secarse",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "B",
-        "palabra": "Barco",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Bañado",
+                "definicion": "Terreno húmedo, en parte pantanoso y generalmente inundable en época de lluvias",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "C",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Cauce",
+                "definicion": "Concavidad del terreno, natural o artificial, por donde corre un río, un canal o cualquier corriente de agua",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Caudal",
+                "definicion": "Cantidad de agua que lleva una corriente o que fluye de un manantial o fuente",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Cuenca",
+                "definicion": "Depresión en el terreno, rodeada por terrenos más altos, en la cual converge el agua proveniente de precipitaciones y que desemboca en un río, laguna, u otro cuerpo de agua",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "D",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Diluvio",
+                "definicion": "Inundación provocada por estas lluvias",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Decapitación",
+                "definicion": "Remoción de las capas superficiales del terreno por actividades extractivas de horizontes humíferos o sedimentos profundos",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "E",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Escurrimiento",
+                "definicion": "También llamado escorrentía, porción de la precipitación que fluye como corriente superficial cuando un cauce rebalsa",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "F",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Fluvial",
+                "definicion": "De los ríos o que tiene relación con ellos",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "G",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Gato",
+                "definicion": "'Arroyo del...'. Nombre del arroyo que se extiende 15 km y desemboca en el Río de La Plata",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Garibaldi",
+                "definicion": "Arroyo que se origina en la estación Arana, de 9 km de extensión, con desarrollo similar al Maldonado",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "H",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Hídrico",
+                "definicion": "Relativo al agua",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "I",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Inundación",
+                "definicion": "Ocupación por parte del agua de zonas que habitualmente están libres de esta",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "J",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Junco",
+                "definicion": "Planta de hoja cilíndrica, alargada, recta y flexible, usada en cestería y para confeccionar techos",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "L",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Lluvia",
+                "definicion": "Agua que cae al llover",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "M",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Monasterio",
+                "definicion": "Arroyo de 4 km de longitud, afluente del Maldonado que se encuentra parcialmente entubado",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "N",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Naturaleza",
+                "definicion": "Conjunto de las cosas que existen en el mundo o que se producen o modifican sin intervención del ser humano",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "Ñ",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Contiene"
+        "palabras": [
+            {
+                "palabra": "Cañón",
+                "definicion": "Quebrada. Valle profundo y estrecho con laderas empinadas y rocosas provocado por el paso de un río",
+                "formato": "Contiene"
+            }
+        ]
     },
     {
         "letra": "O",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Orilla",
+                "definicion": "Parte de la tierra que está tocando a una masa de agua, como el mar, un lago o un río",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "P",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Precipitación",
+                "definicion": "Caída de agua desde la atmósfera hacia la superficie terrestre",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Polución",
+                "definicion": "Contaminación o impurificación",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Pluvial",
+                "definicion": "De la lluvia o relacionado con ella",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "Q",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Quinta",
+                "definicion": "Finca ubicada afuera del centro urbano de una ciudad pero que a su vez está cerca de él, destinada a la recreación o la producción hortícola",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "R",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Riesgo",
+                "definicion": "Probabilidad de que se produzca un suceso no deseado con repercusiones negativas",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "S",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Suelo",
+                "definicion": "Parte externa de la corteza terrestre que es asiento de la vida, formada por la transformación de los minerales y la materia orgánica muerta",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Samborombón",
+                "definicion": "Río que da nombre a la vertiente de la zona sur del partido de La Plata",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "T",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Tala",
+                "definicion": "Corte de árboles",
+                "formato": "Empieza con"
+            },
+            {
+                "palabra": "Temperatura",
+                "definicion": "Grado o nivel térmico de un cuerpo o de la atmósfera",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "U",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Urbano",
+                "definicion": "De la ciudad o relativo a ella",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "V",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Viento",
+                "definicion": "Corriente de aire que se produce en la atmósfera al variar la presión",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "W",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Contiene"
+        "palabras": [
+            {
+                "palabra": "Weir",
+                "definicion": "Vocablo inglés para designar un tipo de vertedero longitudinal usado frecuentemente para controlar el flujo",
+                "formato": "Empieza con"
+            }
+        ]
     },
     {
         "letra": "X",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Contiene"
+        "palabras": [
+            {
+                "palabra": "Convexo",
+                "definicion": "Que tiene, respecto al observador, forma curva más prominente en el centro que en los bordes",
+                "formato": "Contiene"
+            }
+        ]
     },
     {
         "letra": "Y",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Abascay",
+                "definicion": "Arroyo que escurre de norte a sur con una extensión de más de 15 km dentro del partido de La Plata, el más importante de su vertiente",
+                "formato": "Contiene"
+            }
+        ]
     },
     {
         "letra": "Z",
-        "palabra": "Abecedario",
-        "definicion": "El orden o serie de las letras de cada lengua",
-        "formato": "Empieza con"
+        "palabras": [
+            {
+                "palabra": "Zanjón",
+                "definicion": "Cauce o canal grande y profundo creado por el hombre por donde corre el agua",
+                "formato": "Empieza con"
+            }
+        ]
     }
 ]
