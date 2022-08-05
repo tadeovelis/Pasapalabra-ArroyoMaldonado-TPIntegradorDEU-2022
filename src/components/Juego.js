@@ -23,6 +23,9 @@ import ComoJugar from './SeccionesComplementarias/ComoJugar'
 import HeaderAbajo from './HeaderAbajo'
 import SeccionComplementaria from './SeccionesComplementarias/SeccionComplementariaNuevo'
 
+import { motion } from "framer-motion"
+
+
 
 /* Estados palabras/letras
 

@@ -1,8 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { Typography, Box, useMediaQuery } from "@mui/material";
 
-import {getColor, getIcon} from '../../helpers/estadoDePalabra';
-
+import { getColor, getIcon } from '../../helpers/estadoDePalabra';
 
 export default function Letra(props) {
 
@@ -42,6 +41,7 @@ export default function Letra(props) {
                     transform: transformBox,
                 }}
             >
+
                 <Typography
                     sx={{
                         fontWeight: "bold",
@@ -56,6 +56,7 @@ export default function Letra(props) {
                     }}>
                     {palabra.letra}
                 </Typography>
+
             </Box>
             <Box
                 sx={{

@@ -1,5 +1,7 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Button, FormControlLabel, Grid, Switch, Zoom } from "@mui/material";
+import { useState } from "react";
 import LetraRosco from "./LetraRosco";
+import { motion } from "framer-motion"
 
 export default function Letras(props) {
 
@@ -15,14 +17,20 @@ export default function Letras(props) {
                 height: props.sizeRosco + unidad,
             }}>
             {palabras.map((p, i) =>
-                <LetraRosco
-                    key={p.letra}
-                    palabra={p}
-                    indice={i}
-                    roscoEnResultado={props.roscoEnResultado ? props.roscoEnResultado : false}
-                    sizeRosco={props.sizeRosco}
-                    usarPixeles={props.usarPixeles ? true : false}
-                />
+                <motion.div
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    transition={{ ease: "easeInOut", duration: .5, delay: i/40 }}
+                >
+                    <LetraRosco
+                        key={p.letra}
+                        palabra={p}
+                        indice={i}
+                        roscoEnResultado={props.roscoEnResultado ? props.roscoEnResultado : false}
+                        sizeRosco={props.sizeRosco}
+                        usarPixeles={props.usarPixeles ? true : false}
+                    />
+                </motion.div>
             )}
         </Grid>
     )

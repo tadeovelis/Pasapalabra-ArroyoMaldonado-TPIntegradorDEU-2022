@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion"
+
 
 export default function TiempoRestante(props) {
     
@@ -11,7 +13,11 @@ export default function TiempoRestante(props) {
     }, [])
 
     return (
-        <div>
+        <motion.div
+            animate={{ scale: 1 }}
+            initial={{ scale: 0 }}
+            transition={{ delay: 1.1 }}
+        >
             <Typography variant="body2"
                 sx={{
                     textTransform: 'uppercase',
@@ -49,6 +55,6 @@ export default function TiempoRestante(props) {
                     {props.tiempoRestante}
                 </Typography>
             </Box>
-        </div>
+        </motion.div>
     )
 }

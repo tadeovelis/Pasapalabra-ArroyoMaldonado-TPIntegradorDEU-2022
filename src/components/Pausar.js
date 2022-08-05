@@ -4,9 +4,16 @@ import { ButtonBase, Typography } from "@mui/material"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
 
+import { motion } from "framer-motion"
+
+
 export default function Pausar(props) {
     return (
-        <div>
+        <motion.div
+            animate={{ scale: 1 }}
+            initial={{ scale: 0 }}
+            transition={{ delay: .9 }}
+        >
             <Typography variant="body2"
                 sx={{
                     textTransform: 'uppercase',
@@ -36,6 +43,6 @@ export default function Pausar(props) {
             >
                 <FontAwesomeIcon icon={faPause}/>
             </ButtonBase>
-        </div>
+        </motion.div>
     )
 }

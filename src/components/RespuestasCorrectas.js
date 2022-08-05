@@ -1,9 +1,15 @@
 import { Box, Typography } from "@mui/material";
+import { motion } from "framer-motion"
+
 
 
 export default function RespuestasCorrectas(props) {
     return (
-        <div>
+        <motion.div
+            animate={{ scale: 1 }}
+            initial={{ scale: 0 }}
+            transition={{ delay: 1.3 }}
+        >
             <Typography variant="body2"
                 sx={{
                     textTransform: 'uppercase',
@@ -40,6 +46,6 @@ export default function RespuestasCorrectas(props) {
                     {props.respuestasCorrectas}
                 </Typography>
             </Box>
-        </div>
+        </motion.div>
     )
 }
