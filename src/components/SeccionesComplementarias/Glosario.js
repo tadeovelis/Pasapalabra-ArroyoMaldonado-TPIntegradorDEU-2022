@@ -61,7 +61,8 @@ export default function Glosario(props) {
         setTabActual(value);
     };
 
-    const scrollWithOffset = (el) => {
+    const scrollWithOffset = (elem) => {
+        const el = document.getElementById(elem);
         const elementPosition = el.offsetTop - offsetScroll;
         document.querySelector('.scrollbarCustom').scrollBy({
             top: elementPosition,
@@ -103,11 +104,11 @@ export default function Glosario(props) {
                 </Button>
             </Box>
 
-            <Grid container sx={{ position: 'relative', filter: !revelar && 'blur(10px)'}}>
+            <Grid container sx={{ position: 'relative', filter: !revelar && 'blur(10px)' }}>
                 <Grid item xs={12}>
                     {/* ÍNDICE */}
                     <Box sx={{ borderColor: 'divider', overflowY: 'visible' }}>
-                        <Typography variant="h2" sx={{mb :2}}>Índice</Typography>
+                        <Typography variant="h2" sx={{ mb: 2 }}>Índice</Typography>
                         <Tabs value={tabActual} onChange={handleChange} aria-label="Índice de letras"
                             variant="scrollable"
                             indicatorColor="primary.oscuro"
@@ -122,7 +123,7 @@ export default function Glosario(props) {
                                     overflowY: 'visible'
                                 },
                                 '.MuiTabs-scrollButtons': {
-                                    mx:2,
+                                    mx: 2,
                                     bgcolor: 'primary.oscuro',
                                     borderRadius: 3
                                 },
@@ -162,23 +163,17 @@ export default function Glosario(props) {
                             {l.palabras.map((p, j) =>
                                 <Typography variant="body2" component="span"
                                     sx={{
-                                        'a': {
-                                            color: 'primary.contrastText',
-                                            fontSize: '2em',
-                                        },
                                         '&:hover': {
-                                            transform: 'translatey(-3px)'
+                                            transform: 'translatey(-3px)',
+                                            cursor: 'pointer'
                                         },
                                         display: 'inline-block',
+                                        fontSize: '2em',
+                                        textDecoration: 'underline'
                                     }}
+                                    onClick={() => scrollWithOffset(p.palabra)}
                                 >
-                                    <HashLink
-                                        smooth
-                                        scroll={el => scrollWithOffset(el)}
-                                        to={"#" + p.palabra}
-                                    >
-                                        {(j ? ', ' : "") + p.palabra}
-                                    </HashLink>
+                                    {(j ? ', ' : "") + p.palabra}
                                 </Typography>
                             )}
                         </TabPanel>
